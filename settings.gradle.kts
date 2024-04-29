@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "shopper"
 include(":app")
- 
