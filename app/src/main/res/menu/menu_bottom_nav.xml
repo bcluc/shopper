@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.shopper.MainActivity">
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        />
+
+    <item
+        android:id="@+id/menu_notification"
+        android:icon="@drawable/ic_notif"
+        android:title="Notification"
+        />
+
+    <item
+        android:id="@+id/menu_follow"
+        android:icon="@drawable/ic_favor"
+        android:title="Follow"
+        />
+
+    <item
+        android:id="@+id/menu_account"
+        android:icon="@drawable/ic_user_circle"
+        android:title="Account"
+        />
+</menu>

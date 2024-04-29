@@ -25,4 +25,6 @@
     <color name="white_A700">#ffffff</color>
     <color name="dark_blue">#143F6B</color>
     <color name="red">#FF4848</color>
+    <color name="blur_white">#2CD8D8D8</color>
+
 </resources>

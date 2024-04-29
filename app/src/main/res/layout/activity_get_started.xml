@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.activity.GetStarted">
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:text="FAUGET"
+            android:layout_marginTop="100dp"
+            android:elevation="200dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/black"
+            android:textSize="50dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Build the better world in fashion"
+            android:layout_marginTop="5dp"
+            android:elevation="200dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"/>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/anim_order"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="280dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/bg" />
+        <Button
+            android:layout_width="186dp"
+            android:layout_height="62dp"
+            android:text="GET STARTED"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:elevation="400dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:backgroundTint="#FF8400"
+            android:id="@+id/btn_get_started"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
