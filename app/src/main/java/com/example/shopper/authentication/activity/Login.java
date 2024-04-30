@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.shopper.authentication.model.User;
+import com.example.shopper.customerview.navigation.activity.BottomNavigationCustomerActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -91,15 +93,16 @@ public class Login extends AppCompatActivity {
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         String userType = dataSnapshot.child("userType").getValue(String.class);
                                         if (userType != null) {
+                                            //Log.d("TYPE", userType);
                                             switch (userType) {
                                                 case "Customer":
                                                     // Người dùng là khách hàng
                                                     Toast.makeText(getApplicationContext(), "Login as customer",
                                                             Toast.LENGTH_SHORT).show();
                                                     // Chuyển người dùng đến màn hình khách hàng
-//                                                    Intent customerIntent = new Intent(Login.this, BottomNavigationCustomActivity.class);
-//                                                    startActivity(customerIntent);
-//                                                    finish();
+                                                    Intent customerIntent = new Intent(Login.this, BottomNavigationCustomerActivity.class);
+                                                    startActivity(customerIntent);
+                                                    finish();
                                                     break;
                                                 case "Staff":
                                                     // Người dùng là nhân viên

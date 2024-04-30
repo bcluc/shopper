@@ -5,24 +5,20 @@
     <item
         android:id="@+id/menu_home"
         android:icon="@drawable/ic_home"
-        android:title="Home"
-        />
+        android:title="@string/home" />
 
     <item
         android:id="@+id/menu_notification"
         android:icon="@drawable/ic_notif"
-        android:title="Notification"
-        />
+        android:title="@string/notification" />
 
     <item
         android:id="@+id/menu_follow"
         android:icon="@drawable/ic_favor"
-        android:title="Follow"
-        />
+        android:title="@string/follow" />
 
     <item
         android:id="@+id/menu_account"
         android:icon="@drawable/ic_user_circle"
-        android:title="Account"
-        />
+        android:title="@string/account" />
 </menu>

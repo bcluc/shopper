@@ -13,6 +13,37 @@
         android:theme="@style/Theme.Shopper"
         tools:targetApi="31">
         <activity
+            android:name=".customerview.account.changepassword.ChangePassword"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.account.profile.Profile"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.notification.activity.Order"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.notification.activity.MyNotification"
+            android:exported="false"
+            android:theme="@style/Theme.Shopper" />
+        <activity
+            android:name=".customerview.home.trending.Trending"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.home.shoppingcart.ShoppingCart"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.home.chat.activity.Chat"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.util.search.Searching"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.home.product.activity.DetailProduct"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.navigation.activity.BottomNavigationCustomerActivity"
+            android:exported="false" />
+        <activity
             android:name=".authentication.activity.Success"
             android:exported="false" />
         <activity
@@ -37,15 +68,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Shopper">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
+            android:theme="@style/Theme.Shopper" />
     </application>
 
 </manifest>

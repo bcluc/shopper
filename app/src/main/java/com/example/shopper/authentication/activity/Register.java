@@ -163,7 +163,7 @@ public class Register extends AppCompatActivity {
                             } else {
                                 // sending data to firebase realtime
                                 reference.child("Users").child(email).child("email").setValue(emailUTF);
-                                reference.child("Users").child(email).child("userType").setValue("customer");
+                                reference.child("Users").child(email).child("userType").setValue("Customer");
                                 registerNewUser();
                             }
                         }
