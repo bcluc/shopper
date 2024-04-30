@@ -1,4 +1,4 @@
-package com.example.shopper.customerview.home.trending;
+package com.example.shopper.customerview.home.product.activity;
 
 import android.os.Bundle;
 

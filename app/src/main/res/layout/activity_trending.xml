@@ -5,6 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".customerview.home.trending.Trending">
+    tools:context=".customerview.home.product.activity.Trending">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

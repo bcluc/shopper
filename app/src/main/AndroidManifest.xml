@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Shopper"
         tools:targetApi="31">
         <activity
+            android:name=".customerview.home.category.activity.CategoriesDetail"
+            android:exported="false" />
+        <activity
             android:name=".customerview.account.changepassword.ChangePassword"
             android:exported="false" />
         <activity
@@ -26,7 +29,7 @@
             android:exported="false"
             android:theme="@style/Theme.Shopper" />
         <activity
-            android:name=".customerview.home.trending.Trending"
+            android:name=".customerview.home.product.activity.Trending"
             android:exported="false" />
         <activity
             android:name=".customerview.home.shoppingcart.ShoppingCart"

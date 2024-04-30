@@ -18,7 +18,7 @@ import com.example.shopper.customerview.account.changepassword.ChangePassword;
 import com.example.shopper.customerview.account.profile.Profile;
 import com.example.shopper.customerview.home.chat.activity.Chat;
 import com.example.shopper.customerview.home.shoppingcart.ShoppingCart;
-import com.example.shopper.customerview.home.trending.Trending;
+import com.example.shopper.customerview.home.product.activity.Trending;
 import com.example.shopper.customerview.navigation.adapter.BottomViewPagerAdapter;
 import com.example.shopper.customerview.navigation.fragment.AccountFragment;
 import com.example.shopper.customerview.navigation.fragment.HomeFragment;

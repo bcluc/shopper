@@ -56,8 +56,11 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-analytics")
 
+    //Outsource Library
     implementation ("com.airbnb.android:lottie:3.4.0")
     implementation("androidx.appcompat:appcompat-resources:1.6.1")
+    implementation ("com.squareup.picasso:picasso:2.8")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
     implementation(libs.appcompat)
     implementation(libs.material)
