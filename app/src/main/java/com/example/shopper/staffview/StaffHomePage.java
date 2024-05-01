@@ -258,7 +258,7 @@ public class StaffHomePage extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         DocumentReference documentReference=FirebaseFirestore.getInstance().
-                collection("USER").document(FirebaseAuth.getInstance().getUid());
+                collection("USERS").document(FirebaseAuth.getInstance().getUid());
         documentReference.update("status","Offline").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
@@ -270,7 +270,7 @@ public class StaffHomePage extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         DocumentReference documentReference=FirebaseFirestore.getInstance().
-                collection("USER").document(FirebaseAuth.getInstance().getUid());
+                collection("USERS").document(FirebaseAuth.getInstance().getUid());
         documentReference.update("status","Online").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

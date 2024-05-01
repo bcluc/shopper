@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_container">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:background="@color/white">
+            <ImageView
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:id="@+id/img_item_img"
+                android:scaleType="centerCrop"
+                android:src="@drawable/box"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/card_category"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/montserrat"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:text="Limited edition 2019"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:textStyle="bold"></TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_item_quanity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="2"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="italic"></TextView>
+
+                <TextView
+                    android:id="@+id/txt_product_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/txt_item_quanity"
+
+                    android:fontFamily="@font/montserrat"
+
+                    android:paddingStart="3dp"
+                    android:text="Products"
+                    android:textAlignment="textStart"
+
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="italic"></TextView>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/navigation_after"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="10dp"
+            />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
