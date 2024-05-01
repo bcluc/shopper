@@ -213,9 +213,9 @@ public class HomeFragment extends Fragment {
                         imageAdapter.setData(imagePro);
                         viewPager2.setAdapter(imageAdapter);
 
-                        TimerTask autoScrollTask = new AutoScrollTask(viewPager2);
-                        Timer timer = new Timer();
-                        timer.schedule(autoScrollTask, 2000, 2000);
+//                        TimerTask autoScrollTask = new AutoScrollTask(viewPager2);
+//                        Timer timer = new Timer();
+//                        timer.schedule(autoScrollTask, 2000, 2000);
                     }
                 });
     }
