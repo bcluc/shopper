@@ -8,7 +8,6 @@ public class Categories {
         this.categoryName = categoryName;
         this.categoryImage = categoryImage;
         this.categoryId = categoryId;
-
     }
     public String getCategoryName() {
         return categoryName;
@@ -16,7 +15,6 @@ public class Categories {
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
-
 
     public String getCategoryImage() {
         return categoryImage;
