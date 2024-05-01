@@ -169,6 +169,12 @@ public class Register extends AppCompatActivity {
                         }
 
                         @Override
+                        protected void finalize() throws Throwable {
+                            super.finalize();
+                            checkProgress();
+                        }
+
+                        @Override
                         public void onCancelled(@NonNull DatabaseError error) {
                             Toast.makeText(getApplicationContext(),
                                             "Process canceled!!",
