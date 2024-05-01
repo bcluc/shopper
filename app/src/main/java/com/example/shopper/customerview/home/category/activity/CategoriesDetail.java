@@ -53,8 +53,8 @@ public class CategoriesDetail extends AppCompatActivity implements Filterable {
         Intent intent = getIntent();
 
         if(intent != null){
-            TenDM = intent.getStringExtra("TenDM");
-            MaDM = intent.getStringExtra("MaDM");
+            TenDM = intent.getStringExtra("categoryName");
+            MaDM = intent.getStringExtra("categoryId");
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories_detail);
@@ -125,9 +125,9 @@ public class CategoriesDetail extends AppCompatActivity implements Filterable {
                         productCardList = new ArrayList<>();
                         for(DocumentSnapshot documentSnapshot : value.getDocuments()){
                             String masp = documentSnapshot.getString("productId");
-                            String name = documentSnapshot.getString("name");
+                            String name = documentSnapshot.getString("productName");
                             List<String> images = (List<String>) documentSnapshot.get("image");
-                            int price = documentSnapshot.getLong("price").intValue();
+                            int price = documentSnapshot.getLong("productPrice").intValue();
                             productCardList.add(new ProductTrending(masp, images.get(0), name, price));
                             Log.d("Err", name);
                         }

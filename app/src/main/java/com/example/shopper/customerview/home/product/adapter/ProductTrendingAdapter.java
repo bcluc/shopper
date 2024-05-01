@@ -41,7 +41,7 @@ public class ProductTrendingAdapter extends  RecyclerView.Adapter<ProductTrendin
                 else{
                     ArrayList<ProductTrending> list = new ArrayList<>();
                     for(ProductTrending object : mProductsOld){
-                        if(object.getName().toLowerCase().contains(search.toLowerCase())){
+                        if(object.getProductName().toLowerCase().contains(search.toLowerCase())){
                             list.add(object);
                         }
                     }
@@ -84,8 +84,8 @@ public class ProductTrendingAdapter extends  RecyclerView.Adapter<ProductTrendin
         if(product == null) return;
         //holder.imgProduct.setImageResource(product.getResouceId());
         Picasso.get().load(product.getResouceId()).into(holder.imgProduct);
-        holder.txtNameProduct.setText(product.getName());
-        holder.price.setText(String.valueOf(product.getPriceProduct()));
+        holder.txtNameProduct.setText(product.getProductName());
+        holder.price.setText(String.valueOf(product.getProductPrice()));
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

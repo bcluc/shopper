@@ -53,8 +53,8 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
 
         //holder.imgProduct.setImageResource(product.getResouceId());
         Picasso.get().load(product.getResouceId()).into(holder.imgProduct);
-        holder.txtNameProduct.setText(product.getName());
-        holder.txtPriceProduct.setText(String.valueOf(product.getPrice()) + " VND");
+        holder.txtNameProduct.setText(product.getProductName());
+        holder.txtPriceProduct.setText(String.valueOf(product.getProductPrice()) + " VND");
 
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +88,7 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
                 else{
                     ArrayList<Product> list = new ArrayList<>();
                     for(Product object : mProductsOld){
-                        if(object.getName().toLowerCase().contains(search.toLowerCase())){
+                        if(object.getProductName().toLowerCase().contains(search.toLowerCase())){
                             list.add(object);
                         }
                     }

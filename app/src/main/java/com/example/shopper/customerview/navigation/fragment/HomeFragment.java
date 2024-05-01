@@ -169,8 +169,8 @@ public class HomeFragment extends Fragment {
                         listProduct = new ArrayList<>();
                         for (DocumentSnapshot documentSnapshot : value.getDocuments()) {
                             String masp = documentSnapshot.getString("productId");
-                            String name = documentSnapshot.getString("name");
-                            Long giaSP = documentSnapshot.getLong("price");
+                            String name = documentSnapshot.getString("productName");
+                            Long giaSP = documentSnapshot.getLong("productPrice");
                             List<String> Anh = (List<String>) documentSnapshot.get("image");
                             listProduct.add(new Product(Anh.get(0), name, masp, giaSP));
                         }
@@ -251,7 +251,7 @@ public class HomeFragment extends Fragment {
                                 public void onButtonItemClick(int position) {
                                     Intent t = new Intent(bottomNavigationCustomActivity, CategoriesDetail.class);
                                     t.putExtra("categoryId", listCategories.get(position).getCategoryId());
-                                    t.putExtra("categoryName", listCategories.get(position).getName());
+                                    t.putExtra("categoryName", listCategories.get(position).getCategoryName());
                                     startActivity(t);
                                 }
                             });

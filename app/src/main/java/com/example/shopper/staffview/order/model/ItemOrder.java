@@ -1,29 +1,29 @@
 package com.example.shopper.staffview.order.model;
 
 public class ItemOrder {
-    private String name;
+    private String productName;
     private String productColor;
     private String productSize;
     private String image;
-    private int price;
+    private int productPrice;
     private String orderId;
     private String colorId;
     private String productId;
     private String sizeId;
     private int quanity;
 
-    public ItemOrder(String image, String name, String productId, int price, int quanity) {
-        this.price = price;
+    public ItemOrder(String image, String productName, String productId, int productPrice, int quanity) {
+        this.productPrice = productPrice;
         this.image = image;
-        this.name = name;
+        this.productName = productName;
         this.productId = productId;
         this.quanity = quanity;
     }
 
-    public ItemOrder(String image, String name, String productId, int price, int quanity, String color, String productSize) {
-        this.price = price;
+    public ItemOrder(String image, String productName, String productId, int productPrice, int quanity, String color, String productSize) {
+        this.productPrice = productPrice;
         this.image = image;
-        this.name = name;
+        this.productName = productName;
         this.productId = productId;
         this.quanity = quanity;
         this.productColor = color;
@@ -55,20 +55,20 @@ public class ItemOrder {
         this.image = image;
     }
 
-    public int getPrice() {
-        return price;
+    public int getProductPrice() {
+        return productPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setProductPrice(int productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
 

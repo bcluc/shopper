@@ -3,34 +3,34 @@ package com.example.shopper.customerview.home.product.model;
 public class ProductCard {
     private String productId;
     private String imageResouce;
-    private String nameProduct;
-    private Integer priceProduct;
+    private String productName;
+    private Integer productPrice;
 
     public ProductCard() {
     }
 
-    public ProductCard(String imageResouce, String nameProduct, Integer priceProduct, String productId) {
+    public ProductCard(String imageResouce, String productName, Integer productPrice, String productId) {
         this.imageResouce = imageResouce;
-        this.nameProduct = nameProduct;
-        this.priceProduct = priceProduct;
+        this.productName = productName;
+        this.productPrice = productPrice;
         this.productId = productId;
     }
 
 
-    public String getNameProduct() {
-        return nameProduct;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public Integer getPriceProduct() {
-        return priceProduct;
+    public Integer getProductPrice() {
+        return productPrice;
     }
 
-    public void setPriceProduct(Integer priceProduct) {
-        this.priceProduct = priceProduct;
+    public void setProductPrice(Integer productPrice) {
+        this.productPrice = productPrice;
     }
 
     public String getImageResouce() {

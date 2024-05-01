@@ -3,14 +3,14 @@ package com.example.shopper.customerview.home.product.model;
 public class ProductTrending {
     private String productId;
     private String resouceId;
-    private String name;
-    private Integer priceProduct;
+    private String productName;
+    private Integer productPrice;
 
-    public ProductTrending(String productId, String resouceId, String name, Integer priceProduct) {
+    public ProductTrending(String productId, String resouceId, String productName, Integer productPrice) {
         this.productId = productId;
         this.resouceId = resouceId;
-        this.name = name;
-        this.priceProduct = priceProduct;
+        this.productName = productName;
+        this.productPrice = productPrice;
     }
 
     public String getProductId() {
@@ -29,19 +29,19 @@ public class ProductTrending {
         this.resouceId = resouceId;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public Integer getPriceProduct() {
-        return priceProduct;
+    public Integer getProductPrice() {
+        return productPrice;
     }
 
-    public void setPriceProduct(Integer priceProduct) {
-        this.priceProduct = priceProduct;
+    public void setProductPrice(Integer productPrice) {
+        this.productPrice = productPrice;
     }
 }
