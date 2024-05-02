@@ -82,7 +82,7 @@ public class CategoriesDetail extends AppCompatActivity implements Filterable {
         backICon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                CategoriesDetail.this.finish();
             }
         });
         shoppingCart.setOnClickListener(new View.OnClickListener() {

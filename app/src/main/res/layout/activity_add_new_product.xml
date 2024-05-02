@@ -53,9 +53,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="28dp"
-                            android:fontFamily="@font/montserrat_medium"
+                            android:fontFamily="@font/montserrat"
                             android:text="Add new product"
-                            android:textColor="@color/black" />
+                            android:textColor="@android:color/black" />
 
                     </LinearLayout>
 
@@ -85,7 +85,7 @@
                             android:layout_marginBottom="20dp">
 
                             <ImageView
-                                android:id="@+id/imageView"
+                                android:id="@+id/image_add_product_img"
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
                                 android:src="@drawable/ic_add_product" />
@@ -94,7 +94,7 @@
                                 android:id="@+id/textViewAddMedia"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/imageView"
+                                android:layout_below="@id/image_add_product_img"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginLeft="30dp"
                                 android:layout_marginTop="30dp"
@@ -172,7 +172,7 @@
                                     android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
 
                                 <ImageView
-                                    android:id="@+id/imgView_add_new_color"
+                                    android:id="@+id/img_add_new_color"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
                                     android:layout_marginLeft="10dp"
@@ -206,7 +206,7 @@
 
 
                             <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/RCV_sizePicker"
+                                android:id="@+id/RCV_size_picker"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
