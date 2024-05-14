@@ -61,6 +61,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat-resources:1.6.1")
     implementation ("com.squareup.picasso:picasso:2.8")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation("androidx.activity:activity:1.9.0")
 
     implementation(libs.appcompat)
     implementation(libs.material)
