@@ -27,7 +27,6 @@ import com.example.shopper.customerview.navigation.activity.BottomNavigationCust
 import com.example.shopper.customerview.home.product.adapter.ProductAdapter;
 import com.example.shopper.customerview.home.product.model.Product;
 import com.example.shopper.customerview.notification.adapter.ViewPagerPromotionAdapter;
-import com.example.shopper.customerview.util.AutoScrollTask;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.badge.BadgeUtils;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,8 +38,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,7 +47,7 @@ import java.util.TimerTask;
 @OptIn(markerClass = com.google.android.material.badge.ExperimentalBadgeUtils.class)
 public class HomeFragment extends Fragment {
     private List<String> cartData;
-    private ViewPager2 viewPager2;
+    private ViewPager2 vpBanner;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
     private BottomNavigationCustomerActivity bottomNavigationCustomActivity;
@@ -81,7 +78,7 @@ public class HomeFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        viewPager2 = view.findViewById(R.id.view_title_img);
+        vpBanner = view.findViewById(R.id.view_title_img);
         rcvProduct = view.findViewById(R.id.rcv_product);
         rcvCategories = view.findViewById(R.id.rcv_categories);
         txtTrendingExpand = view.findViewById(R.id.txt_trending_expand);
@@ -211,7 +208,7 @@ public class HomeFragment extends Fragment {
 
                         ViewPagerPromotionAdapter imageAdapter = new ViewPagerPromotionAdapter(getContext());
                         imageAdapter.setData(imagePro);
-                        viewPager2.setAdapter(imageAdapter);
+                        vpBanner.setAdapter(imageAdapter);
 
 //                        TimerTask autoScrollTask = new AutoScrollTask(viewPager2);
 //                        Timer timer = new Timer();
