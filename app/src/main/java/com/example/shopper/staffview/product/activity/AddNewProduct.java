@@ -130,10 +130,10 @@ public class AddNewProduct extends AppCompatActivity {
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddNewProduct.this.finish();
+                Intent intent = new Intent(AddNewProduct.this, MyProduct.class);
+                startActivity(intent);
             }
         });
-        imageView = findViewById(R.id.image_add_product_img);
         imageView = findViewById(R.id.image_add_product_img);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
