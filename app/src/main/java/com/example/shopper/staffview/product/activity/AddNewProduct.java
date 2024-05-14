@@ -134,7 +134,6 @@ public class AddNewProduct extends AppCompatActivity {
             }
         });
         imageView = findViewById(R.id.image_add_product_img);
-        imageView = findViewById(R.id.image_add_product_img);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
