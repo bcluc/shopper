@@ -34,6 +34,7 @@ public class MyProduct extends AppCompatActivity {
     private Button back_to_Home;
     private Button addnew, hide, edit;
     private TextView tv_MyProduct;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +53,7 @@ public class MyProduct extends AppCompatActivity {
         back_to_Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyProduct.this.finish();
+                startActivity(new Intent(MyProduct.this, StaffHomePage.class));
             }
         });
         addnew.setOnClickListener(new View.OnClickListener() {
@@ -63,12 +64,13 @@ public class MyProduct extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onStop() {
         super.onStop();
-        DocumentReference documentReference= FirebaseFirestore.getInstance().
+        DocumentReference documentReference = FirebaseFirestore.getInstance().
                 collection("USERS").document(FirebaseAuth.getInstance().getUid());
-        documentReference.update("status","Offline").addOnSuccessListener(new OnSuccessListener<Void>() {
+        documentReference.update("status", "Offline").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
             }
@@ -78,9 +80,9 @@ public class MyProduct extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        DocumentReference documentReference= FirebaseFirestore.getInstance().
+        DocumentReference documentReference = FirebaseFirestore.getInstance().
                 collection("USERS").document(FirebaseAuth.getInstance().getUid());
-        documentReference.update("status","Online").addOnSuccessListener(new OnSuccessListener<Void>() {
+        documentReference.update("status", "Online").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
             }

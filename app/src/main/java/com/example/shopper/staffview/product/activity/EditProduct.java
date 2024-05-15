@@ -11,29 +11,23 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.PickVisualMediaRequest;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.shopper.R;
-import com.example.shopper.staffview.product.adapter.ColorAdapter;
+import com.example.shopper.staffview.product.adapter.MyColorAdapter;
 import com.example.shopper.staffview.product.adapter.ImageAdapter;
-import com.example.shopper.staffview.product.adapter.SizeAdapter;
-import com.example.shopper.staffview.product.model.Color;
+import com.example.shopper.staffview.product.adapter.MySizeAdapter;
+import com.example.shopper.staffview.product.model.MyColor;
 import com.example.shopper.staffview.product.model.Product;
-import com.example.shopper.staffview.product.model.Size;
+import com.example.shopper.staffview.product.model.MySize;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -54,9 +48,9 @@ public class EditProduct extends AppCompatActivity {
 
     private ImageAdapter imageAdapter;
     private List<String> imageUrls = new ArrayList<>();
-    private List<Color> allColors = new ArrayList<>();
+    private List<MyColor> allColors = new ArrayList<>();
     private List<String> selectedColors = new ArrayList<>();
-    private List<Size> allSize = new ArrayList<>();
+    private List<MySize> allSize = new ArrayList<>();
     private List<String> selectedSizes = new ArrayList<>();
     private EditText name, description, price, amount;
     private String productId;
@@ -126,14 +120,14 @@ public class EditProduct extends AppCompatActivity {
                                 String colorName = colorDoc.getString("colorName");
                                 boolean check = currentColors.contains(colorId);
 
-                                Color color = new Color(colorName, colorCode, colorId, check);
+                                MyColor color = new MyColor(colorName, colorCode, colorId, check);
 
                                 allColors.add(color);
                             }
                         }
 
                         // Step 4: Hiển thị danh sách sản phẩm kết quả lên RecyclerView
-                        ColorAdapter colorAdapter = new ColorAdapter(allColors);
+                        MyColorAdapter colorAdapter = new MyColorAdapter(allColors);
                         recyclerView_color.setAdapter(colorAdapter);
                     }
                 });
@@ -153,13 +147,13 @@ public class EditProduct extends AppCompatActivity {
                                 String sizeName = colorDoc.getString("size");
                                 boolean check = currentSize.contains(sizeId);
 
-                                Size size = new Size(sizeName, sizeId, check);
+                                MySize size = new MySize(sizeName, sizeId, check);
                                 allSize.add(size);
                             }
                         }
 
                         // Step 4: Hiển thị danh sách sản phẩm kết quả lên RecyclerView
-                        SizeAdapter sizeAdapter = new SizeAdapter(allSize);
+                        MySizeAdapter sizeAdapter = new MySizeAdapter(allSize);
                         recyclerView_size.setAdapter(sizeAdapter);
                     }
                 });
@@ -287,7 +281,7 @@ public class EditProduct extends AppCompatActivity {
     }
 
     private void uploadImagesAndSaveProduct() {
-        StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("imageProduct");
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("productImages");
         updatedImageUrls = new ArrayList<>();
         List<Task<Uri>> imageUploadTasks = new ArrayList<>();
         List<String> localImageUrls = new ArrayList<>();
@@ -371,13 +365,13 @@ public class EditProduct extends AppCompatActivity {
 
         // Lấy danh sách màu sắc mới từ adapter_color
         selectedColors.clear();
-        for (Color color : allColors) {
+        for (MyColor color : allColors) {
             if (color.getIsChecked()) {
                 selectedColors.add(color.getColorCode());
             }
         }
         selectedSizes.clear();
-        for (Size size : allSize) {
+        for (MySize size : allSize) {
             if (size.isChecked()) {
                 selectedSizes.add(size.getSizeCode());
             }

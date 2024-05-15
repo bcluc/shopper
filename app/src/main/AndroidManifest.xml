@@ -14,6 +14,42 @@
         android:theme="@style/Theme.Shopper"
         tools:targetApi="31">
         <activity
+            android:name=".customerview.home.shoppingcart.billing.BuyNow"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.util.activities.ReViewer"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.viewshop.activity.detail.shop.DetailShopView"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.viewshop.activity.detail.product.DetailProductView"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.viewshop.activity.ViewShop"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.viewshop.activity.detail.category.DetailCategoryView"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.review.activity.Reviewer"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.product.activity.DetailMyProduct"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.category.activity.DetailCategory"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.category.activity.DeleteCategory"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.category.activity.AddNewCategory"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.category.activity.Category"
+            android:exported="false" />
+        <activity
             android:name=".staffview.product.activity.EditProduct"
             android:exported="false" />
         <activity

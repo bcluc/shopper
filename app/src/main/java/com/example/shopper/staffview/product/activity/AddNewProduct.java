@@ -16,19 +16,16 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
 import com.example.shopper.staffview.category.adapter.MyCategoryListAdapter;
 import com.example.shopper.staffview.category.model.MyCategory;
-import com.example.shopper.staffview.product.adapter.ColorAdapter;
-import com.example.shopper.staffview.product.adapter.SizeAdapter;
-import com.example.shopper.staffview.product.model.Color;
-import com.example.shopper.staffview.product.model.Size;
+import com.example.shopper.staffview.product.adapter.MyColorAdapter;
+import com.example.shopper.staffview.product.adapter.MySizeAdapter;
+import com.example.shopper.staffview.product.model.MyColor;
+import com.example.shopper.staffview.product.model.MySize;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,15 +44,15 @@ import java.util.List;
 import java.util.Map;
 
 public class AddNewProduct extends AppCompatActivity {
-    private List<Size> sizeList;
+    private List<MySize> sizeList;
     private List<MyCategory> myCategoryItemList;
-    private List<Color> colorList;
-    private SizeAdapter sizeAdapter;
+    private List<MyColor> colorList;
+    private MySizeAdapter sizeAdapter;
     private MyCategoryListAdapter myCategoryListAdapter;
     private RecyclerView recyclerView_size;
     private RecyclerView recyclerView_color;
     private RecyclerView recyclerView_category;
-    private ColorAdapter colorAdapter;
+    private MyColorAdapter colorAdapter;
     private FirebaseFirestore db_size, db_color, db_category;
 
     // XỬ LÝ ADD SẢN PHẨM MỚI
@@ -102,8 +99,8 @@ public class AddNewProduct extends AppCompatActivity {
         sizeList = new ArrayList<>();
         myCategoryItemList = new ArrayList<>();
 
-        sizeAdapter = new SizeAdapter(sizeList);
-        colorAdapter = new ColorAdapter(colorList);
+        sizeAdapter = new MySizeAdapter(sizeList);
+        colorAdapter = new MyColorAdapter(colorList);
         myCategoryListAdapter = new MyCategoryListAdapter(myCategoryItemList);
 
         recyclerView_size.setAdapter(sizeAdapter);
@@ -169,7 +166,7 @@ public class AddNewProduct extends AppCompatActivity {
                 long SoLuongConLai = SoLuongSP - SoLuongDaBan;
                 long SoLuongYeuThich = 0;
                 String TrangThai = "Inventory";
-                String Trending = "false";
+                Boolean Trending = false;
                 // Tạo một DocumentReference cho sản phẩm mới trong collection "PRODUCT"
                 DocumentReference productRef = firestore.collection("PRODUCT").document();
 
@@ -364,7 +361,7 @@ public class AddNewProduct extends AppCompatActivity {
                             String MaMau = document.getId();
                             boolean checked = false;
 
-                            Color myColor = new Color(TenMau, colorCode, MaMau, checked);
+                            MyColor myColor = new MyColor(TenMau, colorCode, MaMau, checked);
                             colorList.add(myColor);
                         }
                         colorAdapter.notifyDataSetChanged();
@@ -385,7 +382,7 @@ public class AddNewProduct extends AppCompatActivity {
                             String maSize = document.getId();
                             boolean checked = false;
 
-                            Size mySize = new Size(sizeName, maSize, checked);
+                            MySize mySize = new MySize(sizeName, maSize, checked);
                             sizeList.add(mySize);
                         }
                         sizeAdapter.notifyDataSetChanged();
