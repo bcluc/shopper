@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
-import com.example.shopper.staffview.product.model.Size;
+import com.example.shopper.staffview.product.model.MySize;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SizeAdapter extends RecyclerView.Adapter<SizeAdapter.SizeViewHolder> {
-    private List<Size> sizeList;
-    private Size size;
+public class MySizeAdapter extends RecyclerView.Adapter<MySizeAdapter.SizeViewHolder> {
+    private List<MySize> sizeList;
+    private MySize size;
 
     public List<String> getSelectedSizes() {
         List<String> selectedSizes = new ArrayList<>();
-        for (Size size : sizeList) {
+        for (MySize size : sizeList) {
             if (size.isChecked()) {
                 selectedSizes.add(size.getSizeCode());
             }
@@ -29,13 +29,13 @@ public class SizeAdapter extends RecyclerView.Adapter<SizeAdapter.SizeViewHolder
         return selectedSizes;
     }
 
-    public SizeAdapter(Size size) {
+    public MySizeAdapter(MySize size) {
         this.size = size;
     }
 
     private OnSizeCheckedChangeListener onSizeCheckedChangeListener;
 
-    public SizeAdapter(List<Size> sizeList) {
+    public MySizeAdapter(List<MySize> sizeList) {
         this.sizeList = sizeList;
         this.onSizeCheckedChangeListener = onSizeCheckedChangeListener;
     }
@@ -49,7 +49,7 @@ public class SizeAdapter extends RecyclerView.Adapter<SizeAdapter.SizeViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull SizeViewHolder holder, int position) {
-        Size size = sizeList.get(position);
+        MySize size = sizeList.get(position);
         holder.sizeTextView.setText(size.getSizeName());
         holder.checkBox.setChecked(size.isChecked());
         holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -66,7 +66,7 @@ public class SizeAdapter extends RecyclerView.Adapter<SizeAdapter.SizeViewHolder
     }
 
     public interface OnSizeCheckedChangeListener {
-        void onSizeCheckedChange(Size size);
+        void onSizeCheckedChange(MySize size);
     }
 
     public static class SizeViewHolder extends RecyclerView.ViewHolder {
