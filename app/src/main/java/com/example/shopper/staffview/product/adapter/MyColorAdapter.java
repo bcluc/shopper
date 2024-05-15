@@ -11,17 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
-import com.example.shopper.staffview.product.model.Color;
+import com.example.shopper.staffview.product.model.MyColor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ColorViewHolder> {
-    private List<Color> colorList;
+public class MyColorAdapter extends RecyclerView.Adapter<MyColorAdapter.ColorViewHolder> {
+    private List<MyColor> colorList;
     private OnColorCheckedChangeListener onColorCheckedChangeListener;
     public List<String> getSelectedColors() {
         List<String> selectedColors = new ArrayList<>();
-        for (Color color : colorList) {
+        for (MyColor color : colorList) {
             if (color.getIsChecked()) {
                 selectedColors.add(color.getColorId());
             }
@@ -29,7 +29,7 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ColorViewHol
         return selectedColors;
     }
 
-    public ColorAdapter(List<Color> colorList) {
+    public MyColorAdapter(List<MyColor> colorList) {
         this.colorList = colorList;
         this.onColorCheckedChangeListener = onColorCheckedChangeListener;
     }
@@ -44,7 +44,7 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ColorViewHol
 
     @Override
     public void onBindViewHolder(@NonNull ColorViewHolder holder, int position) {
-        Color color = colorList.get(position);
+        MyColor color = colorList.get(position);
         holder.colorNameTextView.setText(color.getColorName());
         holder.checkBox.setChecked(color.getIsChecked());
         setColorBackGround(holder.imageView, color.getColorCode());
@@ -61,7 +61,7 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ColorViewHol
         return colorList.size();
     }
     public interface OnColorCheckedChangeListener {
-        void onColorCheckedChange(Color color);
+        void onColorCheckedChange(MyColor color);
     }
     public void setOnColorCheckedChangeListener(OnColorCheckedChangeListener listener) {
         this.onColorCheckedChangeListener = listener;

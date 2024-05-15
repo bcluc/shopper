@@ -18,6 +18,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.example.shopper.R;
 import com.example.shopper.authentication.activity.Login;
 import com.example.shopper.authentication.model.User;
+import com.example.shopper.staffview.category.activity.Category;
 import com.example.shopper.staffview.product.activity.MyProduct;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -235,8 +236,8 @@ public class StaffHomePage extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-//                Intent intent = new Intent (StaffHomePage.this, activity_categories.class);
-//                startActivity(intent);
+                Intent intent = new Intent (StaffHomePage.this, Category.class);
+                startActivity(intent);
             }
         });
         btnPromotions.setOnClickListener(new View.OnClickListener() {

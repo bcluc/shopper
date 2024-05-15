@@ -1,6 +1,7 @@
 package com.example.shopper.customerview.home.product.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.shopper.R;
 
 public class DetailProduct extends AppCompatActivity {
+    private String dataColor, dataSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +24,19 @@ public class DetailProduct extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void onColorClick(String colorName) {
+        // Xử lý sự kiện khi màu được chọn
+        // Dữ liệu màu tên và mã màu được truyền từ adapter qua activity
+        dataColor = colorName;
+        Log.d("MyColor", dataColor);
+    }
+
+    public void onSizeClick(String size) {
+        // Xử lý sự kiện khi màu được chọn
+        // Dữ liệu màu tên và mã màu được truyền từ adapter qua activity
+        dataSize = size;
+        Log.d("Size", dataSize);
     }
 }

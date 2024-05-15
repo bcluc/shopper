@@ -1,23 +1,23 @@
 package com.example.shopper.staffview.product.model;
 
-public class Color {
+public class MyColor {
     private String colorName;
     private String colorId;
     private String colorCode;
     private Boolean isChecked;
 
-    public Color(String colorName, String colorCode, String colorId, Boolean isChecked) {
+    public MyColor(String colorName, String colorCode, String colorId, Boolean isChecked) {
         this.colorName = colorName;
         this.colorCode = colorCode;
         this.colorId = colorId;
         this.isChecked = isChecked;
     }
-    public Color(String colorName, String colorCode, String colorId) {
+    public MyColor(String colorName, String colorCode, String colorId) {
         this.colorName = colorName;
         this.colorCode = colorCode;
         this.colorId = colorId;
     }
-    public Color(String colorName)
+    public MyColor(String colorName)
     {
         this.colorName = colorName;
     }

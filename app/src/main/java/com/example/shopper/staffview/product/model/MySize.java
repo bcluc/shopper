@@ -1,11 +1,11 @@
 package com.example.shopper.staffview.product.model;
 
-public class Size {
+public class MySize {
     private String sizeName;
     private boolean checked;
     private String sizeCode;
 
-    public Size(String SizeName, String SizeCode, boolean Checked) {
+    public MySize(String SizeName, String SizeCode, boolean Checked) {
         this.sizeName = SizeName;
         this.sizeCode = SizeCode;
         this.checked = Checked;
