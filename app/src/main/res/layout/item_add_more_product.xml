@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="15dp"
+    android:background="@color/white"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="4dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/image_for"
+            android:layout_height="100dp"
+            app:cardCornerRadius="20dp">
+            <ImageView
+                android:id="@+id/id_avatar_add"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/box" />
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/image_for"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            >
+
+            <TextView
+                android:id="@+id/product_name_add"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="T-Shirt Black Blank -VSD343545D - New Elevent"
+                android:textSize="16dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/product_price_add"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/black"
+                android:text="139.999đ" />
+            <ImageView
+                android:id="@+id/imgView_add_more"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_add_circle">
+            </ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/linear1"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="30dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imaware"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:src="@drawable/ic_warehouse"
+                    />
+                <TextView
+                    android:id="@+id/textware"
+                    android:layout_width="90dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/black"
+                    android:text="Ware House: " />
+                <TextView
+                    android:id="@+id/idware_add"
+                    android:layout_width="40dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="end"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/black"
+                    android:text="20"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="end">
+                <ImageView
+                    android:id="@+id/imasold"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:src="@drawable/ic_soldout" />
+
+                <TextView
+                    android:id="@+id/textsold"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/black"
+                    android:text="Sold Out:" />
+                <TextView
+                    android:id="@+id/idsold_add"
+                    android:layout_width="40dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="25dp"
+                    android:gravity="end"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/black"
+                    android:text="20" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linear3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_below="@+id/linear2">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imalove"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="25dp"
+                    android:src="@drawable/ic_favorite" />
+
+
+                <TextView
+                    android:id="@+id/textlove"
+                    android:layout_width="90dp"
+                    android:layout_height="29dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/black"
+                    android:text="Love: " />
+                <TextView
+                    android:id="@+id/idlove_add"
+                    android:layout_width="40dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="end"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="25dp"
+                    android:text="20"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="end">
+                <ImageView
+                    android:id="@+id/imaview"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:src="@drawable/ic_view"
+                    />
+
+
+                <TextView
+                    android:id="@+id/textview"
+                    android:layout_width="65dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/black"
+                    android:text="View:" />
+                <TextView
+                    android:id="@+id/idviews_add"
+                    android:layout_width="40dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="18dp"
+                    android:gravity="end"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="25dp"
+                    android:text="20"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/linear3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center">
+            <Button
+                android:id="@+id/btn_edit_add"
+                android:layout_toRightOf="@+id/button2"
+                android:layout_width="110dp"
+                android:layout_height="55dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:backgroundTint="#FF931F"
+                android:text="Edit" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>
+
