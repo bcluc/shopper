@@ -1,4 +1,4 @@
-package com.example.shopper.staffview.product.activity;
+package com.example.shopper.staffview.viewshop.activity.detail.product;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,12 +16,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
+import com.example.shopper.customerview.home.category.model.Categories;
 import com.example.shopper.customerview.home.product.activity.DetailProduct;
+import com.example.shopper.customerview.util.activities.ReViewer;
 import com.example.shopper.customerview.util.color.adapter.ColorsAdapter;
 import com.example.shopper.customerview.util.color.model.Colors;
 import com.example.shopper.customerview.util.size.adapter.SizeAdapter;
-import com.example.shopper.staffview.category.activity.Category;
-import com.example.shopper.staffview.review.activity.Reviewer;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -37,7 +37,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailMyProduct extends AppCompatActivity {
+public class DetailProductView extends AppCompatActivity {
 
     private ImageView backIcon;
     private ImageButton show;
@@ -45,7 +45,7 @@ public class DetailMyProduct extends AppCompatActivity {
     private boolean isTextViewVisible = false;
     private String MaDM;
     private ImageView hinhanhSP;
-    private TextView name, price;
+    private TextView name, price ;
     private TextView description, review;
     private RecyclerView color, size;
     private Button trending;
@@ -53,12 +53,11 @@ public class DetailMyProduct extends AppCompatActivity {
 
     DetailProduct detailProductActivity, detailProductActivity1;
     private Boolean check = false;
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_my_product);
+        setContentView(R.layout.activity_detail_product_view);
 
         MaDM = getIntent().getStringExtra("categoryId");
         MaSP = getIntent().getStringExtra("productId");
@@ -88,7 +87,7 @@ public class DetailMyProduct extends AppCompatActivity {
                                 String categoryId = task.getResult().getDocuments().get(0).getId();
 
                                 // Chuyển sang màn hình hiển thị sản phẩm với categoryId
-                                Intent intent = new Intent(DetailMyProduct.this, Reviewer.class);
+                                Intent intent = new Intent(DetailProductView.this, ReViewer.class);
                                 intent.putExtra("productId", MaSP);
                                 startActivity(intent);
                             }
@@ -108,7 +107,8 @@ public class DetailMyProduct extends AppCompatActivity {
                             newTrangThai = false;
                         } else if (!trangThai) {
                             newTrangThai = true;
-                        } else {
+                        }
+                        else {
                             return;
                         }
                         docRef.update("trending", newTrangThai)
@@ -117,10 +117,10 @@ public class DetailMyProduct extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             // Cập nhật thành công
-                                            Toast.makeText(DetailMyProduct.this, "Trending is updated: " + String.valueOf(newTrangThai), Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(DetailProductView.this, "Trending đã được cập nhật: " + String.valueOf(newTrangThai), Toast.LENGTH_SHORT).show();
                                         } else {
                                             // Cập nhật thất bại
-                                            Toast.makeText(DetailMyProduct.this, "Trending update failed", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(DetailProductView.this, "Trending cập nhật thất bại", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
@@ -138,7 +138,8 @@ public class DetailMyProduct extends AppCompatActivity {
         sanphamRef.whereEqualTo("productId", MaSP).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot querySnapshot) {
-                if (!querySnapshot.isEmpty()) {
+                if(!querySnapshot.isEmpty())
+                {
                     for (QueryDocumentSnapshot documentSnapshot : querySnapshot) {
                         String tenSP = documentSnapshot.getString("productName");
                         List<String> hinhanh = (List<String>) documentSnapshot.get("imageUrl");
@@ -152,17 +153,18 @@ public class DetailMyProduct extends AppCompatActivity {
 
                         List<String> mauSacList = (List<String>) documentSnapshot.get("productColor");
                         if (mauSacList != null && !mauSacList.isEmpty()) {
-                            List<Colors> listmau = new ArrayList<>();
+                            List<Colors>listmau = new ArrayList<>();
                             for (String mauSacId : mauSacList) {
                                 // Truy vấn từng MauSac trong collection "MAUSAC" theo mã màu sắc (mauSacId)
                                 mausacRef.document(mauSacId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                     @Override
                                     public void onSuccess(DocumentSnapshot mausacDocumentSnapshot) {
                                         if (mausacDocumentSnapshot.exists()) {
+
                                             String tenMauSac = mausacDocumentSnapshot.getString("colorName");
                                             String maMau = mausacDocumentSnapshot.getString("colorCode");
-                                            String colorID = mausacDocumentSnapshot.getString("colorId");
-                                            Colors colors = new Colors(colorID, maMau , tenMauSac);
+                                            String colorCode = mausacDocumentSnapshot.getString("colorId");
+                                            Colors colors = new Colors(maMau,colorCode, tenMauSac);
                                             listmau.add(colors);
                                             ColorsAdapter colorAdapter = new ColorsAdapter();
                                             colorAdapter.setData(listmau, detailProductActivity);
@@ -172,15 +174,17 @@ public class DetailMyProduct extends AppCompatActivity {
                                 });
                             }
                         }
-                        List<String> sizeList = (List<String>) documentSnapshot.get("size");
-                        if (sizeList != null && !sizeList.isEmpty()) {
-                            List<String> sizeList1 = new ArrayList<>();
+                        List<String>sizeList = (List<String>) documentSnapshot.get("productSize");
+                        if(sizeList!=null && !sizeList.isEmpty())
+                        {
+                            List<String>sizeList1 = new ArrayList<>();
                             for (String sizeId : sizeList) {
                                 sizeRef.document(sizeId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                     @Override
                                     public void onSuccess(DocumentSnapshot documentSnapshotsize) {
-                                        if (documentSnapshotsize.exists()) {
-                                            String Masize = documentSnapshotsize.getString("size");
+                                        if(documentSnapshotsize.exists())
+                                        {
+                                            String Masize = documentSnapshotsize.getString("productSize");
                                             sizeList1.add(Masize);
                                             SizeAdapter sizeAdapter = new SizeAdapter();
                                             sizeAdapter.setData(sizeList1, detailProductActivity);
@@ -213,17 +217,17 @@ public class DetailMyProduct extends AppCompatActivity {
 
         setOnClickBackICon();
     }
-
     @Override
     protected void onStop() {
         super.onStop();
-        DocumentReference documentReference = FirebaseFirestore.getInstance().
+        DocumentReference documentReference=FirebaseFirestore.getInstance().
                 collection("USERS").document(FirebaseAuth.getInstance().getUid());
-        documentReference.update("status", "Offline").addOnSuccessListener(new OnSuccessListener<Void>() {
+        documentReference.update("status","Offline").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
             }
         });
+
 
 
     }
@@ -231,22 +235,21 @@ public class DetailMyProduct extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        DocumentReference documentReference = FirebaseFirestore.getInstance().
+        DocumentReference documentReference=FirebaseFirestore.getInstance().
                 collection("USERS").document(FirebaseAuth.getInstance().getUid());
-        documentReference.update("status", "Online").addOnSuccessListener(new OnSuccessListener<Void>() {
+        documentReference.update("status","Online").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
             }
         });
 
     }
-
     private void setOnClickBackICon() {
 
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailMyProduct.this, Category.class);
+                Intent intent = new Intent(DetailProductView.this, Categories.class);
                 intent.putExtra("categoryId", MaDM);
                 startActivity(intent);
                 finish();

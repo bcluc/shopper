@@ -166,7 +166,7 @@ public class AddNewProduct extends AppCompatActivity {
                 long SoLuongConLai = SoLuongSP - SoLuongDaBan;
                 long SoLuongYeuThich = 0;
                 String TrangThai = "Inventory";
-                String Trending = "false";
+                Boolean Trending = false;
                 // Tạo một DocumentReference cho sản phẩm mới trong collection "PRODUCT"
                 DocumentReference productRef = firestore.collection("PRODUCT").document();
 

@@ -59,7 +59,7 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorViewH
                 } else {
                     selectedItem = holder.getAdapterPosition(); // Đánh dấu item được chọn
                     Colors color = mColor.get(holder.getAdapterPosition());
-                    detailProductActivity.onColorClick(color.getColorName());
+                    detailProductActivity.onColorClick(color.getColorCode());
                 }
                 notifyDataSetChanged(); // Cập nhật
             }

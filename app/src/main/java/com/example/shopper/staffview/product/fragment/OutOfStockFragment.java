@@ -2,65 +2,85 @@ package com.example.shopper.staffview.product.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shopper.R;
+import com.example.shopper.staffview.product.adapter.OutOfStockAdapter;
+import com.example.shopper.staffview.product.model.Product;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link OutOfStockFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class OutOfStockFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private RecyclerView recyclerView;
+    private OutOfStockAdapter adapter;
+    private List<Product> productList;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_out_of_stock, container, false);
 
-    public OutOfStockFragment() {
-        // Required empty public constructor
+        recyclerView = view.findViewById(R.id.RCV_My_oos);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        productList = new ArrayList<>();
+        adapter = new OutOfStockAdapter(productList, getContext());
+        recyclerView.setAdapter(adapter);
+        loadProductsFromFirestore();
+        return view;
     }
+    private void loadProductsFromFirestore() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference sanphamRef = db.collection("PRODUCT");
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment OutOfStockFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static OutOfStockFragment newInstance(String param1, String param2) {
-        OutOfStockFragment fragment = new OutOfStockFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        sanphamRef.whereEqualTo("warehouse", 0)
+                .addSnapshotListener((queryDocumentSnapshots, e) -> {
+                    if (e != null) {
+                        // Xử lý lỗi nếu cần thiết
+                        return;
+                    }
+
+                    productList.clear();
+                    for (DocumentSnapshot document : queryDocumentSnapshots) {
+                        List<String> hinhAnhSPList = (List<String>) document.get("imageUrl");
+
+                        // Lấy địa chỉ ảnh đầu tiên trong mảng
+                        String hinhAnhSP = hinhAnhSPList != null && !hinhAnhSPList.isEmpty() ? hinhAnhSPList.get(0) : "";
+                        String tenSP = document.getString("productName");
+                        String MaSP  =  document.getString("productId");
+                        int price = document.getLong("productPrice") != null ? document.getLong("productPrice").intValue() : 0;
+                        int warehouse = document.getLong("warehouse") != null ? document.getLong("warehouse").intValue() : 0;
+                        int sold = document.getLong("sold") != null ? document.getLong("sold").intValue() : 0;
+                        int love = document.getLong("love") != null ? document.getLong("love").intValue() : 0;
+                        int view = document.getLong("view") != null ? document.getLong("view").intValue() : 0;
+                        Product product = new Product(hinhAnhSP, tenSP, price, warehouse, sold, love, view, MaSP);
+                        // Thêm đối tượng Product vào danh sách
+                        productList.add(product);
+                    }
+
+                    adapter.notifyDataSetChanged();
+                });
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_out_of_stock, container, false);
+    public void onResume() {
+        super.onResume();
+        loadProductsFromFirestore();
     }
 }

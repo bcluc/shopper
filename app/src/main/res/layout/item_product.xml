@@ -2,32 +2,33 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_product"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:columnCount="2"
-    tools:ignore="MissingClass"
-    android:id="@+id/layout_product"
-    >
+    tools:ignore="MissingClass">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        android:layout_columnWeight="1">
+        tools:layout_editor_absoluteY="1dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                android:background="@color/white">
+                android:background="@color/white"
+                app:cardCornerRadius="20dp">
+
                 <ImageView
                     android:id="@+id/img_product_img"
                     android:layout_width="125dp"
@@ -42,16 +43,16 @@
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_light"
+                android:gravity="center"
                 android:text="T-Shirt Black Blank - VSD343545D - New Elevent"
                 android:textColor="#000000"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                >
+                android:layout_gravity="center">
 
                 <TextView
                     android:id="@+id/txt_product_price"

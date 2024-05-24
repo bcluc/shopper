@@ -20,6 +20,7 @@ import com.example.shopper.authentication.activity.Login;
 import com.example.shopper.authentication.model.User;
 import com.example.shopper.staffview.category.activity.Category;
 import com.example.shopper.staffview.product.activity.MyProduct;
+import com.example.shopper.staffview.viewshop.activity.ViewShop;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -220,8 +221,8 @@ public class StaffHomePage extends AppCompatActivity {
         btnViewShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_viewshop.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, ViewShop.class);
+                startActivity(intent);
             }
         });
         btnChat.setOnClickListener(new View.OnClickListener() {
