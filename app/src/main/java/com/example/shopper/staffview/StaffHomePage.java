@@ -19,6 +19,7 @@ import com.example.shopper.R;
 import com.example.shopper.authentication.activity.Login;
 import com.example.shopper.authentication.model.User;
 import com.example.shopper.staffview.category.activity.Category;
+import com.example.shopper.staffview.order.activity.MyOrderActivity;
 import com.example.shopper.staffview.product.activity.MyProduct;
 import com.example.shopper.staffview.viewshop.activity.ViewShop;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -214,8 +215,8 @@ public class StaffHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Chuyển đến màn hình "MyOrderActivity"
 
-//                Intent intent = new Intent(StaffHomePage.this, activity_MyOrder.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                startActivity(intent);
             }
         });
         btnViewShop.setOnClickListener(new View.OnClickListener() {
