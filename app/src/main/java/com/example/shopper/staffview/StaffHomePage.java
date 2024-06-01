@@ -71,11 +71,11 @@ public class StaffHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Khi nút "Confirm" được nhấp vào, chuyển đến "activity_MyOrder" và hiển thị fragment Confirm
 
-//                Intent intent = new Intent(StaffHomePage.this, activity_MyOrder.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selected_tab", 0); // 0 là vị trí tab Confirm
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selected_tab", 0); // 0 là vị trí tab Confirm
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
@@ -84,11 +84,11 @@ public class StaffHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Khi nút "Wait" được nhấp vào, chuyển đến "activity_MyOrder" và hiển thị fragment Wait
 
-//                Intent intent = new Intent(StaffHomePage.this, activity_MyOrder.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selected_tab", 1); // 1 là vị trí tab Wait
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selected_tab", 1); // 1 là vị trí tab Wait
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
@@ -97,11 +97,11 @@ public class StaffHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Khi nút "Delivering" được nhấp vào, chuyển đến "activity_MyOrder" và hiển thị fragment Delivering
 
-//                Intent intent = new Intent(StaffHomePage.this, activity_MyOrder.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selected_tab", 2); // 2 là vị trí tab Delivering
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selected_tab", 2); // 2 là vị trí tab Delivering
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
@@ -110,21 +110,21 @@ public class StaffHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Khi nút "Delivered" được nhấp vào, chuyển đến "activity_MyOrder" và hiển thị fragment Delivered
 
-//                Intent intent = new Intent(home_page.this, activity_MyOrder.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selected_tab", 3); // 3 là vị trí tab Delivered
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selected_tab", 3); // 3 là vị trí tab Delivered
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_MyOrder.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selected_tab", 4); // 0 là vị trí tab Confirm
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selected_tab", 4); // 0 là vị trí tab Confirm
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
