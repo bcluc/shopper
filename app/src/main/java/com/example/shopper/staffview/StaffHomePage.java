@@ -22,6 +22,7 @@ import com.example.shopper.staffview.category.activity.Category;
 import com.example.shopper.staffview.chat.activity.ChatBoard;
 import com.example.shopper.staffview.order.activity.MyOrderActivity;
 import com.example.shopper.staffview.product.activity.MyProduct;
+import com.example.shopper.staffview.promotion.activity.MyPromotion;
 import com.example.shopper.staffview.report.activity.FinancialReport;
 import com.example.shopper.staffview.viewshop.activity.ViewShop;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -247,8 +248,8 @@ public class StaffHomePage extends AppCompatActivity {
         btnPromotions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_promotions.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyPromotion.class);
+                startActivity(intent);
             }
         });
         btnManageUsers.setOnClickListener(new View.OnClickListener() {
