@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.shopper.R;
 import com.example.shopper.authentication.model.User;
 import com.example.shopper.staffview.chat.activity.SpecificChat;
 import com.squareup.picasso.Picasso;

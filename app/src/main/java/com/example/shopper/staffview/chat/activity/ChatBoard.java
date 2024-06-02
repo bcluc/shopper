@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.shopper.R;
+import com.example.shopper.staffview.chat.adapter.ChatBoardStaffAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -23,9 +24,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ChatBoard extends AppCompatActivity {
     TabLayout tabLayout;
-    TabItem mchat,mstatus;
+    TabItem mchat, mstatus;
     ViewPager viewPager;
-    adapter_chat_board_staff adapterchatboard;
+    ChatBoardStaffAdapter adapterchatboard;
     androidx.appcompat.widget.Toolbar mtoolbar;
     Button btn_back;
     FirebaseAuth firebaseAuth;
@@ -34,25 +35,25 @@ public class ChatBoard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        setContentView(R.layout.activity_chat_board);
 
-        tabLayout=findViewById(R.id.include);
-        mchat=findViewById(R.id.chat);
-        mstatus=findViewById(R.id.status);
-        viewPager=findViewById(R.id.fragmentcontainer);
+        tabLayout = findViewById(R.id.include);
+        mchat = findViewById(R.id.chat);
+        mstatus = findViewById(R.id.status);
+        viewPager = findViewById(R.id.fragmentcontainer);
 
-        firebaseFirestore=FirebaseFirestore.getInstance();
-        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        mtoolbar=findViewById(R.id.toolbar);
+        mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
 
 
-        Drawable drawable= ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_baseline_more_vert_24);
+        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_more_vert_24);
         mtoolbar.setOverflowIcon(drawable);
 
 
-        adapterchatboard =new adapter_chat_board_staff(getSupportFragmentManager(),tabLayout.getTabCount(),this);
+        adapterchatboard = new ChatBoardStaffAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), this);
         viewPager.setAdapter(adapterchatboard);
 
         btn_back = findViewById(R.id.btn_back);
@@ -68,11 +69,9 @@ public class ChatBoard extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
 
-                if(tab.getPosition()==0 || tab.getPosition()==1)
-                {
+                if (tab.getPosition() == 0 || tab.getPosition() == 1) {
                     adapterchatboard.notifyDataSetChanged();
                 }
-
 
 
             }
@@ -92,17 +91,17 @@ public class ChatBoard extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
     }
+
     @Override
     protected void onStop() {
         super.onStop();
-        DocumentReference documentReference=FirebaseFirestore.getInstance().
-                collection("NGUOIDUNG").document(FirebaseAuth.getInstance().getUid());
-        documentReference.update("status","Offline").addOnSuccessListener(new OnSuccessListener<Void>() {
+        DocumentReference documentReference = FirebaseFirestore.getInstance().
+                collection("USERS").document(FirebaseAuth.getInstance().getUid());
+        documentReference.update("status", "Offline").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
             }
         });
-
 
 
     }
@@ -110,9 +109,9 @@ public class ChatBoard extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        DocumentReference documentReference=FirebaseFirestore.getInstance().
-                collection("NGUOIDUNG").document(FirebaseAuth.getInstance().getUid());
-        documentReference.update("status","Online").addOnSuccessListener(new OnSuccessListener<Void>() {
+        DocumentReference documentReference = FirebaseFirestore.getInstance().
+                collection("USERS").document(FirebaseAuth.getInstance().getUid());
+        documentReference.update("status", "Online").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
             }

@@ -19,6 +19,7 @@ import com.example.shopper.R;
 import com.example.shopper.authentication.activity.Login;
 import com.example.shopper.authentication.model.User;
 import com.example.shopper.staffview.category.activity.Category;
+import com.example.shopper.staffview.chat.activity.ChatBoard;
 import com.example.shopper.staffview.order.activity.MyOrderActivity;
 import com.example.shopper.staffview.product.activity.MyProduct;
 import com.example.shopper.staffview.viewshop.activity.ViewShop;
@@ -229,8 +230,8 @@ public class StaffHomePage extends AppCompatActivity {
         btnChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_chat_board.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, ChatBoard.class);
+                startActivity(intent);
             }
         });
         btnCategories.setOnClickListener(new View.OnClickListener()
