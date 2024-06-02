@@ -15,7 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shopper.R;
+import com.example.shopper.staffview.product.activity.DetailMyProduct;
 import com.example.shopper.staffview.product.model.Product;
+import com.example.shopper.staffview.viewshop.activity.detail.product.DetailProductView;
 import com.example.shopper.staffview.viewshop.activity.detail.shop.DetailShopView;
 import com.example.shopper.staffview.viewshop.adapter.ListProductsAdapter;
 import com.google.firebase.firestore.CollectionReference;
@@ -75,7 +77,7 @@ public class ListProductsFragment extends Fragment {
             @Override
             public void onItemClick(Product product) {
                 String TenSP = product.getProductName(); // Lấy tên sản phẩm
-                Log.d("ProductID", "ProductID: " + TenSP);
+                Log.d("ProductName", "Product Name: " + TenSP);
 
                 // Tạo một truy vấn Firestore để lấy MaDM từ TenDM
                 FirebaseFirestore.getInstance().collection("PRODUCT")
@@ -87,6 +89,7 @@ public class ListProductsFragment extends Fragment {
                                 String productID = task.getResult().getDocuments().get(0).getId();
                                 Intent intent = new Intent(getActivity(), DetailShopView.class);
                                 intent.putExtra("productId", productID);
+                                Log.d("ProductID", "Product id: " + productID);
                                 startActivity(intent);
                             }
                         });

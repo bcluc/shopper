@@ -28,11 +28,11 @@ import com.example.shopper.customerview.home.shoppingcart.ShoppingCart;
 import com.example.shopper.customerview.home.shoppingcart.billing.BuyNow;
 import com.example.shopper.customerview.navigation.activity.BottomNavigationCustomerActivity;
 import com.example.shopper.customerview.util.AutoScrollTask;
-import com.example.shopper.customerview.util.activities.ReViewer;
 import com.example.shopper.customerview.util.adapters.ViewPagerImageAdapter;
 import com.example.shopper.customerview.util.color.adapter.ColorsAdapter;
 import com.example.shopper.customerview.util.color.model.Colors;
 import com.example.shopper.customerview.util.size.adapter.SizeAdapter;
+import com.example.shopper.staffview.review.activity.Reviewer;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.badge.BadgeDrawable;
@@ -349,7 +349,7 @@ public class DetailProduct extends AppCompatActivity {
         txtSeeReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailProduct.this, ReViewer.class);
+                Intent intent = new Intent(DetailProduct.this, Reviewer.class);
                 intent.putExtra("productId", maSP);
                 startActivity(intent);
             }

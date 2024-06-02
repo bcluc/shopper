@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".staffview.report.activity.FinancialReport">
+
+    <RelativeLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgbtn_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/navigation_back_arrow"
+            android:contentDescription="null" />
+
+        <TextView
+            android:id="@+id/My_product"
+            android:layout_width="213dp"
+            android:layout_height="44dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/imgbtn_back"
+            android:fontFamily="@font/montserrat"
+            android:text="Financial Report"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/below_head"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/linear1"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/quatrinh"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Quá trình hoạt động"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+        <!-- Thêm trường nhập liệu ngày bắt đầu -->
+        <EditText
+            android:id="@+id/edtStartDate"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-175dp"
+            android:layout_marginTop="35dp"
+            android:hint="Ngày bắt đầu"
+            android:inputType="date"
+            android:textAlignment="center"
+            android:textSize="16dp" />
+
+        <!-- Thêm trường nhập liệu ngày kết thúc -->
+        <EditText
+            android:id="@+id/edtEndDate"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="35dp"
+            android:hint="Ngày kết thúc"
+            android:inputType="date"
+            android:textAlignment="center"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/btn_today"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="35dp"
+            android:backgroundTint="@color/dark_blue"
+            android:text="Today"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mid"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_below="@+id/below_head"
+        android:layout_marginTop="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="375dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="5dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_marginLeft="250dp"
+                android:elevation="200dp"
+                android:src="@drawable/image_total" />
+
+            <TextView
+                android:layout_width="159dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Tổng doanh thu"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/orange"
+                android:text="VND"
+                app:cardCornerRadius="30dp" />
+
+            <TextView
+                android:id="@+id/doanhthu"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="80dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="77,777,777"
+
+                android:textColor="@color/black"
+                android:textSize="40dp" />
+
+            <TextView
+                android:layout_width="159dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="150dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Current Balacane"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_below="@+id/mid"
+        android:layout_marginTop="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="375dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="5dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_marginLeft="250dp"
+                android:elevation="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_order" />
+
+            <TextView
+                android:layout_width="159dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Đã bán được"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/orange"
+                android:text="Số đơn"
+                app:cardCornerRadius="30dp" />
+
+            <TextView
+                android:id="@+id/sodonhang"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="80dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="77,777,777"
+
+                android:textColor="@color/black"
+                android:textSize="40dp" />
+
+            <TextView
+                android:layout_width="159dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="150dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Current Balacane"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/view_report"
+        android:layout_width="199dp"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="610dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FF931F"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingVertical="10dp"
+        android:paddingBottom="10dp"
+        android:text="VIEW REPORT"
+        android:textSize="16dp" />
+
+</RelativeLayout>
