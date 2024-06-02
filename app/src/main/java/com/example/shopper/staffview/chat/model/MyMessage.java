@@ -1,33 +1,33 @@
 package com.example.shopper.staffview.chat.model;
 
 public class MyMessage {
-    private String msgId, senderId, message, time, receiveID;
-    long timestamp;
+    private String msgId, senderId, message, time, receiveId;
+    long timeStamp;
 
 
 
     public MyMessage(){}
-    public MyMessage(String message, String senderId, String receiveID, long timestamp , String time) {
-        this.timestamp = timestamp;
+    public MyMessage(String message, String senderId, String receiveId, long timeStamp , String time) {
+        this.timeStamp = timeStamp;
         this.senderId = senderId;
         this.message = message;
-        this.receiveID = receiveID;
+        this.receiveId = receiveId;
         this.time = time;
     }
-    public String getReceiveID() {
-        return receiveID;
+    public String getReceiveId() {
+        return receiveId;
     }
 
-    public void setReceiveID(String receiveID) {
-        this.receiveID = receiveID;
+    public void setReceiveId(String receiveId) {
+        this.receiveId = receiveId;
     }
 
-    public long getTimestamp() {
-        return timestamp;
+    public long getTimeStamp() {
+        return timeStamp;
     }
 
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
     public String getMsgId() {
         return msgId;

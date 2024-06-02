@@ -46,6 +46,7 @@ import java.util.List;
 public class EditProductWithoutAmount extends AppCompatActivity {
 
     private ImageAdapter imageAdapter;
+    FirebaseStorage firebaseStorage;
     private List<String> imageUrls = new ArrayList<>();
     private List<MyColor> allColors = new ArrayList<>();
     private List<String> selectedColors = new ArrayList<>();
@@ -225,22 +226,35 @@ public class EditProductWithoutAmount extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference productsRef = db.collection("PRODUCT");
         DocumentReference productRef = productsRef.document(MaSP);
-
-        // Delete the product from Firestore
-        productRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+        productRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(EditProductWithoutAmount.this, "Delete product success", Toast.LENGTH_SHORT).show();
-                // Redirect the user to the MyProduct activity or any other desired activity
-                Intent intent_done = new Intent(EditProductWithoutAmount.this, MyProduct.class);
-                startActivity(intent_done);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(EditProductWithoutAmount.this, "Delete product fail", Toast.LENGTH_SHORT).show();
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Product product = documentSnapshot.toObject(Product.class);
+                // Delete the product from Firestore
+                List<String> productImgs = (List<String>) product.getImageUrl();
+                productRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        for (String url : productImgs) {
+                            try {
+                                DeleteOldImg(url);
+                            } catch (Exception ignored) {
+                            }
+                        }
+                        Toast.makeText(EditProductWithoutAmount.this, "Delete product success", Toast.LENGTH_SHORT).show();
+                        // Redirect the user to the MyProduct activity or any other desired activity
+                        EditProductWithoutAmount.this.finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(EditProductWithoutAmount.this, "Delete product fail", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
+        // Delete the product from Firestore
+
     }
 
     private void updateImageUri(Uri o){
@@ -364,9 +378,8 @@ public class EditProductWithoutAmount extends AppCompatActivity {
         ).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Intent intent_done = new Intent(EditProductWithoutAmount.this, EditProductWithoutAmount.class);
                 Toast.makeText(EditProductWithoutAmount.this, "Update successfully", Toast.LENGTH_SHORT).show();
-                startActivity(intent_done);
+                EditProductWithoutAmount.this.finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -374,5 +387,22 @@ public class EditProductWithoutAmount extends AppCompatActivity {
                 Toast.makeText(EditProductWithoutAmount.this, "Update failed", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void DeleteOldImg(String deleteImg) {
+        if (deleteImg != null) {
+            StorageReference oldImageRef = firebaseStorage.getReferenceFromUrl(deleteImg);
+            oldImageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    // File deleted successfully
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Uh-oh, an error occurred
+                }
+            });
+        }
     }
 }

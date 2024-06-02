@@ -66,14 +66,14 @@ public class MyMessageAdapter extends RecyclerView.Adapter<MyMessageAdapter.MyVi
             holder.txtContentMessage.setTextColor((ContextCompat.getColor(context,R.color.white)));
             holder.txtTimeMessage.setTextColor((ContextCompat.getColor(context,R.color.white)));
         }
-        else if(messageObject.getReceiveID().equals(FirebaseAuth.getInstance().getUid()))
+        else if(messageObject.getReceiveId().equals(FirebaseAuth.getInstance().getUid()))
         {
             holder.layout_message_item.setGravity(Gravity.LEFT);
             holder.layout_rowMessage.setBackgroundResource(background_message_white);
             holder.txtContentMessage.setTextColor((ContextCompat.getColor(context,R.color.black)));
             holder.txtTimeMessage.setTextColor((ContextCompat.getColor(context,R.color.black)));
         }
-        else if(messageObject.getReceiveID().equals("Staff"))
+        else if(messageObject.getReceiveId().equals("Staff"))
         {
             holder.layout_message_item.setGravity(Gravity.LEFT);
             holder.layout_rowMessage.setBackgroundResource(background_message_white);
