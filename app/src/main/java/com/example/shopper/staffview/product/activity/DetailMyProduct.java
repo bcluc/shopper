@@ -246,10 +246,11 @@ public class DetailMyProduct extends AppCompatActivity {
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailMyProduct.this, Category.class);
-                intent.putExtra("categoryId", MaDM);
-                startActivity(intent);
-                finish();
+                DetailMyProduct.this.finish();
+//                Intent intent = new Intent(DetailMyProduct.this, Category.class);
+//                intent.putExtra("categoryId", MaDM);
+//                startActivity(intent);
+//                finish();
             }
         });
     }

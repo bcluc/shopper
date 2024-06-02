@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".staffview.viewshop.activity.ViewShop">
 
     <LinearLayout
@@ -100,7 +101,8 @@
             android:id="@+id/tab_layout_listItem_Products"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabSelectedTextColor="#FF8400"></com.google.android.material.tabs.TabLayout>
+            android:background="@color/white"
+            app:tabSelectedTextColor="#FF8400"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager_listItem_Product"

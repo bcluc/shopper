@@ -19,7 +19,10 @@ import com.example.shopper.R;
 import com.example.shopper.authentication.activity.Login;
 import com.example.shopper.authentication.model.User;
 import com.example.shopper.staffview.category.activity.Category;
+import com.example.shopper.staffview.chat.activity.ChatBoard;
+import com.example.shopper.staffview.order.activity.MyOrderActivity;
 import com.example.shopper.staffview.product.activity.MyProduct;
+import com.example.shopper.staffview.report.activity.FinancialReport;
 import com.example.shopper.staffview.viewshop.activity.ViewShop;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -70,11 +73,11 @@ public class StaffHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Khi nút "Confirm" được nhấp vào, chuyển đến "activity_MyOrder" và hiển thị fragment Confirm
 
-//                Intent intent = new Intent(StaffHomePage.this, activity_MyOrder.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selected_tab", 0); // 0 là vị trí tab Confirm
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selected_tab", 0); // 0 là vị trí tab Confirm
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
@@ -83,11 +86,11 @@ public class StaffHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Khi nút "Wait" được nhấp vào, chuyển đến "activity_MyOrder" và hiển thị fragment Wait
 
-//                Intent intent = new Intent(StaffHomePage.this, activity_MyOrder.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selected_tab", 1); // 1 là vị trí tab Wait
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selected_tab", 1); // 1 là vị trí tab Wait
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
@@ -96,11 +99,11 @@ public class StaffHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Khi nút "Delivering" được nhấp vào, chuyển đến "activity_MyOrder" và hiển thị fragment Delivering
 
-//                Intent intent = new Intent(StaffHomePage.this, activity_MyOrder.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selected_tab", 2); // 2 là vị trí tab Delivering
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selected_tab", 2); // 2 là vị trí tab Delivering
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
@@ -109,21 +112,21 @@ public class StaffHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Khi nút "Delivered" được nhấp vào, chuyển đến "activity_MyOrder" và hiển thị fragment Delivered
 
-//                Intent intent = new Intent(home_page.this, activity_MyOrder.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selected_tab", 3); // 3 là vị trí tab Delivered
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selected_tab", 3); // 3 là vị trí tab Delivered
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_MyOrder.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selected_tab", 4); // 0 là vị trí tab Confirm
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selected_tab", 4); // 0 là vị trí tab Confirm
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
@@ -131,8 +134,8 @@ public class StaffHomePage extends AppCompatActivity {
         btnFinancialReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(home_page.this, activity_financial.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, FinancialReport.class);
+                startActivity(intent);
             }
         });
         btnLogOut.setOnClickListener(new View.OnClickListener() {
@@ -214,8 +217,8 @@ public class StaffHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Chuyển đến màn hình "MyOrderActivity"
 
-//                Intent intent = new Intent(StaffHomePage.this, activity_MyOrder.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyOrderActivity.class);
+                startActivity(intent);
             }
         });
         btnViewShop.setOnClickListener(new View.OnClickListener() {
@@ -228,8 +231,8 @@ public class StaffHomePage extends AppCompatActivity {
         btnChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_chat_board.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, ChatBoard.class);
+                startActivity(intent);
             }
         });
         btnCategories.setOnClickListener(new View.OnClickListener()

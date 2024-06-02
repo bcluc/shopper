@@ -22,12 +22,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
-import com.example.shopper.staffview.product.adapter.MyColorAdapter;
 import com.example.shopper.staffview.product.adapter.ImageAdapter;
+import com.example.shopper.staffview.product.adapter.MyColorAdapter;
 import com.example.shopper.staffview.product.adapter.MySizeAdapter;
 import com.example.shopper.staffview.product.model.MyColor;
-import com.example.shopper.staffview.product.model.Product;
 import com.example.shopper.staffview.product.model.MySize;
+import com.example.shopper.staffview.product.model.Product;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -46,22 +46,14 @@ import java.util.List;
 
 public class EditProduct extends AppCompatActivity {
 
+    private final List<MyColor> allColors = new ArrayList<>();
+    private final List<String> selectedColors = new ArrayList<>();
+    private final List<MySize> allSize = new ArrayList<>();
+    private final List<String> selectedSizes = new ArrayList<>();
+    FirebaseStorage firebaseStorage;
     private ImageAdapter imageAdapter;
     private List<String> imageUrls = new ArrayList<>();
-    private List<MyColor> allColors = new ArrayList<>();
-    private List<String> selectedColors = new ArrayList<>();
-    private List<MySize> allSize = new ArrayList<>();
-    private List<String> selectedSizes = new ArrayList<>();
-    private EditText name, description, price, amount;
-    private String productId;
-    private RecyclerView recyclerView_color, recyclerView_size, recyclerView_image;
-    private ImageView img_add;
-    private ImageButton btn_back;
-    private LinearLayoutManager layoutManager;
-    private Button btn_update, btn_delete;
-    private List<String> updatedImageUrls;
-    private Uri imageUri;
-    private ActivityResultLauncher<PickVisualMediaRequest> launcher = registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), new ActivityResultCallback<Uri>() {
+    private final ActivityResultLauncher<PickVisualMediaRequest> launcher = registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), new ActivityResultCallback<Uri>() {
         @Override
         public void onActivityResult(Uri o) {
             if (o == null) {
@@ -71,6 +63,15 @@ public class EditProduct extends AppCompatActivity {
             }
         }
     });
+    private EditText name, description, price, amount;
+    private String productId;
+    private RecyclerView recyclerView_color, recyclerView_size, recyclerView_image;
+    private ImageView img_add;
+    private ImageButton btn_back;
+    private LinearLayoutManager layoutManager;
+    private Button btn_update, btn_delete;
+    private List<String> updatedImageUrls;
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,50 +163,49 @@ public class EditProduct extends AppCompatActivity {
 
         FirebaseFirestore db_PRODUCT = FirebaseFirestore.getInstance();
         CollectionReference PRODUCTRef = db_PRODUCT.collection("PRODUCT");
-        PRODUCTRef.whereEqualTo("productId", productId)
-                .addSnapshotListener((queryDocumentSnapshots, e) -> {
-                    if (e != null) {
-                        // Xử lý lỗi nếu cần thiết
-                        return;
-                    }
+        PRODUCTRef.whereEqualTo("productId", productId).addSnapshotListener((queryDocumentSnapshots, e) -> {
+            if (e != null) {
+                // Xử lý lỗi nếu cần thiết
+                return;
+            }
 
-                    for (DocumentSnapshot document : queryDocumentSnapshots) {
+            for (DocumentSnapshot document : queryDocumentSnapshots) {
 
-                        imageUrls = (List<String>) queryDocumentSnapshots.getDocuments().get(0).get("imageUrl");
-                        if (imageUrls != null) {
-                            imageAdapter = new ImageAdapter(imageUrls);
+                imageUrls = (List<String>) queryDocumentSnapshots.getDocuments().get(0).get("imageUrl");
+                if (imageUrls != null) {
+                    imageAdapter = new ImageAdapter(imageUrls);
 
-                            imageAdapter.setOnImageClickListener(new ImageAdapter.OnImageClickListener() {
-                                @Override
-                                public void onImageClick(int clickedPosition) {
-                                    // Xóa ảnh tại vị trí đã chọn khi nhấp vào ImageButton
-                                    if (clickedPosition >= 0 && clickedPosition < imageUrls.size()) {
-                                        imageUrls.remove(clickedPosition);
-                                        imageAdapter.notifyDataSetChanged();
-                                    }
-                                }
-                            });
-                        }
-                        img_add.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                // Gọi hộp thoại chọn hình ảnh từ thư viện hoặc camera
-                                launcher.launch(new PickVisualMediaRequest.Builder().setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE).build());
+                    imageAdapter.setOnImageClickListener(new ImageAdapter.OnImageClickListener() {
+                        @Override
+                        public void onImageClick(int clickedPosition) {
+                            // Xóa ảnh tại vị trí đã chọn khi nhấp vào ImageButton
+                            if (clickedPosition >= 0 && clickedPosition < imageUrls.size()) {
+                                imageUrls.remove(clickedPosition);
+                                imageAdapter.notifyDataSetChanged();
                             }
-                        });
-
-
-                        String tenSP = document.getString("productName");
-                        name.setText(tenSP);
-                        String mota = document.getString("description");
-                        description.setText(mota);
-                        String giaSP = String.valueOf(document.getLong("productPrice"));
-                        price.setText(giaSP);
-                        String soluong = String.valueOf(document.getLong("quanity"));
-                        amount.setText(soluong);
+                        }
+                    });
+                }
+                img_add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Gọi hộp thoại chọn hình ảnh từ thư viện hoặc camera
+                        launcher.launch(new PickVisualMediaRequest.Builder().setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE).build());
                     }
-                    recyclerView_image.setAdapter(imageAdapter);
                 });
+
+
+                String tenSP = document.getString("productName");
+                name.setText(tenSP);
+                String mota = document.getString("description");
+                description.setText(mota);
+                String giaSP = String.valueOf(document.getLong("productPrice"));
+                price.setText(giaSP);
+                String soluong = String.valueOf(document.getLong("quanity"));
+                amount.setText(soluong);
+            }
+            recyclerView_image.setAdapter(imageAdapter);
+        });
 
 
         btn_update = findViewById(R.id.btn_update);
@@ -225,7 +225,7 @@ public class EditProduct extends AppCompatActivity {
         });
     }
 
-    private void updateImageUri(Uri o){
+    private void updateImageUri(Uri o) {
         Uri imageUri = o;
         if (imageUri != null) {
             imageUrls.add(imageUri.toString());
@@ -240,36 +240,52 @@ public class EditProduct extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference productsRef = db.collection("PRODUCT");
         DocumentReference productRef = productsRef.document(productId);
-
-        // Delete the product from Firestore
-        productRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+        productRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(EditProduct.this, "Delete product success", Toast.LENGTH_SHORT).show();
-                // Redirect the user to the MyProduct activity or any other desired activity
-                EditProduct.this.finish();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(EditProduct.this, "Delete product failed", Toast.LENGTH_SHORT).show();
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Product product = documentSnapshot.toObject(Product.class);
+                // Delete the product from Firestore
+                List<String> productImgs = (List<String>) product.getImageUrl();
+                productRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(EditProduct.this, "Delete product success", Toast.LENGTH_SHORT).show();
+                        // Redirect the user to the MyProduct activity or any other desired activity
+                        for (String url : productImgs) {
+                            try {
+                                DeleteOldImg(url);
+                            } catch (Exception ignored) {
+                            }
+                        }
+                        EditProduct.this.finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(EditProduct.this, "Delete product failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
+
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (resultCode == RESULT_OK && data != null) {
-//            Uri imageUri = data.getData();
-//            if (imageUri != null) {
-//                imageUrls.add(imageUri.toString());
-//                imageAdapter.notifyDataSetChanged();
-//            } else {
-//                Toast.makeText(this, "Failed to get image URI.", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
+    private void DeleteOldImg(String deleteImg) {
+        if (deleteImg != null) {
+            StorageReference oldImageRef = firebaseStorage.getReferenceFromUrl(deleteImg);
+            oldImageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    // File deleted successfully
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Uh-oh, an error occurred
+                }
+            });
+        }
+    }
 
     private void updateProduct() {
         // Tải ảnh lên Firebase Storage và sau khi hoàn thành, tiến hành cập nhật thông tin sản phẩm
@@ -308,29 +324,27 @@ public class EditProduct extends AppCompatActivity {
             }
         }
 
-        Tasks.whenAllComplete(imageUploadTasks)
-                .addOnSuccessListener(taskSnapshots -> {
-                    for (Task<Uri> downloadUrlTask : imageUploadTasks) {
-                        if (downloadUrlTask.isSuccessful()) {
-                            String imageUrlpiu = downloadUrlTask.getResult().toString();
-                            updatedImageUrls.add(imageUrlpiu);
-                            // Tùy chọn: Bạn cũng có thể loại bỏ URL ảnh cục bộ đã tải lên khỏi danh sách
-                            localImageUrls.remove(imageUrlpiu);
-                        }
-                    }
+        Tasks.whenAllComplete(imageUploadTasks).addOnSuccessListener(taskSnapshots -> {
+            for (Task<Uri> downloadUrlTask : imageUploadTasks) {
+                if (downloadUrlTask.isSuccessful()) {
+                    String imageUrlpiu = downloadUrlTask.getResult().toString();
+                    updatedImageUrls.add(imageUrlpiu);
+                    // Tùy chọn: Bạn cũng có thể loại bỏ URL ảnh cục bộ đã tải lên khỏi danh sách
+                    localImageUrls.remove(imageUrlpiu);
+                }
+            }
 
-                    // Gộp hai danh sách (URL Storage Firebase đã tải lên + URL Storage Firebase ban đầu)
-                    updatedImageUrls.addAll(storageImageUrls);
-                    // Bây giờ bạn có một danh sách hoàn chỉnh của URL ảnh sẵn sàng để thêm vào tài liệu
+            // Gộp hai danh sách (URL Storage Firebase đã tải lên + URL Storage Firebase ban đầu)
+            updatedImageUrls.addAll(storageImageUrls);
+            // Bây giờ bạn có một danh sách hoàn chỉnh của URL ảnh sẵn sàng để thêm vào tài liệu
 
-                    // Gọi hàm để cập nhật thông tin sản phẩm
-                    updateProductInfo(updatedImageUrls);
+            // Gọi hàm để cập nhật thông tin sản phẩm
+            updateProductInfo(updatedImageUrls);
 
-                    Toast.makeText(getApplicationContext(), "Get URL success!", Toast.LENGTH_SHORT).show();
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(getApplicationContext(), "Fail to upload image!", Toast.LENGTH_SHORT).show();
-                });
+            Toast.makeText(getApplicationContext(), "Get URL success!", Toast.LENGTH_SHORT).show();
+        }).addOnFailureListener(e -> {
+            Toast.makeText(getApplicationContext(), "Fail to upload image!", Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void updateProductInfo(List<String> updatedImageUrls) {
@@ -379,15 +393,7 @@ public class EditProduct extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference productsRef = db.collection("PRODUCT");
-        productsRef.document(productId).update(
-                "productName", tenSP,
-                "description", mota,
-                "productPrice", giaSP,
-                "quanity", soluong,
-                "productColor", selectedColors,
-                "productSize", selectedSizes,
-                "imageUrl", updatedImageUrls
-        ).addOnSuccessListener(new OnSuccessListener<Void>() {
+        productsRef.document(productId).update("productName", tenSP, "description", mota, "productPrice", giaSP, "quanity", soluong, "productColor", selectedColors, "productSize", selectedSizes, "imageUrl", updatedImageUrls).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(EditProduct.this, "Update successful", Toast.LENGTH_SHORT).show();

@@ -14,10 +14,22 @@
         android:theme="@style/Theme.Shopper"
         tools:targetApi="31">
         <activity
-            android:name=".customerview.home.shoppingcart.billing.BuyNow"
+            android:name=".staffview.report.activity.FinancialReport"
             android:exported="false" />
         <activity
-            android:name=".customerview.util.activities.ReViewer"
+            android:name=".staffview.chat.activity.SpecificChat"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.chat.activity.ChatBoard"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.order.activity.DetailOrder"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.order.activity.MyOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.home.shoppingcart.billing.BuyNow"
             android:exported="false" />
         <activity
             android:name=".staffview.viewshop.activity.detail.shop.DetailShopView"

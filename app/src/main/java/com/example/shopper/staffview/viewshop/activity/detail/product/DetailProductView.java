@@ -18,10 +18,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.shopper.R;
 import com.example.shopper.customerview.home.category.model.Categories;
 import com.example.shopper.customerview.home.product.activity.DetailProduct;
-import com.example.shopper.customerview.util.activities.ReViewer;
 import com.example.shopper.customerview.util.color.adapter.ColorsAdapter;
 import com.example.shopper.customerview.util.color.model.Colors;
 import com.example.shopper.customerview.util.size.adapter.SizeAdapter;
+import com.example.shopper.staffview.review.activity.Reviewer;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -87,7 +87,7 @@ public class DetailProductView extends AppCompatActivity {
                                 String categoryId = task.getResult().getDocuments().get(0).getId();
 
                                 // Chuyển sang màn hình hiển thị sản phẩm với categoryId
-                                Intent intent = new Intent(DetailProductView.this, ReViewer.class);
+                                Intent intent = new Intent(DetailProductView.this, Reviewer.class);
                                 intent.putExtra("productId", MaSP);
                                 startActivity(intent);
                             }
@@ -163,8 +163,8 @@ public class DetailProductView extends AppCompatActivity {
 
                                             String tenMauSac = mausacDocumentSnapshot.getString("colorName");
                                             String maMau = mausacDocumentSnapshot.getString("colorCode");
-                                            String colorCode = mausacDocumentSnapshot.getString("colorId");
-                                            Colors colors = new Colors(maMau,colorCode, tenMauSac);
+                                            String colorId = mausacDocumentSnapshot.getString("colorId");
+                                            Colors colors = new Colors(colorId, maMau, tenMauSac);
                                             listmau.add(colors);
                                             ColorsAdapter colorAdapter = new ColorsAdapter();
                                             colorAdapter.setData(listmau, detailProductActivity);
