@@ -24,6 +24,7 @@ import com.example.shopper.staffview.order.activity.MyOrderActivity;
 import com.example.shopper.staffview.product.activity.MyProduct;
 import com.example.shopper.staffview.promotion.activity.MyPromotion;
 import com.example.shopper.staffview.report.activity.FinancialReport;
+import com.example.shopper.staffview.setting.activity.MyProfile;
 import com.example.shopper.staffview.viewshop.activity.ViewShop;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -209,8 +210,8 @@ public class StaffHomePage extends AppCompatActivity {
         btnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_setting.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyProfile.class);
+                startActivity(intent);
             }
         });
         btnMyOrder.setOnClickListener(new View.OnClickListener() {
