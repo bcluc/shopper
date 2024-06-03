@@ -3,7 +3,6 @@ package com.example.shopper.staffview;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,9 +19,12 @@ import com.example.shopper.authentication.activity.Login;
 import com.example.shopper.authentication.model.User;
 import com.example.shopper.staffview.category.activity.Category;
 import com.example.shopper.staffview.chat.activity.ChatBoard;
+import com.example.shopper.staffview.manageuser.activity.ManageUser;
 import com.example.shopper.staffview.order.activity.MyOrderActivity;
 import com.example.shopper.staffview.product.activity.MyProduct;
+import com.example.shopper.staffview.promotion.activity.MyPromotion;
 import com.example.shopper.staffview.report.activity.FinancialReport;
+import com.example.shopper.staffview.setting.activity.MyProfile;
 import com.example.shopper.staffview.viewshop.activity.ViewShop;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -208,8 +210,8 @@ public class StaffHomePage extends AppCompatActivity {
         btnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_setting.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyProfile.class);
+                startActivity(intent);
             }
         });
         btnMyOrder.setOnClickListener(new View.OnClickListener() {
@@ -247,15 +249,15 @@ public class StaffHomePage extends AppCompatActivity {
         btnPromotions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_promotions.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, MyPromotion.class);
+                startActivity(intent);
             }
         });
         btnManageUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_admin_control.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, ManageUser.class);
+                startActivity(intent);
             }
         });
     }

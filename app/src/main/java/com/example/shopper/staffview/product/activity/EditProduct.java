@@ -174,7 +174,6 @@ public class EditProduct extends AppCompatActivity {
                 imageUrls = (List<String>) queryDocumentSnapshots.getDocuments().get(0).get("imageUrl");
                 if (imageUrls != null) {
                     imageAdapter = new ImageAdapter(imageUrls);
-
                     imageAdapter.setOnImageClickListener(new ImageAdapter.OnImageClickListener() {
                         @Override
                         public void onImageClick(int clickedPosition) {

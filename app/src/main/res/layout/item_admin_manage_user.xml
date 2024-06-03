@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/layout_admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_staff"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:src="@drawable/default_user"
+            app:civ_border_color="@color/white"
+            app:civ_border_overlay="true"
+            app:civ_border_width="0dp" />
+
+        <LinearLayout
+            android:id="@id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/btn_reset"
+            android:layout_toEndOf="@+id/img_staff"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_admin_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:text="Lee Min Thuong"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textSize="13dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingStart="10dp"
+                    android:text="Status: "
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    android:textSize="10dp"></TextView>
+
+                <TextView
+                    android:id="@+id/txt_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/montserrat"
+                    android:paddingStart="3dp"
+                    android:paddingEnd="10dp"
+                    android:text="working"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#FF8400"
+            android:fontFamily="@font/montserrat"
+            android:padding="5dp"
+            android:text="Reset password"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="11dp"
+            app:strokeColor="#FF8400"
+            app:strokeWidth="1dp" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
