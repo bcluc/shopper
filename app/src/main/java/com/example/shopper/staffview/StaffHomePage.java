@@ -3,7 +3,6 @@ package com.example.shopper.staffview;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,6 +19,7 @@ import com.example.shopper.authentication.activity.Login;
 import com.example.shopper.authentication.model.User;
 import com.example.shopper.staffview.category.activity.Category;
 import com.example.shopper.staffview.chat.activity.ChatBoard;
+import com.example.shopper.staffview.manageuser.activity.ManageUser;
 import com.example.shopper.staffview.order.activity.MyOrderActivity;
 import com.example.shopper.staffview.product.activity.MyProduct;
 import com.example.shopper.staffview.promotion.activity.MyPromotion;
@@ -255,8 +255,8 @@ public class StaffHomePage extends AppCompatActivity {
         btnManageUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(StaffHomePage.this, activity_admin_control.class);
-//                startActivity(intent);
+                Intent intent = new Intent(StaffHomePage.this, ManageUser.class);
+                startActivity(intent);
             }
         });
     }

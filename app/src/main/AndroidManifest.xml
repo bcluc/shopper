@@ -14,6 +14,12 @@
         android:theme="@style/Theme.Shopper"
         tools:targetApi="31">
         <activity
+            android:name=".staffview.manageuser.activity.DetailUser"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.manageuser.activity.ManageUser"
+            android:exported="false" />
+        <activity
             android:name=".staffview.promotion.activity.AddMyPromotion"
             android:exported="false" />
         <activity

@@ -62,6 +62,9 @@ dependencies {
     implementation ("com.squareup.picasso:picasso:2.8")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation("androidx.activity:activity:1.9.0")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.orhanobut:dialogplus:1.11@aar")
+
 
     implementation(libs.appcompat)
     implementation(libs.material)
