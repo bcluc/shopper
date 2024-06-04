@@ -529,7 +529,7 @@ public class DetailProduct extends AppCompatActivity {
         mauSacs = new ArrayList<>();
         colorAdapter = new ColorsAdapter();
 
-        Log.d("Mau", colors.getClass().toString());
+        Log.d("Mau", colors.get(0));
 
         for (String color : colors) {
             final DocumentReference docRef = firebaseFirestore.collection("COLOR").document(color);
@@ -546,7 +546,7 @@ public class DetailProduct extends AppCompatActivity {
                         String maMau = (String) snapshot.get("colorCode");
                         String tenMau = (String) snapshot.get("colorName");
                         String maMauSac = (String) snapshot.get("colorId");
-                        Colors mauSac = new Colors(maMau, maMauSac, tenMau);
+                        Colors mauSac = new Colors(maMauSac, maMau, tenMau);
 
 
                         mauSacs.add(mauSac);
@@ -589,6 +589,7 @@ public class DetailProduct extends AppCompatActivity {
             });
         }
     }
+
     private void setOnClickBackICon() {
 
         backIcon.setOnClickListener(new View.OnClickListener() {
