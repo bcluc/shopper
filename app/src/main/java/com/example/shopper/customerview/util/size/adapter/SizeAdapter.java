@@ -1,6 +1,5 @@
 package com.example.shopper.customerview.util.size.adapter;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,6 @@ public class SizeAdapter extends RecyclerView.Adapter<SizeAdapter.SizeViewHolder
         this.detailProductActivity = detailProductActivity;
         notifyDataSetChanged();
     }
-
 
     @NonNull
     @Override

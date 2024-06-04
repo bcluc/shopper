@@ -3,23 +3,17 @@ package com.example.shopper.staffview.category.activity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.SearchView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
-import com.example.shopper.customerview.home.product.activity.DetailProduct;
 import com.example.shopper.staffview.category.adapter.DetailCategoryAdapter;
 import com.example.shopper.staffview.product.activity.DetailMyProduct;
 import com.example.shopper.staffview.product.model.Product;
@@ -58,8 +52,7 @@ public class DetailCategory extends AppCompatActivity implements Filterable {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailCategory.this, Category.class);
-                startActivity(intent);
+                DetailCategory.this.finish();
             }
         });
         SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);

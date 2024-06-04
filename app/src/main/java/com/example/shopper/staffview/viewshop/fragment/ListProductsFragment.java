@@ -2,6 +2,10 @@ package com.example.shopper.staffview.viewshop.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,16 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.shopper.R;
 import com.example.shopper.staffview.product.activity.DetailMyProduct;
 import com.example.shopper.staffview.product.model.Product;
-import com.example.shopper.staffview.viewshop.activity.detail.product.DetailProductView;
-import com.example.shopper.staffview.viewshop.activity.detail.shop.DetailShopView;
 import com.example.shopper.staffview.viewshop.adapter.ListProductsAdapter;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -87,7 +84,7 @@ public class ListProductsFragment extends Fragment {
                             if (task.isSuccessful() && !task.getResult().isEmpty()) {
                                 // Lấy MaDM từ kết quả truy vấn
                                 String productID = task.getResult().getDocuments().get(0).getId();
-                                Intent intent = new Intent(getActivity(), DetailShopView.class);
+                                Intent intent = new Intent(getActivity(), DetailMyProduct.class);
                                 intent.putExtra("productId", productID);
                                 Log.d("ProductID", "Product id: " + productID);
                                 startActivity(intent);
