@@ -7,18 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.shopper.R;
+import com.example.shopper.staffview.StaffHomePage;
 import com.example.shopper.staffview.order.fragment.CancelFragment;
 import com.example.shopper.staffview.order.fragment.ConfirmFragment;
 import com.example.shopper.staffview.order.fragment.DeliveredFragment;
@@ -65,7 +62,8 @@ public class MyOrderActivity extends AppCompatActivity {
         back_to_Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(MyOrderActivity.this, StaffHomePage.class);
+                startActivity(intent);
             }
         });
         FirebaseFirestore db = FirebaseFirestore.getInstance();

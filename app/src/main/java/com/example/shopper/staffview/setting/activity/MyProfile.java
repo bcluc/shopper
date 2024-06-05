@@ -31,7 +31,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.shopper.R;
 import com.example.shopper.authentication.model.User;
-import com.example.shopper.staffview.StaffHomePage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -71,7 +70,6 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
     private ImageView edImg, imgAvt;
     private String ImageUrl;
     private String oldImageUrl;
-    private Uri imagePathUri;
     private final ActivityResultLauncher<PickVisualMediaRequest> launcher = registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), new ActivityResultCallback<Uri>() {
         @Override
         public void onActivityResult(Uri o) {
@@ -79,7 +77,6 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
                 Toast.makeText(MyProfile.this, "No image was selected.", Toast.LENGTH_SHORT).show();
             } else {
                 imagePath = String.valueOf(o);
-                imagePathUri = o;
                 Glide.with(MyProfile.this).load(imagePath).into(edImg);
                 updateImgInStorage(o);
             }
@@ -123,17 +120,9 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
         findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyProfile.this, StaffHomePage.class);
-                startActivity(intent);
+                MyProfile.this.finish();
             }
         });
-//        findViewById(R.id.btn_changeAvt_Profile).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                EventChangeAva();
-//            }
-//        });
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             findViewById(R.id.constraintLayout).setLeftTopRightBottom(0, 0, 0, 180);
         }
@@ -167,10 +156,6 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
 
     }
 
-    //    private void EventChangeAva() {
-//        Intent pickPhotoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//        startActivityForResult(pickPhotoIntent, REQUEST_IMAGE_PICK);
-//    }
     private void EventInit() {
         db.collection("USERS").document(firebaseAuth.getUid()).
                 get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

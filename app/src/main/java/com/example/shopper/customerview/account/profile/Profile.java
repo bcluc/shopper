@@ -79,12 +79,10 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
             } else {
                 imagePath = String.valueOf(o);
                 Glide.with(Profile.this).load(imagePath).into(edImg);
-                updateUserAvatar(o);
+                updateImgInStorage(o);
             }
         }
     });
-    private Uri Staff_imagepath;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -392,60 +390,6 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
                     }
                 });
 
-    }
-
-    private void updateUserAvatar(Uri imageUri) {
-        progressDialog.setTitle("Updating...");
-        progressDialog.show();
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference();
-        StorageReference avatarRef = storageRef.child("userImages/" + UUID.randomUUID().toString() + ".jpg");
-
-        avatarRef.putFile(imageUri)
-                .addOnSuccessListener(taskSnapshot -> {
-                    avatarRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                        ImageUrl = uri.toString();
-                        db.collection("USERS").document(currentUserId)
-                                .update("avatar", ImageUrl)
-                                .addOnSuccessListener(aVoid -> {
-                                    try {
-                                        Picasso.get().load(ImageUrl).into(imgAvt);
-                                    } catch (Exception e) {
-                                    }
-                                    try {
-                                        if (!ImageUrl.equals(oldImageUrl)) {
-                                            try {
-                                                if (!oldImageUrl.isEmpty()) {
-                                                    DeleteOldImg(oldImageUrl);
-                                                    oldImageUrl = ImageUrl;
-                                                }
-                                            } catch (Exception e) {
-                                            }
-                                        }
-                                    } catch (Exception e) {
-                                    }
-
-                                })
-                                .addOnFailureListener(e -> {
-                                    try {
-                                        if (!ImageUrl.equals(oldImageUrl)) {
-                                            try {
-                                                if (!ImageUrl.isEmpty()) {
-                                                    DeleteOldImg(ImageUrl);
-                                                }
-                                            } catch (Exception d) {
-                                            }
-                                        }
-                                    } catch (Exception d) {
-                                    }
-                                    Toast.makeText(Profile.this, "Failed to update avatar", Toast.LENGTH_SHORT).show();
-                                });
-                    });
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(Profile.this, "Failed to upload avatar", Toast.LENGTH_SHORT).show();
-                });
-        progressDialog.dismiss();
     }
 
     @Override

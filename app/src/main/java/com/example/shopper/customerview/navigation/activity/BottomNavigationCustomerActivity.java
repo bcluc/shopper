@@ -26,7 +26,7 @@ import com.example.shopper.customerview.navigation.adapter.BottomViewPagerAdapte
 import com.example.shopper.customerview.navigation.fragment.AccountFragment;
 import com.example.shopper.customerview.navigation.fragment.HomeFragment;
 import com.example.shopper.customerview.notification.activity.MyNotification;
-import com.example.shopper.customerview.notification.activity.Order;
+import com.example.shopper.customerview.notification.activity.CustomerOrder;
 import com.example.shopper.customerview.util.search.Searching;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -153,7 +153,7 @@ public class BottomNavigationCustomerActivity extends AppCompatActivity {
     }
 
     public void gotoOrderActivity() {
-        Intent intent = new Intent(BottomNavigationCustomerActivity.this, Order.class);
+        Intent intent = new Intent(BottomNavigationCustomerActivity.this, CustomerOrder.class);
         //  intent.putExtra("MaSP", product.getMasp());
         startActivity(intent);
     }

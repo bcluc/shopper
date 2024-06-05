@@ -1,4 +1,4 @@
-package com.example.shopper.staffview.order.adapter;
+package com.example.shopper.customerview.notification.adapter.order;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,13 +15,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
 import com.example.shopper.authentication.model.User;
-import com.example.shopper.staffview.order.activity.DetailOrder;
+import com.example.shopper.customerview.notification.activity.DetailCustomerOrder;
+import com.example.shopper.staffview.order.adapter.MyProductAdapter;
 import com.example.shopper.staffview.order.model.ItemOrder;
 import com.example.shopper.staffview.order.model.Order;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -34,63 +36,40 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
+public class CustomerOrderAdapter extends RecyclerView.Adapter<CustomerOrderAdapter.ViewHolder> {
     private List<Order> orderList;
     private String userID;
     private User user;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView orderIdTextView;
-        public TextView customerNameTextView;
-        private ImageView img_avatar;
-        private RecyclerView recyclerViewProducts;
-        private MyProductAdapter myProductAdapter;
 
-        private TextView total;
-        private Button button;
-        private Button confirm;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            orderIdTextView = itemView.findViewById(R.id.tv_orderID);
-            customerNameTextView = itemView.findViewById(R.id.tv_ordername);
-            img_avatar = itemView.findViewById(R.id.img_avatar);
-            recyclerViewProducts = itemView.findViewById(R.id.RCVcard_view);
-            total = itemView.findViewById(R.id.moneytotal);
-            button = itemView.findViewById(R.id.btn_detail);
-            confirm = itemView.findViewById(R.id.confirm);
-
-        }
-    }
-
-
-    public OrderAdapter(List<Order> orderList) {
+    public CustomerOrderAdapter(List<Order> orderList) {
         this.orderList = orderList;
     }
 
-    public List<Order> getOrderList() {
-        return orderList;
-    }
 
-    public OrderAdapter(List<Order> orderList, String userID) {
+    public CustomerOrderAdapter(List<Order> orderList, String userID) {
         this.orderList = orderList;
         this.userID = userID;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_screen_order, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
-
+    public CustomerOrderAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_screen_oder_customer, parent, false);
+        CustomerOrderAdapter.ViewHolder viewHolder = new CustomerOrderAdapter.ViewHolder(view);
         return viewHolder;
     }
 
-
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CustomerOrderAdapter.ViewHolder holder, int position) {
         Order order = orderList.get(position);
+
         int receive = position;
+
+        AtomicInteger totalMoney = new AtomicInteger(0);
+        userID = FirebaseAuth.getInstance().getUid();
         holder.orderIdTextView.setText(order.getOrderId());
         holder.customerNameTextView.setText(order.getUserName());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(holder.itemView.getContext());
@@ -100,12 +79,12 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             public void onClick(View v) {
                 String maDH = orderList.get(receive).getOrderId();
                 // Chuyển sang activity mới
-                Intent intent = new Intent(v.getContext(), DetailOrder.class);
+                Intent intent = new Intent(v.getContext(), DetailCustomerOrder.class);
                 intent.putExtra("orderId", maDH);
                 v.getContext().startActivity(intent);
             }
         });
-        holder.confirm.setOnClickListener(new View.OnClickListener() {
+        holder.cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String maDH = orderList.get(receive).getOrderId();
@@ -118,11 +97,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                         if (trangThai != null) {
                             String newTrangThai;
                             if (trangThai.equals("Confirm")) {
-                                newTrangThai = "Wait";
-                            } else if (trangThai.equals("Wait")) {
-                                newTrangThai = "Delivering";
-                            } else if (trangThai.equals("Delivering")) {
-                                newTrangThai = "Delivered";
+                                newTrangThai = "Cancel";
                             } else {
                                 return;
                             }
@@ -132,11 +107,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
                                                 // Cập nhật thành công
-                                                Toast.makeText(v.getContext(), "Status has been updated", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(v.getContext(), "CustomerOrder status has been updated", Toast.LENGTH_SHORT).show();
                                                 refresh();
                                             } else {
                                                 // Cập nhật thất bại
-                                                Toast.makeText(v.getContext(), "Update failed", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(v.getContext(), "CustomerOrder status failed", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
@@ -144,7 +119,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                         }
                         CollectionReference maThongBaoRef = FirebaseFirestore.getInstance().collection("CUSTOMNOTIFY");
                         // Truy vấn để lấy MaTB dựa trên trạng thái "trangThai"
-                        maThongBaoRef.whereEqualTo("notifyType", trangThai).limit(1).get()
+                        maThongBaoRef.whereEqualTo("notifyType", "Cancel").limit(1).get()
                                 .addOnSuccessListener(querySnapshot -> {
                                     // Kiểm tra xem có kết quả trả về không
                                     if (!querySnapshot.isEmpty()) {
@@ -205,30 +180,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                                 .addOnFailureListener(e -> {
                                     // Xử lý lỗi nếu có lỗi khi truy vấn "MATHONGBAO"
                                 });
-                        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-                        String MaND = firebaseAuth.getUid();
-                        Timestamp timestamp = Timestamp.now();
-                        Map<String, Object> xacNhanDonHang = new HashMap<>();
-                        xacNhanDonHang.put("orderId", maDH);
-                        xacNhanDonHang.put("userId", MaND);
-                        xacNhanDonHang.put("timeStamp", timestamp);
-                        xacNhanDonHang.put("state", trangThai); // Lưu giá trị TrangThai
-                        FirebaseFirestore db = FirebaseFirestore.getInstance();
-                        CollectionReference xacNhanDonHangRef = db.collection("ORDERCONFIRM");
-                        if (trangThai.equals("Confirm") || trangThai.equals("Wait")) {
-                            xacNhanDonHangRef.add(xacNhanDonHang)
-                                    .addOnSuccessListener(documentReference1 -> {
-                                        // Tạo tài liệu thành công
-                                        String xacNhanDonHangId = documentReference1.getId();
-                                        // Thực hiện các thao tác khác nếu cần
-                                    })
-                                    .addOnFailureListener(e -> {
-                                        // Tạo tài liệu thất bại
-                                        // Xử lý lỗi nếu cần
-                                    });
-                        }
-                    } else {
-                        Toast.makeText(v.getContext(), "Document does not exist", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -237,8 +188,24 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
         // Truy vấn Firebase để lấy AnhDaiDien dựa trên maND
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+        CollectionReference donHangRef = db.collection("ORDER");
+        donHangRef.document(orderList.get(receive).getOrderId()).get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+
+                        Long tongTien = documentSnapshot.getLong("totalBill");
+                        holder.total.setText(formatCurrency(tongTien.intValue()));
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    // Xử lý khi truy vấn thất bại
+                });
+
         CollectionReference usersRef = db.collection("USERS");
-        usersRef.document(order.getUserId()).get()
+        usersRef.document(firebaseUser.getUid()).get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
                         String anhDaiDien = documentSnapshot.getString("avatar");
@@ -249,27 +216,20 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                     // Xử lý khi truy vấn thất bại
                 });
 
-        CollectionReference tongtienRef = FirebaseFirestore.getInstance().collection("ORDER");
-        DocumentReference tienRef = tongtienRef.document(order.getOrderId());
-        tienRef
-                .addSnapshotListener((documentSnapshot, e) -> {
-                    if (documentSnapshot.exists()) {
-                        long tongtien = documentSnapshot.getLong("totalBill");
-                        holder.total.setText(formatCurrency(Integer.parseInt(String.valueOf(tongtien))));
-                    }
-                });
-
         FirebaseFirestore db_con = FirebaseFirestore.getInstance();
         CollectionReference dathangRef = db_con.collection("ORDERACT");
-        dathangRef.whereEqualTo("MaDH", order.getOrderId())
+        dathangRef.whereEqualTo("orderId", order.getOrderId())
                 .get()
                 .addOnSuccessListener(querySnapshot -> {
                     List<ItemOrder> itemOrderList = new ArrayList<>();
                     for (DocumentSnapshot document : querySnapshot.getDocuments()) {
                         String maSP = document.getString("productId");
-                        int number = document.getLong("quanity") != null ? Math.toIntExact(document.getLong("quanity")) : 0;
-                        String color = document.getString("productColor");
+
+                        String mauSac = document.getString("productColor");
                         String size = document.getString("productSize");
+
+                        int number = document.getLong("quanity") != null ? Math.toIntExact(document.getLong("quanity")) : 0;
+
                         // Truy vấn Firebase để lấy thông tin sản phẩm từ MaSP
                         CollectionReference sanphamRef = db.collection("PRODUCT");
                         sanphamRef.document(maSP).get()
@@ -287,8 +247,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                                         Long giaSPLong = sanphamDocument.getLong("productPrice");
                                         int GiaSP = giaSPLong != null ? Math.toIntExact(giaSPLong) : 0;
 
-                                        ItemOrder itemOrder = new ItemOrder(hinhAnhSP, tenSP, maSP, GiaSP, number, color, size);
+                                        ItemOrder itemOrder = new ItemOrder(hinhAnhSP, tenSP, maSP, GiaSP, number, mauSac, size);
                                         itemOrderList.add(itemOrder);
+                                        // Cập nhật tổng tiền
+                                        int totalPrice = GiaSP * number;
+                                        totalMoney.addAndGet(totalPrice);
+                                        //holder.total.setText(formatCurrency(totalMoney.get()));
+                                        // Đặt giá trị tổng tiền vào TextView
+
                                         // Tạo mới MyProductAdapter và gán nó cho recyclerViewProducts
                                         holder.myProductAdapter = new MyProductAdapter(itemOrderList);
                                         holder.recyclerViewProducts.setAdapter(holder.myProductAdapter);
@@ -305,9 +271,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 });
     }
 
-    @Override
-    public int getItemCount() {
-        return orderList.size();
+    public void refresh() {
+        notifyDataSetChanged();
     }
 
     private String formatCurrency(int amount) {
@@ -315,8 +280,31 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         return decimalFormat.format(amount);
     }
 
-    public void refresh() {
-        notifyDataSetChanged();
+    @Override
+    public int getItemCount() {
+        return orderList.size();
     }
 
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView orderIdTextView;
+        public TextView customerNameTextView;
+        private ImageView img_avatar;
+        private RecyclerView recyclerViewProducts;
+        private MyProductAdapter myProductAdapter;
+
+        private TextView total;
+        private Button button;
+        private Button cancel;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            orderIdTextView = itemView.findViewById(R.id.tv_orderID_customer);
+            customerNameTextView = itemView.findViewById(R.id.tv_ordername_customer);
+            img_avatar = itemView.findViewById(R.id.img_avatar_customer);
+            recyclerViewProducts = itemView.findViewById(R.id.RCVcard_view_customer);
+            total = itemView.findViewById(R.id.moneytotal_customer);
+            button = itemView.findViewById(R.id.btn_detail_customer);
+            cancel = itemView.findViewById(R.id.confirm_customer);
+        }
+    }
 }

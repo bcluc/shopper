@@ -385,6 +385,16 @@ public class BuyNow extends AppCompatActivity {
                     Delivery.setText("20000");
                     Total.setText(String.valueOf(Math.round(Sum - Sum * TiLeKM + 20000)));
                     break;
+                default:
+                    TienTamTinh = Sum;
+                    GiamGia = 0;
+                    VanChuyen = 20000;
+                    TongTien = Math.round(Sum + 20000);
+                    Subtotal.setText(String.valueOf(Sum));
+                    Discount.setText("0");
+                    Delivery.setText("20000");
+                    Total.setText(String.valueOf(Math.round(Sum + 20000)));
+                    break;
             }
         } else {
             Toast.makeText(BuyNow.this, "Can't apply discount", Toast.LENGTH_LONG).show();
