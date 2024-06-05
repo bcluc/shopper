@@ -31,7 +31,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.shopper.R;
 import com.example.shopper.authentication.model.User;
-import com.example.shopper.staffview.StaffHomePage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -55,9 +54,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    private static final int REQUEST_IMAGE_PICK = 1;
-    private String currentUserId ;
+public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     User object;
     int position;
     ProgressDialog progressDialog;
@@ -67,12 +64,12 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
     FirebaseStorage firebaseStorage;
     DocumentReference docRef;
     StorageReference storageReference;
+    private String currentUserId;
     private LinearLayout layout;
     private String imagePath;
     private ImageView edImg, imgAvt;
     private String ImageUrl;
     private String oldImageUrl;
-    private Uri Staff_imagepath;
     private final ActivityResultLauncher<PickVisualMediaRequest> launcher = registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), new ActivityResultCallback<Uri>() {
         @Override
         public void onActivityResult(Uri o) {
@@ -81,10 +78,11 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
             } else {
                 imagePath = String.valueOf(o);
                 Glide.with(MyProfile.this).load(imagePath).into(edImg);
-                updateUserAvatar(o);
+                updateImgInStorage(o);
             }
         }
     });
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,33 +120,25 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
         findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyProfile.this, StaffHomePage.class);
-                startActivity(intent);
+                MyProfile.this.finish();
             }
         });
-//        findViewById(R.id.btn_changeAvt_Profile).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                EventChangeAva();
-//            }
-//        });
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            findViewById(R.id.constraintLayout).setLeftTopRightBottom(0,0,0,180);
+            findViewById(R.id.constraintLayout).setLeftTopRightBottom(0, 0, 0, 180);
         }
         EventInit();
     }
+
     @Override
     protected void onStop() {
         super.onStop();
-        DocumentReference documentReference=FirebaseFirestore.getInstance().
+        DocumentReference documentReference = FirebaseFirestore.getInstance().
                 collection("USERS").document(FirebaseAuth.getInstance().getUid());
-        documentReference.update("status","Offline").addOnSuccessListener(new OnSuccessListener<Void>() {
+        documentReference.update("status", "Offline").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
             }
         });
-
 
 
     }
@@ -156,20 +146,17 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
     @Override
     protected void onStart() {
         super.onStart();
-        DocumentReference documentReference=FirebaseFirestore.getInstance().
+        DocumentReference documentReference = FirebaseFirestore.getInstance().
                 collection("USERS").document(FirebaseAuth.getInstance().getUid());
-        documentReference.update("status","Online").addOnSuccessListener(new OnSuccessListener<Void>() {
+        documentReference.update("status", "Online").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
             }
         });
 
     }
-//    private void EventChangeAva() {
-//        Intent pickPhotoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//        startActivityForResult(pickPhotoIntent, REQUEST_IMAGE_PICK);
-//    }
-    private void EventInit(){
+
+    private void EventInit() {
         db.collection("USERS").document(firebaseAuth.getUid()).
                 get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -183,24 +170,23 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
                         ((TextView) findViewById(R.id.txt_address_Profile)).setText(object.getAddress());
 
                         ImageUrl = object.getAvatar();
-                        try{
-                            if(ImageUrl.isEmpty()) {}
-                            else {
+                        try {
+                            if (ImageUrl.isEmpty()) {
+                            } else {
                                 Picasso.get().load(ImageUrl).into((ImageView) findViewById(R.id.img_avt_Profile));
                                 storageReference = firebaseStorage.getReferenceFromUrl(ImageUrl);
                             }
-                        }
-                        catch (Exception e)
-                        {
+                        } catch (Exception e) {
 
                         }
                         oldImageUrl = ImageUrl;
                     }
                 });
     }
-    private void EventEdit()
-    {
-        DialogPlus dialogPlus = DialogPlus.newDialog( this)
+
+
+    private void EventEdit() {
+        DialogPlus dialogPlus = DialogPlus.newDialog(this)
                 .setGravity(Gravity.CENTER)
                 .setContentHolder(new ViewHolder(R.layout.activity_edit_user))
                 .setExpanded(false)
@@ -218,7 +204,7 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
         Button btnCancel = holderView.findViewById(R.id.btn_cancel);
 
 
-        ArrayAdapter<CharSequence> gender = ArrayAdapter.createFromResource(this,R.array.gender,
+        ArrayAdapter<CharSequence> gender = ArrayAdapter.createFromResource(this, R.array.gender,
                 R.layout.item_spinner);
         gender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         edSex.setAdapter(gender);
@@ -227,41 +213,33 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
 
         edName.setText(object.getFullName());
         String gt = object.getSex();
-        try{
-            if(gt.isEmpty()) edSex.setSelection(0);
-            else if(gt.equals("Male")) edSex.setSelection(1);
-            else if(gt.equals("Female")) edSex.setSelection(2);
-        }
-        catch (Exception e){
+        try {
+            if (gt.isEmpty()) edSex.setSelection(0);
+            else if (gt.equals("Male")) edSex.setSelection(1);
+            else if (gt.equals("Female")) edSex.setSelection(2);
+        } catch (Exception e) {
 
         }
         edAddr.setText(object.getAddress());
         edDob.setText(object.getDayOfBirth());
         edPhone.setText(object.getPhoneNumber());
-        try{
-            if(ImageUrl.isEmpty())
-            {
-                if(!oldImageUrl.isEmpty()) Picasso.get().load(oldImageUrl).into(edImg);
-            }
-            else Picasso.get().load(ImageUrl).into(edImg);
-        }
-        catch (Exception e)
-        {
+        try {
+            if (ImageUrl.isEmpty()) {
+                if (!oldImageUrl.isEmpty()) Picasso.get().load(oldImageUrl).into(edImg);
+            } else Picasso.get().load(ImageUrl).into(edImg);
+        } catch (Exception e) {
 
         }
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialogPlus.dismiss();
-                try{
-                    if(!ImageUrl.isEmpty() && !ImageUrl.equals(oldImageUrl))
-                    {
+                try {
+                    if (!ImageUrl.isEmpty() && !ImageUrl.equals(oldImageUrl)) {
                         DeleteOldImg(ImageUrl);
                         ImageUrl = oldImageUrl;
                     }
-                }
-                catch (Exception e)
-                {
+                } catch (Exception e) {
                 }
             }
         });
@@ -300,13 +278,14 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
             @Override
             public void onClick(View view) {
 
+//                updateUserAvatar(imagePathUri);
                 Map<String, Object> map = new HashMap<>();
-                map.put("fullName",edName.getText().toString());
-                map.put("sex",edSex.getSelectedItem().toString());
-                map.put("dayOfBirth",edDob.getText().toString());
-                map.put("phoneNumber",edPhone.getText().toString());
-                map.put("address",edAddr.getText().toString());
-                map.put("avatar",ImageUrl);
+                map.put("fullName", edName.getText().toString());
+                map.put("sex", edSex.getSelectedItem().toString());
+                map.put("dayOfBirth", edDob.getText().toString());
+                map.put("phoneNumber", edPhone.getText().toString());
+                map.put("address", edAddr.getText().toString());
+                map.put("avatar", ImageUrl);
 
                 docRef.update(map)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -320,14 +299,11 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
                                             if (!oldImageUrl.isEmpty()) {
                                                 DeleteOldImg(oldImageUrl);
                                                 oldImageUrl = ImageUrl;
-                                            }}
-                                        catch (Exception e)
-                                        {
+                                            }
+                                        } catch (Exception e) {
                                         }
                                     }
-                                }
-                                catch (Exception e)
-                                {
+                                } catch (Exception e) {
                                 }
                                 Intent intent = getIntent();
                                 finish();
@@ -337,22 +313,19 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                dialogPlus.dismiss();
                                 Toast.makeText(MyProfile.this, "Fail to update the data", Toast.LENGTH_SHORT).show();
                                 try {
+                                    dialogPlus.dismiss();
                                     if (!ImageUrl.equals(oldImageUrl)) {
                                         try {
                                             if (!ImageUrl.isEmpty()) {
                                                 DeleteOldImg(ImageUrl);
                                                 ImageUrl = oldImageUrl;
-                                            }}
-                                        catch (Exception d)
-                                        {
+                                            }
+                                        } catch (Exception d) {
                                         }
                                     }
-                                }
-                                catch (Exception d)
-                                {
+                                } catch (Exception d) {
                                 }
                             }
                         });
@@ -362,10 +335,11 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
         dialogPlus.show();
 
     }
-    private void DeleteOldImg(String deleteImg){
+
+    private void DeleteOldImg(String deleteImg) {
         progressDialog.setTitle("Waiting...");
         progressDialog.show();
-        if(deleteImg != null ){
+        if (deleteImg != null) {
             StorageReference oldImageRef = firebaseStorage.getReferenceFromUrl(deleteImg);
             oldImageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
@@ -382,7 +356,8 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
             });
         }
     }
-    private void updateImgInStorage(Uri imageUri){
+
+    private void updateImgInStorage(Uri imageUri) {
         progressDialog.setTitle("Updating...");
         progressDialog.show();
         StorageReference storageRef = firebaseStorage.getReference();
@@ -413,7 +388,8 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
                 });
 
     }
-    private void updateUserAvatar( Uri imageUri) {
+
+    private void updateUserAvatar(Uri imageUri) {
         progressDialog.setTitle("Updating...");
         progressDialog.show();
         FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -427,27 +403,36 @@ public class MyProfile extends AppCompatActivity implements AdapterView.OnItemSe
                         db.collection("USERS").document(currentUserId)
                                 .update("avatar", ImageUrl)
                                 .addOnSuccessListener(aVoid -> {
-                                    try{
+                                    try {
                                         Picasso.get().load(ImageUrl).into(imgAvt);
+                                    } catch (Exception e) {
                                     }
-                                    catch(Exception e){}
-                                    try {if (!ImageUrl.equals(oldImageUrl)) {
-                                        try {
-                                            if (!oldImageUrl.isEmpty()) {
-                                                DeleteOldImg(oldImageUrl);
-                                                oldImageUrl = ImageUrl;
+                                    try {
+                                        if (!ImageUrl.equals(oldImageUrl)) {
+                                            try {
+                                                if (!oldImageUrl.isEmpty()) {
+                                                    DeleteOldImg(oldImageUrl);
+                                                    oldImageUrl = ImageUrl;
+                                                }
+                                            } catch (Exception e) {
                                             }
-                                        } catch (Exception e) {}}
-                                    } catch (Exception e) {}
+                                        }
+                                    } catch (Exception e) {
+                                    }
 
                                 })
                                 .addOnFailureListener(e -> {
-                                    try {if (!ImageUrl.equals(oldImageUrl)) {
-                                        try {
-                                            if (!ImageUrl.isEmpty()) {DeleteOldImg(ImageUrl);}
+                                    try {
+                                        if (!ImageUrl.equals(oldImageUrl)) {
+                                            try {
+                                                if (!ImageUrl.isEmpty()) {
+                                                    DeleteOldImg(ImageUrl);
+                                                }
+                                            } catch (Exception d) {
+                                            }
                                         }
-                                        catch (Exception d) {}}
-                                    } catch (Exception d) {}
+                                    } catch (Exception d) {
+                                    }
                                     Toast.makeText(MyProfile.this, "Failed to update avatar", Toast.LENGTH_SHORT).show();
                                 });
                     });

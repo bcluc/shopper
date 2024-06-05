@@ -8,16 +8,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
-import com.example.shopper.staffview.order.adapter.ProductAdapter;
+import com.example.shopper.staffview.order.adapter.MyProductAdapter;
 import com.example.shopper.staffview.order.model.ItemOrder;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -38,7 +34,7 @@ public class DetailOrder extends AppCompatActivity {
 
     private TextView Phivanchuyen, pttt, Giatridonhang, giamgia, color, size, total;
     private RecyclerView recyclerViewProducts;
-    private ProductAdapter productAdapter;
+    private MyProductAdapter myProductAdapter;
     private ImageView img_avatar;
 
     private Button btn_confirm;
@@ -205,8 +201,8 @@ public class DetailOrder extends AppCompatActivity {
                                                         // Cập nhật tổng tiền
                                                         int totalPrice = GiaSP * number;
 
-                                                        productAdapter = new ProductAdapter(itemOrderList);
-                                                        recyclerViewProducts.setAdapter(productAdapter);
+                                                        myProductAdapter = new MyProductAdapter(itemOrderList);
+                                                        recyclerViewProducts.setAdapter(myProductAdapter);
                                                         recyclerViewProducts.setLayoutManager(new GridLayoutManager(this, 1));
 
                                                     }

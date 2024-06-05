@@ -10,19 +10,15 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.SearchView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
 import com.example.shopper.staffview.category.adapter.DetailCategoryAdapter;
+import com.example.shopper.staffview.product.activity.DetailMyProduct;
 import com.example.shopper.staffview.product.model.Product;
 import com.example.shopper.staffview.viewshop.activity.ViewShop;
-import com.example.shopper.staffview.viewshop.activity.detail.product.DetailProductView;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -42,7 +38,7 @@ public class DetailCategoryView extends AppCompatActivity implements Filterable 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_category_view);
+        setContentView(R.layout.activity_detail_category);
 
         // Lấy categoryId từ Intent
         String categoryId = getIntent().getStringExtra("categoryId");
@@ -92,7 +88,7 @@ public class DetailCategoryView extends AppCompatActivity implements Filterable 
                             if (task.isSuccessful() && !task.getResult().isEmpty()) {
                                 // Lấy MaDM từ kết quả truy vấn
                                 String productID = task.getResult().getDocuments().get(0).getId();
-                                Intent intent = new Intent(DetailCategoryView.this, DetailProductView.class);
+                                Intent intent = new Intent(DetailCategoryView.this, DetailMyProduct.class);
                                 intent.putExtra("productId", productID);
                                 startActivity(intent);
                             }

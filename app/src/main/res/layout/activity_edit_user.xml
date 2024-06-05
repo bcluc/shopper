@@ -22,12 +22,12 @@
             android:layout_marginVertical="20dp"
             app:cardCornerRadius="130dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/img_imageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/Circular"
                 android:src="@drawable/default_user" />
         </androidx.cardview.widget.CardView>
 

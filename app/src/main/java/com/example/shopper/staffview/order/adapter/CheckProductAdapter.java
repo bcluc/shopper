@@ -40,7 +40,7 @@ public class CheckProductAdapter extends RecyclerView.Adapter<CheckProductAdapte
         public TextView customerNameTextView;
         private ImageView img_avatar;
         private RecyclerView recyclerViewProducts;
-        private ProductAdapter productAdapter;
+        private MyProductAdapter myProductAdapter;
         private TextView getMaStaff;
         private Button Confirm;
         private TextView total;
@@ -260,9 +260,9 @@ public class CheckProductAdapter extends RecyclerView.Adapter<CheckProductAdapte
                                         ItemOrder itemOrder = new ItemOrder(hinhAnhSP, tenSP, maSP, GiaSP, number, color, size);
                                         itemOrderList.add(itemOrder);
 
-                                        // Tạo mới ProductAdapter và gán nó cho recyclerViewProducts
-                                        holder.productAdapter = new ProductAdapter(itemOrderList);
-                                        holder.recyclerViewProducts.setAdapter(holder.productAdapter);
+                                        // Tạo mới MyProductAdapter và gán nó cho recyclerViewProducts
+                                        holder.myProductAdapter = new MyProductAdapter(itemOrderList);
+                                        holder.recyclerViewProducts.setAdapter(holder.myProductAdapter);
 
                                     }
                                 })

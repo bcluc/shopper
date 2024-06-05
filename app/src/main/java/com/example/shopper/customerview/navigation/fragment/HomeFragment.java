@@ -2,14 +2,6 @@ package com.example.shopper.customerview.navigation.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.OptIn;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,14 +10,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.OptIn;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
+
 import com.example.shopper.R;
 import com.example.shopper.customerview.home.category.activity.CategoriesDetail;
 import com.example.shopper.customerview.home.category.adapter.CategoriesAdapter;
 import com.example.shopper.customerview.home.category.model.Categories;
-import com.example.shopper.customerview.itf.IClickItemProductListener;
-import com.example.shopper.customerview.navigation.activity.BottomNavigationCustomerActivity;
 import com.example.shopper.customerview.home.product.adapter.ProductAdapter;
 import com.example.shopper.customerview.home.product.model.Product;
+import com.example.shopper.customerview.itf.IClickItemProductListener;
+import com.example.shopper.customerview.navigation.activity.BottomNavigationCustomerActivity;
 import com.example.shopper.customerview.notification.adapter.ViewPagerPromotionAdapter;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.badge.BadgeUtils;
@@ -168,7 +167,7 @@ public class HomeFragment extends Fragment {
                             String masp = documentSnapshot.getString("productId");
                             String name = documentSnapshot.getString("productName");
                             Long giaSP = documentSnapshot.getLong("productPrice");
-                            List<String> Anh = (List<String>) documentSnapshot.get("image");
+                            List<String> Anh = (List<String>) documentSnapshot.get("imageUrl");
                             listProduct.add(new Product(Anh.get(0), name, masp, giaSP));
                         }
                         productAdapter.setData(listProduct, new IClickItemProductListener() {
@@ -235,7 +234,7 @@ public class HomeFragment extends Fragment {
                             for (DocumentSnapshot document : value.getDocuments()) {
                                 if (document.exists()) {
                                     String categoryName = document.getString("categoryName");
-                                    String categoryImg = document.getString("categoryImg");
+                                    String categoryImg = document.getString("categoryImage");
                                     String categoryId = document.getString("categoryId");
                                     listCategories.add(new Categories(categoryName, categoryImg, categoryId));
                                 } else {

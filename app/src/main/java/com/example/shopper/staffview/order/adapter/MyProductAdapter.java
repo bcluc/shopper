@@ -16,7 +16,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
+public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.ViewHolder> {
     private List<ItemOrder> itemOrderList;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -38,10 +38,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
 
-    public ProductAdapter(List<ItemOrder> itemOrderList) {
+    public MyProductAdapter(List<ItemOrder> itemOrderList) {
         this.itemOrderList = itemOrderList;
     }
-    public ProductAdapter() {
+    public MyProductAdapter() {
         this.itemOrderList = new ArrayList<>();
     }
 

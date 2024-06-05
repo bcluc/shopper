@@ -45,7 +45,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         public TextView customerNameTextView;
         private ImageView img_avatar;
         private RecyclerView recyclerViewProducts;
-        private ProductAdapter productAdapter;
+        private MyProductAdapter myProductAdapter;
 
         private TextView total;
         private Button button;
@@ -289,9 +289,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
                                         ItemOrder itemOrder = new ItemOrder(hinhAnhSP, tenSP, maSP, GiaSP, number, color, size);
                                         itemOrderList.add(itemOrder);
-                                        // Tạo mới ProductAdapter và gán nó cho recyclerViewProducts
-                                        holder.productAdapter = new ProductAdapter(itemOrderList);
-                                        holder.recyclerViewProducts.setAdapter(holder.productAdapter);
+                                        // Tạo mới MyProductAdapter và gán nó cho recyclerViewProducts
+                                        holder.myProductAdapter = new MyProductAdapter(itemOrderList);
+                                        holder.recyclerViewProducts.setAdapter(holder.myProductAdapter);
 
                                     }
                                 })

@@ -17,18 +17,17 @@ import com.example.shopper.authentication.activity.Login;
 import com.example.shopper.customerview.account.changepassword.ChangePassword;
 import com.example.shopper.customerview.account.profile.Profile;
 import com.example.shopper.customerview.home.chat.activity.Chat;
-import com.example.shopper.customerview.home.shoppingcart.ShoppingCart;
+import com.example.shopper.customerview.home.product.activity.DetailProduct;
 import com.example.shopper.customerview.home.product.activity.Trending;
+import com.example.shopper.customerview.home.product.model.Product;
+import com.example.shopper.customerview.home.product.model.ProductCard;
+import com.example.shopper.customerview.home.shoppingcart.ShoppingCart;
 import com.example.shopper.customerview.navigation.adapter.BottomViewPagerAdapter;
 import com.example.shopper.customerview.navigation.fragment.AccountFragment;
 import com.example.shopper.customerview.navigation.fragment.HomeFragment;
-import com.example.shopper.customerview.home.product.activity.DetailProduct;
-import com.example.shopper.customerview.home.product.model.Product;
-import com.example.shopper.customerview.home.product.model.ProductCard;
 import com.example.shopper.customerview.notification.activity.MyNotification;
-import com.example.shopper.customerview.notification.activity.Order;
+import com.example.shopper.customerview.notification.activity.CustomerOrder;
 import com.example.shopper.customerview.util.search.Searching;
-import com.example.shopper.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -104,14 +103,14 @@ public class BottomNavigationCustomerActivity extends AppCompatActivity {
 
     public void gotoDetailProduct(ProductCard product) {
         Intent intent = new Intent(BottomNavigationCustomerActivity.this, DetailProduct.class);
-        intent.putExtra("ProductId", product.getProductId());
+        intent.putExtra("productId", product.getProductId());
         startActivity(intent);
 
     }
 
     public void gotoDetailProduct(Product product) {
         Intent intent = new Intent(BottomNavigationCustomerActivity.this, DetailProduct.class);
-        intent.putExtra("ProductId", product.getProductId());
+        intent.putExtra("productId", product.getProductId());
         startActivity(intent);
 
     }
@@ -154,7 +153,7 @@ public class BottomNavigationCustomerActivity extends AppCompatActivity {
     }
 
     public void gotoOrderActivity() {
-        Intent intent = new Intent(BottomNavigationCustomerActivity.this, Order.class);
+        Intent intent = new Intent(BottomNavigationCustomerActivity.this, CustomerOrder.class);
         //  intent.putExtra("MaSP", product.getMasp());
         startActivity(intent);
     }

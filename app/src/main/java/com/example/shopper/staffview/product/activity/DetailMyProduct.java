@@ -12,16 +12,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
 import com.example.shopper.customerview.home.product.activity.DetailProduct;
-import com.example.shopper.customerview.util.color.adapter.ColorsAdapter;
 import com.example.shopper.customerview.util.color.model.Colors;
-import com.example.shopper.customerview.util.size.adapter.SizeAdapter;
-import com.example.shopper.staffview.category.activity.Category;
 import com.example.shopper.staffview.review.activity.Reviewer;
+import com.example.shopper.staffview.viewshop.adapter.color.MyColorsAdapter;
+import com.example.shopper.staffview.viewshop.adapter.size.MyProductSizeAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -44,14 +43,14 @@ public class DetailMyProduct extends AppCompatActivity {
     private TextView detail;
     private boolean isTextViewVisible = false;
     private String MaDM;
-    private ImageView hinhanhSP;
+    private ImageView hinhanhSP, btnEdit;
     private TextView name, price;
     private TextView description, review;
     private RecyclerView color, size;
     private Button trending;
     private String MaSP;
 
-    DetailProduct detailProductActivity, detailProductActivity1;
+    DetailProduct detailProductActivity;
     private Boolean check = false;
 
     @SuppressLint("MissingInflatedId")
@@ -64,6 +63,7 @@ public class DetailMyProduct extends AppCompatActivity {
         MaSP = getIntent().getStringExtra("productId");
         backIcon = findViewById(R.id.icon_back);
         show = findViewById(R.id.show);
+        btnEdit = findViewById(R.id.icon_edit);
         detail = findViewById(R.id.txt_detail);
         hinhanhSP = findViewById(R.id.hinhanhSP);
         name = findViewById(R.id.name_product);
@@ -71,10 +71,22 @@ public class DetailMyProduct extends AppCompatActivity {
         description = findViewById(R.id.txt_detail);
         review = findViewById(R.id.review);
         color = findViewById(R.id.RCV_color);
-        color.setLayoutManager(new GridLayoutManager(this, 4));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getApplicationContext(), RecyclerView.HORIZONTAL, false);
+        color.setLayoutManager(linearLayoutManager);
+        color.setEnabled(false);
         size = findViewById(R.id.RCV_size);
-        size.setLayoutManager(new GridLayoutManager(this, 4));
+        LinearLayoutManager linearLayoutManagerSize = new LinearLayoutManager(this.getApplicationContext(), RecyclerView.HORIZONTAL, false);
+        size.setLayoutManager(linearLayoutManagerSize);
+        size.setEnabled(false);
         trending = findViewById(R.id.trending);
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailMyProduct.this, EditProduct.class);
+                intent.putExtra("productId", MaSP);
+                startActivity(intent);
+            }
+        });
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,6 +165,7 @@ public class DetailMyProduct extends AppCompatActivity {
                         List<String> mauSacList = (List<String>) documentSnapshot.get("productColor");
                         if (mauSacList != null && !mauSacList.isEmpty()) {
                             List<Colors> listmau = new ArrayList<>();
+                            MyColorsAdapter colorAdapter = new MyColorsAdapter();
                             for (String mauSacId : mauSacList) {
                                 // Truy vấn từng MauSac trong collection "MAUSAC" theo mã màu sắc (mauSacId)
                                 mausacRef.document(mauSacId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -164,17 +177,17 @@ public class DetailMyProduct extends AppCompatActivity {
                                             String colorID = mausacDocumentSnapshot.getString("colorId");
                                             Colors colors = new Colors(colorID, maMau , tenMauSac);
                                             listmau.add(colors);
-                                            ColorsAdapter colorAdapter = new ColorsAdapter();
-                                            colorAdapter.setData(listmau, detailProductActivity);
+                                            colorAdapter.setMyData(listmau, DetailMyProduct.this);
                                             color.setAdapter(colorAdapter);
                                         }
                                     }
                                 });
                             }
                         }
-                        List<String> sizeList = (List<String>) documentSnapshot.get("size");
+                        List<String> sizeList = (List<String>) documentSnapshot.get("productSize");
                         if (sizeList != null && !sizeList.isEmpty()) {
                             List<String> sizeList1 = new ArrayList<>();
+                            MyProductSizeAdapter sizeAdapter = new MyProductSizeAdapter();
                             for (String sizeId : sizeList) {
                                 sizeRef.document(sizeId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                     @Override
@@ -182,8 +195,7 @@ public class DetailMyProduct extends AppCompatActivity {
                                         if (documentSnapshotsize.exists()) {
                                             String Masize = documentSnapshotsize.getString("size");
                                             sizeList1.add(Masize);
-                                            SizeAdapter sizeAdapter = new SizeAdapter();
-                                            sizeAdapter.setData(sizeList1, detailProductActivity);
+                                            sizeAdapter.setMyData(sizeList1, DetailMyProduct.this);
                                             size.setAdapter(sizeAdapter);
                                         }
                                     }
@@ -213,7 +225,15 @@ public class DetailMyProduct extends AppCompatActivity {
 
         setOnClickBackICon();
     }
+    public void onColorClick(String colorCode) {
+        // Xử lý sự kiện khi màu được chọn
+        // Dữ liệu màu tên và mã màu được truyền từ adapter qua activity
+    }
 
+    public void onSizeClick(String size) {
+        // Xử lý sự kiện khi màu được chọn
+        // Dữ liệu màu tên và mã màu được truyền từ adapter qua activity
+    }
     @Override
     protected void onStop() {
         super.onStop();
@@ -247,10 +267,6 @@ public class DetailMyProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DetailMyProduct.this.finish();
-//                Intent intent = new Intent(DetailMyProduct.this, Category.class);
-//                intent.putExtra("categoryId", MaDM);
-//                startActivity(intent);
-//                finish();
             }
         });
     }
