@@ -92,6 +92,13 @@ public class EditProduct extends AppCompatActivity {
         recyclerView_image.setLayoutManager(new GridLayoutManager(this, 3));
         img_add = findViewById(R.id.imgView_add_new_picture);
         btn_back = findViewById(R.id.imgbtn_back);
+        findViewById(R.id.imgView_add_new_color).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditProduct.this, AddNewColor.class);
+                startActivity(intent);
+            }
+        });
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
