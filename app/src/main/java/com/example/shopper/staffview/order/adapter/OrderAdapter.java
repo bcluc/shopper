@@ -40,42 +40,18 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     private String userID;
     private User user;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView orderIdTextView;
-        public TextView customerNameTextView;
-        private ImageView img_avatar;
-        private RecyclerView recyclerViewProducts;
-        private MyProductAdapter myProductAdapter;
-
-        private TextView total;
-        private Button button;
-        private Button confirm;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            orderIdTextView = itemView.findViewById(R.id.tv_orderID);
-            customerNameTextView = itemView.findViewById(R.id.tv_ordername);
-            img_avatar = itemView.findViewById(R.id.img_avatar);
-            recyclerViewProducts = itemView.findViewById(R.id.RCVcard_view);
-            total = itemView.findViewById(R.id.moneytotal);
-            button = itemView.findViewById(R.id.btn_detail);
-            confirm = itemView.findViewById(R.id.confirm);
-
-        }
-    }
-
-
-    public OrderAdapter(List<Order> orderList) {
+     public OrderAdapter(List<Order> orderList) {
         this.orderList = orderList;
     }
 
-    public List<Order> getOrderList() {
-        return orderList;
-    }
 
     public OrderAdapter(List<Order> orderList, String userID) {
         this.orderList = orderList;
         this.userID = userID;
+    }
+
+    public List<Order> getOrderList() {
+        return orderList;
     }
 
     @Override
@@ -85,7 +61,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
         return viewHolder;
     }
-
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
@@ -231,6 +206,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                         Toast.makeText(v.getContext(), "Document does not exist", Toast.LENGTH_SHORT).show();
                     }
                 });
+
             }
         });
 
@@ -317,6 +293,30 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
     public void refresh() {
         notifyDataSetChanged();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView orderIdTextView;
+        public TextView customerNameTextView;
+        private ImageView img_avatar;
+        private RecyclerView recyclerViewProducts;
+        private MyProductAdapter myProductAdapter;
+
+        private TextView total;
+        private Button button;
+        private Button confirm;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            orderIdTextView = itemView.findViewById(R.id.tv_orderID);
+            customerNameTextView = itemView.findViewById(R.id.tv_ordername);
+            img_avatar = itemView.findViewById(R.id.img_avatar);
+            recyclerViewProducts = itemView.findViewById(R.id.RCVcard_view);
+            total = itemView.findViewById(R.id.moneytotal);
+            button = itemView.findViewById(R.id.btn_detail);
+            confirm = itemView.findViewById(R.id.confirm);
+
+        }
     }
 
 }
