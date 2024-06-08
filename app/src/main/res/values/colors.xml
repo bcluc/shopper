@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFF</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -26,5 +26,7 @@
     <color name="dark_blue">#143F6B</color>
     <color name="red">#FF4848</color>
     <color name="blur_white">#2CD8D8D8</color>
+    <color name="btn_color">#EC7F08</color>
+    <color name="gray">#E9E9E9</color>
 
 </resources>

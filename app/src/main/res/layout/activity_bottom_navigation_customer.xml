@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".customerview.navigation.activity.BottomNavigationCustomerActivity">
+    tools:context=".customerview.navigation.activity.BottomNavigationCustomerActivity"
+    android:background="@color/white">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"

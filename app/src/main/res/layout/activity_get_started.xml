@@ -17,22 +17,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="100dp"
-            android:elevation="200dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="SHOPPER"
-            android:textAlignment="center"
-
-            android:textColor="@color/black"
-            android:textSize="50dp" />
+            android:layout_height="200dp"
+            android:src="@drawable/title" />
         <TextView
             android:layout_width="match_parent"
             android:text="Build the better world in fashion"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="0dp"
             android:elevation="200dp"
             android:textAlignment="center"
             android:fontFamily="@font/montserrat_semibold"

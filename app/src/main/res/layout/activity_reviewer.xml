@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".staffview.review.activity.Reviewer">
+    tools:context=".staffview.review.activity.Reviewer"
+    android:background="@color/gray">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardAddReview"
