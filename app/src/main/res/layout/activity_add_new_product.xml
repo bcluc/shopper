@@ -52,9 +52,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="60dp"
-                            android:layout_marginTop="28dp"
-                            android:fontFamily="@font/montserrat"
-                            android:text="Add new product"
+                            android:layout_marginTop="32dp"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="NEW PRODUCT"
                             android:textColor="@android:color/black" />
 
                     </LinearLayout>
