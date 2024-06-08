@@ -117,10 +117,10 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="20dp"
                     android:padding="8dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/montserrat"
                     android:text="Not yet registered?"
                     android:textColor="@color/lavender"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tv_sign_up"
@@ -131,7 +131,7 @@
                     android:text="Sign up now"
                     android:fontFamily="@font/montserrat_bold"
                     android:textColor="@color/lavender"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     />
             </LinearLayout>
