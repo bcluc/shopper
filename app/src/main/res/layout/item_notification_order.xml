@@ -6,6 +6,7 @@
     android:layout_marginVertical="3dp"
     android:layout_marginHorizontal="10dp"
     android:orientation="horizontal"
+    android:background="@color/white"
     >
 
     <LinearLayout
