@@ -138,7 +138,6 @@
                     android:layout_marginTop="5dp"
                     android:text="Sign up"
                     android:fontFamily="@font/montserrat_bold"
-                    android:text="Sign up now"
                     android:textColor="@color/lavender"
                     android:textSize="16sp"
                     android:textStyle="bold"
