@@ -77,7 +77,7 @@ public class AddMyPromotion extends AppCompatActivity {
                         .into(image_promotion);
 
                 // Gọi hàm uploadImageToFirebase() để tải ảnh khuyến mãi lên Firebase Storage
-                uploadImageToFirebase();
+                //uploadImageToFirebase();
             }
         }
     });
@@ -95,7 +95,7 @@ public class AddMyPromotion extends AppCompatActivity {
                         .into(image_tb);
 
                 // Gọi hàm uploadImageThongBaoToFirebase() để tải ảnh thông báo lên Firebase Storage
-                uploadImageThongBaoToFirebase();
+                //uploadImageThongBaoToFirebase();
             }
         }
     });
@@ -285,7 +285,7 @@ public class AddMyPromotion extends AppCompatActivity {
 
 
     // Phương thức để tải lên hình ảnh lên Firebase Storage
-    private void uploadImageToFirebase() {
+private void uploadImageToFirebase() {
         if (imageUri != null) {
             // Tạo tên duy nhất cho hình ảnh (ví dụ: "promotion_image_2023_07_20_15_30_45.jpg")
             String fileName = "promotion_image_" + System.currentTimeMillis() + ".jpg";

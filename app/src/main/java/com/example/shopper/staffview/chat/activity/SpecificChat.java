@@ -10,13 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -199,7 +195,7 @@ public class SpecificChat extends AppCompatActivity {
                         @Override
                         public void run() {
                             // Call smooth scroll
-                            mmessagerecyclerview.smoothScrollToPosition(messagesAdapter.getItemCount());
+                            mmessagerecyclerview.smoothScrollToPosition(messagesAdapter.getItemCount()-1);
                         }
                     });
                 }
