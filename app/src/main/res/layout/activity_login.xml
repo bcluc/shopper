@@ -67,8 +67,8 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_show_password"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
@@ -96,6 +96,7 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/lavender"
                 android:text="Login"
+                android:background="@drawable/button_shape"
                 android:fontFamily="@font/montserrat_medium"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
@@ -120,20 +121,19 @@
                     android:fontFamily="@font/montserrat_medium"
                     android:text="Not yet registered?"
                     android:textColor="@color/lavender"
-                    android:textSize="18sp" />
+                    android:textSize="14dp" />
 
                 <TextView
                     android:id="@+id/tv_sign_up"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:text="Sign up now"
                     android:fontFamily="@font/montserrat_bold"
+                    android:text="Sign up now"
                     android:textColor="@color/lavender"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    />
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 

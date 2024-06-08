@@ -20,11 +20,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="100dp"
             android:elevation="200dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="SHOPPER"
             android:textAlignment="center"
+
             android:textColor="@color/black"
             android:textSize="50dp" />
         <TextView
@@ -51,9 +53,10 @@
             android:text="GET STARTED"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/lavender"
             android:elevation="400dp"
             android:fontFamily="@font/montserrat_medium"
-            android:backgroundTint="@color/lavender"
+
             android:id="@+id/btn_get_started"
             android:textSize="15dp"
             />
