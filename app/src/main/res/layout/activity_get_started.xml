@@ -45,9 +45,10 @@
             android:text="GET STARTED"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/lavender"
             android:elevation="400dp"
             android:fontFamily="@font/montserrat_medium"
-            android:backgroundTint="@color/lavender"
+
             android:id="@+id/btn_get_started"
             android:textSize="15dp"
             />
