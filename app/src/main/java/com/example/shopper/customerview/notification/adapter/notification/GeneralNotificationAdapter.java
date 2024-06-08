@@ -53,12 +53,13 @@ public class GeneralNotificationAdapter extends RecyclerView.Adapter<GeneralNoti
                         for (DocumentSnapshot documentSnapshot : KMquerySnapshot.getDocuments()) {
                             String Noidung = documentSnapshot.getString("notifyContent");
                             String LoaiTB = documentSnapshot.getString("notifyType");
+                            //String HinhAnhKM = documentSnapshot.getString("notifyImage");
+
                             CollectionReference khuyenmaiRef = FirebaseFirestore.getInstance().collection("PROMOTION");
                             khuyenmaiRef.whereEqualTo("promotionId", MaKM).addSnapshotListener((KMquerySnapshot1, error2) -> {
                                 for (DocumentSnapshot kmdocumentSnapshot : KMquerySnapshot1.getDocuments()) {
                                     String HinhAnhTB = kmdocumentSnapshot.getString("notifyImg");
                                     String HinhAnhKM = kmdocumentSnapshot.getString("promotionImg");
-
                                     String LoaiKhuyenMai = kmdocumentSnapshot.getString("promotionType");
                                     String TenKM = kmdocumentSnapshot.getString("promotionDetail");
                                     Voucher voucher = new Voucher(HinhAnhKM, HinhAnhTB, MaTB, MaKM, Noidung, TB, LoaiTB, TenKM, Thoigian);
