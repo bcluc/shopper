@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".customerview.home.address.activity.SaveAddress">
+    tools:context=".customerview.home.address.activity.SaveAddress"
+    android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/headingProductDetail"

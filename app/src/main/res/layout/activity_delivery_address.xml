@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".customerview.home.address.activity.DeliveryAddress">
+    tools:context=".customerview.home.address.activity.DeliveryAddress"
+    android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/headingProductDetail"
@@ -231,7 +232,7 @@
         <TextView
             android:id="@+id/btn_choose_adress"
             android:layout_width="180dp"
-            android:layout_height="40dp"
+            android:layout_height="60dp"
             android:background="@drawable/background_btn_orange"
             android:fontFamily="@font/montserrat_medium"
             android:gravity="center"

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".staffview.product.activity.DetailMyProduct">
+    tools:context=".staffview.product.activity.DetailMyProduct"
+    android:gravity="center_horizontal">
 
     <LinearLayout
         android:id="@+id/head"
@@ -224,23 +225,34 @@
             android:src="@drawable/back" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txt_detail"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/layout_seeproduct"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:text="Sản phẩm có một không hai"
-        android:visibility="invisible" />
-
-    <Button
-        android:id="@+id/trending"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/txt_detail"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/orange"
-        android:text="SET TRENDING" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_seeproduct"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txt_detail"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/layout_seeproduct"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:text="Sản phẩm có một không hai"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/trending"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/txt_detail"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/orange"
+            android:text="SET TRENDING"
+            />
+    </LinearLayout>
+
+
 
 </RelativeLayout>
