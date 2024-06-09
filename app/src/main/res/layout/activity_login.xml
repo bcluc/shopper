@@ -7,30 +7,39 @@
     android:fitsSystemWindows="true"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".authentication.activity.Login">
+    tools:context=".authentication.activity.Login"
+    android:background="@color/gray">
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
+        android:layout_gravity="center_vertical"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="455dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="24dp">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/login_img"
+                android:layout_marginTop="20dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="Welcom to shopper"
                 android:fontFamily="@font/montserrat_medium"
                 android:textAlignment="center"
                 android:textColor="@color/lavender"
-                android:textSize="36sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -67,8 +76,8 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_show_password"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
@@ -85,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:text="Forgot Password"
-                android:fontFamily="@font/montserrat_light"
+                android:fontFamily="@font/montserrat"
                 android:textColor="@color/black"
                 />
 
@@ -94,8 +103,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/lavender"
+                android:backgroundTint="@color/btn_color"
                 android:text="Login"
+                android:background="@drawable/button_shape"
                 android:fontFamily="@font/montserrat_medium"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
@@ -105,7 +115,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -115,25 +124,50 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="20dp"
                     android:padding="8dp"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:text="Not yet registered?"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Don't you have an account?"
                     android:textColor="@color/lavender"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tv_sign_up"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:text="Sign up now"
+                    android:text="Sign up"
                     android:fontFamily="@font/montserrat_bold"
                     android:textColor="@color/lavender"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_signinwith_redirectt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Sign in with"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/sign_in_with"
+                    android:layout_marginTop="10dp"/>
+
             </LinearLayout>
         </LinearLayout>
 

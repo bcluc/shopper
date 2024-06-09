@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".staffview.product.activity.MyProduct">
+    tools:context=".staffview.product.activity.MyProduct"
+    android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/linear1"
@@ -46,7 +47,8 @@
         android:contentDescription="null"
         app:tabMode="auto"
         app:tabSelectedTextColor="#FF931F"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:background="@color/white"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"

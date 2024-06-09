@@ -9,8 +9,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-
-        android:layout_height="255dp">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgAvt"
@@ -21,45 +20,46 @@
             android:src="@drawable/mauaodep"
             app:shapeAppearance="@style/avatar" />
 
-        <TextView
-            android:id="@+id/txtNameNotification"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="10dp"
-            android:text="SALEISLIFE"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <TextView
-            android:id="@+id/txtContentNotification"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="30dp"
-            android:text="Lorem ipsum dolor sit amet" />
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNameNotification"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="10dp"
+                android:text="SALEISLIFE"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtContentNotification"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:text="Lorem ipsum dolor sit amet \n asdsadsadas\n\n\n\n\n" />
 
             <TextView
                 android:id="@+id/startDay"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
-                android:layout_marginTop="50dp"
                 android:text="Bắt đầu từ ngày: 27/07/2023" />
+
+            <ImageView
+                android:id="@+id/imgNoti"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="0dp"
+                android:src="@drawable/ic_favor">
+
+            </ImageView>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imgNoti"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginTop="80dp"
-            android:src="@drawable/ic_favor">
 
-        </ImageView>
     </FrameLayout>
 
 </LinearLayout>

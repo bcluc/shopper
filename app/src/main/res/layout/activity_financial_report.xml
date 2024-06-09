@@ -62,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="-175dp"
             android:layout_marginTop="35dp"
+            android:enabled="false"
             android:hint="Ngày bắt đầu"
             android:inputType="date"
             android:textAlignment="center"
@@ -75,6 +76,7 @@
 
             android:layout_marginLeft="20dp"
             android:layout_marginTop="35dp"
+            android:enabled="false"
             android:hint="Ngày kết thúc"
             android:inputType="date"
             android:textAlignment="center"
