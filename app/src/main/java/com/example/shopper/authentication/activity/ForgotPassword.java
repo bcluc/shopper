@@ -3,18 +3,15 @@ package com.example.shopper.authentication.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.shopper.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -57,6 +54,11 @@ public class ForgotPassword extends AppCompatActivity {
                             "Please enter your email", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    Toast.makeText(ForgotPassword.this,
+                            "Email not valid", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 // Gửi email xác thực từ Firebase đến email của người dùng
                 mAuth.sendPasswordResetEmail(email)
@@ -75,6 +77,7 @@ public class ForgotPassword extends AppCompatActivity {
                                             "Error sending reset password email",
                                             Toast.LENGTH_SHORT).show();
                                 }
+                                return;
                             }
                         });
             }

@@ -44,7 +44,7 @@
     <ScrollView
         android:id="@+id/middle_layout"
         android:layout_width="match_parent"
-        android:layout_height="542dp"
+        android:layout_height="600sp"
         android:layout_below="@+id/heading">
 
         <LinearLayout
@@ -125,6 +125,7 @@
                     android:elevation="2000dp"
                     android:fontFamily="@font/montserrat"
                     android:hint="Enter name here"
+                    android:inputType="text"
                     android:textColor="@color/black"
                     android:textSize="12dp" />
 
@@ -166,6 +167,7 @@
                     android:elevation="2000dp"
                     android:fontFamily="@font/montserrat"
                     android:hint="Enter name here"
+                    android:inputType="text"
                     android:textColor="@color/black"
                     android:textSize="12dp" />
 
@@ -206,6 +208,7 @@
                     android:elevation="2000dp"
                     android:fontFamily="@font/montserrat"
                     android:hint="Enter name here"
+                    android:inputType="text"
                     android:textColor="@color/black"
                     android:textSize="12dp" />
 
@@ -221,7 +224,7 @@
                 <View
                     style="@style/RectangleStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="121dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
@@ -244,7 +247,7 @@
                     android:layout_height="74dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="60dp"
-                    android:elevation="100dp"
+                    android:elevation="200dp"
                     android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
 
                 <ImageView
@@ -252,9 +255,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="330dp"
                     android:layout_toRightOf="@+id/RCV_colorPicker"
-                    android:elevation="200dp"
                     android:src="@drawable/ic_add_circle"></ImageView>
             </FrameLayout>
 
@@ -330,6 +331,7 @@
                     android:elevation="2000dp"
                     android:fontFamily="@font/montserrat"
                     android:hint="Enter name here"
+                    android:inputType="number"
                     android:textColor="@color/black"
                     android:textSize="12dp" />
             </FrameLayout>
@@ -338,7 +340,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_below="@+id/middle_layout">
 
         <Button
@@ -347,7 +350,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/middle_layout"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="90dp"
             android:backgroundTint="@color/orange"
             android:text="UPDATE" />
 

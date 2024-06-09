@@ -21,12 +21,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shopper.R;
-import com.example.shopper.staffview.product.adapter.MyColorAdapter;
 import com.example.shopper.staffview.product.adapter.ImageAdapter;
+import com.example.shopper.staffview.product.adapter.MyColorAdapter;
 import com.example.shopper.staffview.product.adapter.MySizeAdapter;
 import com.example.shopper.staffview.product.model.MyColor;
-import com.example.shopper.staffview.product.model.Product;
 import com.example.shopper.staffview.product.model.MySize;
+import com.example.shopper.staffview.product.model.Product;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -45,8 +45,8 @@ import java.util.List;
 
 public class EditProductWithoutAmount extends AppCompatActivity {
 
-    private ImageAdapter imageAdapter;
     FirebaseStorage firebaseStorage;
+    private ImageAdapter imageAdapter;
     private List<String> imageUrls = new ArrayList<>();
     private List<MyColor> allColors = new ArrayList<>();
     private List<String> selectedColors = new ArrayList<>();
@@ -75,7 +75,7 @@ public class EditProductWithoutAmount extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_product_without_amount);
+        setContentView(R.layout.activity_edit_product);
         name = findViewById(R.id.edt_name);
         description = findViewById(R.id.edit_decription);
         price = findViewById(R.id.edit_price);
@@ -90,6 +90,13 @@ public class EditProductWithoutAmount extends AppCompatActivity {
         recyclerView_image.setLayoutManager(new GridLayoutManager(this, 3));
         img_add = findViewById(R.id.imgView_add_new_picture);
         btn_back = findViewById(R.id.imgbtn_back);
+        findViewById(R.id.imgView_add_new_color).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditProductWithoutAmount.this, AddNewColor.class);
+                startActivity(intent);
+            }
+        });
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,6 +228,7 @@ public class EditProductWithoutAmount extends AppCompatActivity {
             }
         });
     }
+
     private void deleteProduct() {
         // Get a reference to the document of the product to be deleted
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -257,7 +265,7 @@ public class EditProductWithoutAmount extends AppCompatActivity {
 
     }
 
-    private void updateImageUri(Uri o){
+    private void updateImageUri(Uri o) {
         Uri imageUri = o;
         if (imageUri != null) {
             imageUrls.add(imageUri.toString());
@@ -275,6 +283,7 @@ public class EditProductWithoutAmount extends AppCompatActivity {
         }
         uploadImagesAndSaveProduct();
     }
+
     private void uploadImagesAndSaveProduct() {
         StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("productImages");
         updatedImageUrls = new ArrayList<>();
@@ -286,8 +295,7 @@ public class EditProductWithoutAmount extends AppCompatActivity {
             if (imageUrl.contains("firebasestorage.googleapis.com")) {
                 // Ảnh đã là URL Storage Firebase
                 storageImageUrls.add(imageUrl);
-            }
-            else {
+            } else {
                 // Ảnh là URL tệp cục bộ, vì vậy tải lên Firebase Storage
                 localImageUrls.add(imageUrl);
                 Uri imageUri = Uri.parse(imageUrl); // Thay đổi ở đây
@@ -345,7 +353,7 @@ public class EditProductWithoutAmount extends AppCompatActivity {
             Toast.makeText(this, "Please enter product name", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(mota.isEmpty()) {
+        if (mota.isEmpty()) {
             Toast.makeText(this, "Please enter product description", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -358,10 +366,8 @@ public class EditProductWithoutAmount extends AppCompatActivity {
             }
         }
         selectedSizes.clear();
-        for(MySize size : allSize)
-        {
-            if(size.isChecked())
-            {
+        for (MySize size : allSize) {
+            if (size.isChecked()) {
                 selectedSizes.add(size.getSizeCode());
             }
         }
