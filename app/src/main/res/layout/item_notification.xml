@@ -29,6 +29,7 @@
                 android:id="@+id/txtNameNotification"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="10dp"
                 android:text="SALEISLIFE"
@@ -38,6 +39,7 @@
             <TextView
                 android:id="@+id/txtContentNotification"
                 android:layout_width="280dp"
+                android:fontFamily="@font/montserrat_medium"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
                 android:text="Lorem ipsum dolor sit amet \n asdsadsadas\n\n\n\n\n" />
@@ -47,6 +49,7 @@
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
+                android:fontFamily="@font/montserrat"
                 android:text="Bắt đầu từ ngày: 27/07/2023" />
 
             <ImageView
