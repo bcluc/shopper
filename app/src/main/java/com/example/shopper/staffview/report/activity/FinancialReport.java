@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
+import androidx.core.util.Pair;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
@@ -23,6 +24,8 @@ import com.example.shopper.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -34,6 +37,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class FinancialReport extends AppCompatActivity {
 
@@ -68,24 +72,34 @@ public class FinancialReport extends AppCompatActivity {
         btn_today.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                String currentDate = dateFormat.format(calendar.getTime());
-                startDay.setText(currentDate);
-                endDay.setText(currentDate);
-            }
-        });
-        startDay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePickerDialog(startDay);
-            }
-        });
+                MaterialDatePicker<Pair<Long, Long>> datePicker = MaterialDatePicker.Builder.dateRangePicker()
+                        .setTitleText("Select Date Range Report")
+                        .build();
+                datePicker.show(getSupportFragmentManager(), "DATE_PICKER");
+                datePicker.addOnPositiveButtonClickListener(
+                        (MaterialPickerOnPositiveButtonClickListener<Pair<Long, Long>>) selection -> {
+                            if (selection != null) {
+                                Long startDate = selection.first;
+                                Long endDate = selection.second;
 
-        endDay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePickerDialog(endDay);
+                                // Convert the start date and end date to a readable format
+                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+
+                                if (startDate != null) {
+                                    Calendar startCalendar = Calendar.getInstance();
+                                    startCalendar.setTimeInMillis(startDate);
+                                    String formattedStartDate = sdf.format(startCalendar.getTime());
+                                    startDay.setText(formattedStartDate);
+                                }
+
+                                if (endDate != null) {
+                                    Calendar endCalendar = Calendar.getInstance();
+                                    endCalendar.setTimeInMillis(endDate);
+                                    String formattedEndDate = sdf.format(endCalendar.getTime());
+                                    endDay.setText(formattedEndDate);
+                                }
+                            }
+                        });
             }
         });
         // Trong phương thức view_report.setOnClickListener
@@ -95,7 +109,7 @@ public class FinancialReport extends AppCompatActivity {
                 String startDateStr = startDay.getText().toString();
                 String endDateStr = endDay.getText().toString();
                 Log.d("StartDay", " is: " + startDateStr);
-                Log.d("EndDay", " is: " + startDateStr);
+                Log.d("EndDay", " is: " + endDateStr);
                 // Nếu chỉ nhập ngày bắt đầu
                 if (!startDateStr.isEmpty() && endDateStr.isEmpty()) {
 
@@ -129,7 +143,6 @@ public class FinancialReport extends AppCompatActivity {
                         Date startDate = dateFormat.parse(startDateStr);
                         Date endDate = dateFormat.parse(endDateStr);
                         if (startDate.compareTo(endDate) == 0) {
-
                             getDeliveredOrdersAndCalculateRevenue(startDate, endDate);
                         } else {
                             getDeliveredOrdersAndCalculateRevenue(startDate, endDate);
@@ -172,50 +185,6 @@ public class FinancialReport extends AppCompatActivity {
             }
         });
 
-    }
-    private void showDatePickerDialog(final EditText editText) {
-        final Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        // Xử lý khi người dùng chọn ngày tháng năm
-                        calendar.set(Calendar.YEAR, year);
-                        calendar.set(Calendar.MONTH, month);
-                        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                        String selectedDate = dateFormat.format(calendar.getTime());
-
-                        // Hiển thị ngày đã chọn lên trường EditText
-                        editText.setText(selectedDate);
-
-                        // Kiểm tra ngày kết thúc phải lớn hơn ngày bắt đầu
-                        if (!startDay.getText().toString().isEmpty() && !endDay.getText().toString().isEmpty()) {
-                            Calendar startCalendar = Calendar.getInstance();
-                            try {
-                                startCalendar.setTime(dateFormat.parse(startDay.getText().toString()));
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-                            Calendar endCalendar = Calendar.getInstance();
-                            try {
-                                endCalendar.setTime(dateFormat.parse(endDay.getText().toString()));
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-                            if (endCalendar.getTimeInMillis() < startCalendar.getTimeInMillis()) {
-                                Toast.makeText(FinancialReport.this, "End Date must after Start Date.", Toast.LENGTH_SHORT).show();
-                                editText.setText("");
-                            }
-                        }
-                    }
-                }, year, month, day);
-        datePickerDialog.show();
     }
 
     private void getDeliveredOrdersAndCalculateRevenue(Date startDate, Date endDate) {
