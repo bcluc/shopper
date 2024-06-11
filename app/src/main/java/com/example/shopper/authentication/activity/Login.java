@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.example.shopper.authentication.model.User;
 import com.example.shopper.customerview.navigation.activity.BottomNavigationCustomerActivity;
+import com.example.shopper.staffview.StaffHomePage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -109,21 +110,18 @@ public class Login extends AppCompatActivity {
                                                     Toast.makeText(getApplicationContext(), "Login as staff",
                                                             Toast.LENGTH_SHORT).show();
                                                     // Chuyển người dùng đến màn hình nhân viên
-//                                                    Intent staffIntent = new Intent(LoginActivity.this, home_page.class);
-//                                                    startActivity(staffIntent);
-//                                                    finish();
+                                                    Intent staffIntent = new Intent(Login.this, StaffHomePage.class);
+                                                    startActivity(staffIntent);
+                                                    finish();
                                                     break;
                                                 case "Admin":
                                                     // Người dùng là admin
                                                     Toast.makeText(getApplicationContext(), "Login as admin",
                                                             Toast.LENGTH_SHORT).show();
                                                     // Chuyển người dùng đến màn hình admin
-//                                                    Intent adminIntent = new Intent(LoginActivity.this, home_page.class);
-//                                                    User user = dataSnapshot.getValue(User.class);
-//
-//                                                    Intent adminIntent = new Intent(LoginActivity.this, home_page.class);
-//                                                    startActivity(adminIntent);
-//                                                    finish();
+                                                    Intent adminIntent = new Intent(Login.this, StaffHomePage.class);
+                                                    startActivity(adminIntent);
+                                                    finish();
                                                     break;
                                                 default:
                                                     // Giá trị không hợp lệ

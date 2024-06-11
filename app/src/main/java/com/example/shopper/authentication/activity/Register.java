@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -36,11 +37,16 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Base64;
 import java.util.Calendar;
+import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
 
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
     private EditText tvEmail, tvUserName, tvPhoneNumber, tvPassword, tvConfirmPassword;
     private EditText tvDayOfBirth;
     private Button btnRegister;
@@ -52,7 +58,11 @@ public class Register extends AppCompatActivity {
     private boolean isComplete;
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+    public static String sanitizeEmail(String email) {
+        String sanitizedEmail = email.replaceAll(".", ",");
+        return sanitizedEmail;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,10 +150,21 @@ public class Register extends AppCompatActivity {
                 final String phoneNumber = tvPhoneNumber.getText().toString();
                 final String dayOfBirth = tvDayOfBirth.getText().toString();
 
+                String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+                Pattern phonePattern = Pattern.compile("^[0-9] {10}$");
+                //Pattern emailPattern = Pattern.compile(emailRegex);
+
+
                 if (fullName.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                     Toast.makeText(Register.this, "Please fill all fields", Toast.LENGTH_LONG).show();
                 } else if (password.length() < 6) {
                     Toast.makeText(Register.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+                }
+                else if (!Patterns.EMAIL_ADDRESS.matcher(emailUTF).matches()) {
+                    Toast.makeText(Register.this, "Invalid email", Toast.LENGTH_SHORT).show();
+                }
+                else if (!Patterns.PHONE.matcher(phoneNumber).matches()) {
+                    Toast.makeText(Register.this, "Invalid phone number", Toast.LENGTH_SHORT).show();
                 }
                 //
                 //  ADD CHECKER
@@ -161,11 +182,14 @@ public class Register extends AppCompatActivity {
                                 isComplete = true;
                                 checkProgress();
                             } else {
-                                // sending data to firebase realtime
-                                reference.child("Users").child(email).child("email").setValue(emailUTF);
-                                reference.child("Users").child(email).child("userType").setValue("Customer");
                                 registerNewUser();
                             }
+                        }
+
+                        @Override
+                        protected void finalize() throws Throwable {
+                            super.finalize();
+                            checkProgress();
                         }
 
                         @Override
@@ -183,17 +207,22 @@ public class Register extends AppCompatActivity {
         });
     }
 
-    public static String sanitizeEmail(String email) {
-        String sanitizedEmail = email.replaceAll(".", ",");
-        return sanitizedEmail;
+    public static boolean isValidDate(String dateStr) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        try {
+            LocalDate date = LocalDate.parse(dateStr, formatter);
+            return true; // Parsing succeeded, it's a valid date
+        } catch (DateTimeParseException e) {
+            return false; // Parsing failed, it's an invalid date
+        }
     }
 
+
     private void checkProgress() {
-        if(!isComplete){
+        if (!isComplete) {
             layoutProgressBar.setVisibility(View.VISIBLE);
             layoutRegister.setEnabled(false);
-        }
-        else{
+        } else {
             layoutProgressBar.setVisibility(View.GONE);
             layoutRegister.setEnabled(true);
         }
@@ -270,6 +299,9 @@ public class Register extends AppCompatActivity {
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
+                                            // sending data to firebase realtime
+                                            reference.child("Users").child(email).child("email").setValue(email);
+                                            reference.child("Users").child(email).child("userType").setValue("Customer");
                                             Toast.makeText(Register.this, "Register Successful, Login Now!", Toast.LENGTH_SHORT).show();
                                             isComplete = true;
                                             checkProgress();
@@ -288,7 +320,7 @@ public class Register extends AppCompatActivity {
                                         }
                                     });
                         } else {
-
+                            isComplete = true;
                             // Registration failed
                             Toast.makeText(
                                             getApplicationContext(),

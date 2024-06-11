@@ -16,23 +16,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
+
+        <ImageView
             android:layout_width="match_parent"
-            android:text="FAUGET"
-            android:layout_marginTop="100dp"
-            android:elevation="200dp"
-            android:textAlignment="center"
-            android:fontFamily="@font/montserrat"
-            android:textColor="@color/black"
-            android:textSize="50dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="200dp"
+            android:src="@drawable/title" />
         <TextView
             android:layout_width="match_parent"
             android:text="Build the better world in fashion"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="0dp"
             android:elevation="200dp"
             android:textAlignment="center"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/montserrat_semibold"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:layout_height="wrap_content"/>
@@ -50,10 +45,12 @@
             android:text="GET STARTED"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/lavender"
             android:elevation="400dp"
             android:fontFamily="@font/montserrat_medium"
-            android:backgroundTint="#FF8400"
+
             android:id="@+id/btn_get_started"
+            android:textSize="15dp"
             />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

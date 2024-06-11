@@ -19,6 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ProgressBar
             android:layout_width="81dp"
             android:layout_height="74dp"
@@ -33,32 +34,39 @@
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:src="@drawable/title" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="-80dp"
+                android:layout_gravity="center">
 
                 <ImageButton
                     android:id="@+id/btn_back_to_login"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="30dp"
                     android:backgroundTint="@color/white"
                     android:contentDescription="@string/back_to_login"
                     android:src="@drawable/back" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
                     android:fontFamily="@font/montserrat_medium"
                     android:text="@string/sign_up"
                     android:textAlignment="center"
@@ -93,9 +101,10 @@
                         android:layout_marginEnd="3dp"
                         android:layout_marginBottom="3dp"
                         android:fontFamily="@font/montserrat"
+
                         android:hint="Your Name"
+                        android:inputType="text|textMultiLine"
                         android:padding="10dp"
-                        android:paddingLeft="20dp"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 
@@ -146,6 +155,8 @@
                         android:layout_marginBottom="3dp"
                         android:fontFamily="@font/montserrat"
                         android:hint="Your E-mail"
+                        android:hyphenationFrequency="none"
+                        android:inputType="textEmailAddress"
                         android:padding="10dp"
                         android:paddingLeft="20dp"
                         android:textColor="@color/black"
@@ -197,6 +208,7 @@
                         android:layout_marginBottom="3dp"
                         android:fontFamily="@font/montserrat"
                         android:hint="Your phone number"
+                        android:inputType="number"
                         android:padding="10dp"
                         android:paddingLeft="20dp"
                         android:textColor="@color/black"
@@ -233,6 +245,7 @@
                         android:layout_marginBottom="3dp"
                         android:fontFamily="@font/montserrat"
                         android:hint="Your day of birth"
+                        android:inputType="date"
                         android:padding="10dp"
                         android:paddingLeft="20dp"
                         android:textColor="@color/black"
@@ -363,7 +376,7 @@
                     android:backgroundTint="@color/orange"
                     android:text="Sign Up" />
             </LinearLayout>
-        </LinearLayout>
+        </ScrollView>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

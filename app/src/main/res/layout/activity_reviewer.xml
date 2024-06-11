@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".staffview.review.activity.Reviewer"
+    android:background="@color/gray">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardAddReview"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="200dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/viewImageAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                app:cardCornerRadius="40dp">
+
+                <ImageView
+                    android:id="@+id/imageAvatar"
+                    style="@style/roundimageview"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/default_user" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtNameUser"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginVertical="10dp"
+                android:layout_toRightOf="@id/viewImageAvatar"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="Thach Sang"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtExit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:text="X"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+            <RatingBar
+                android:id="@+id/ratingStarUser"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_below="@id/viewImageAvatar"
+                android:layout_marginHorizontal="20dp"
+                android:numStars="5"
+                android:progressTint="@color/orange"
+                android:rating="3"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                android:stepSize="0.5"
+                android:theme="@style/RatingBar"
+                android:transformPivotX="0dp"
+                android:transformPivotY="0dp" />
+
+            <EditText
+                android:id="@+id/editReview"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/ratingStarUser"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/montserrat"
+                android:hint="It's so beautiful..."
+                android:inputType="textMultiLine"
+                android:padding="8dp"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/imageReview"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_below="@id/editReview"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:src="@drawable/bg_blank_pic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_below="@id/editReview"
+                android:layout_marginVertical="20dp"
+                android:layout_toRightOf="@id/imageReview"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="Upload your image"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/btnaddReviewByUser"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_below="@id/imageReview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="5dp"
+                android:backgroundTint="#FF8400"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Add Review"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cornerRadius="30dp" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:id="@+id/headingProductDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="10dp"
+
+        >
+
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/navigation_back_arrow" />
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/backIcon"
+            android:text="Review"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/heddingReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headingProductDetail"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_tongsodanhgia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="245"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text=" reviews"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_trungbinh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="4.8"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressTint="@color/orange"
+                    android:rating="3"
+                    android:scaleX="0.6"
+                    android:scaleY="0.6"
+                    android:stepSize="0.5"
+                    android:theme="@style/RatingBar"
+                    android:transformPivotX="0dp"
+                    android:transformPivotY="0dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginHorizontal="0dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_addreview"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginVertical="0dp"
+                android:backgroundTint="#FF8400"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Add Review"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:cornerRadius="30dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/data_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/heddingReview"
+        android:layout_marginHorizontal="5dp"
+        android:paddingBottom="60dp" />
+</RelativeLayout>

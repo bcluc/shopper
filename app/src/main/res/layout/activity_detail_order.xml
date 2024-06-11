@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".staffview.order.activity.DetailOrder"
+    android:background="@color/gray">
+
+
+
+<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <!-- Auto layout, variables, and unit scale are not yet supported -->
+            <!-- Auto layout, variables, and unit scale are not yet supported -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/back_arrow">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:paddingTop="5dp"
+                    android:text="Order / Details"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp">
+
+                <View
+                    android:id="@+id/rectangle_address"
+                    style="@style/RectangleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="105dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:elevation="5dp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="25dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/map_icon"></ImageView>
+
+                <TextView
+                    android:layout_width="91dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="23dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Address"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tennguoimua"
+                    android:layout_width="362dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="45dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/montserrat_lights"
+                    android:text="Le Dang Thuong"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/soDT"
+                    android:layout_width="362dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="65dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/montserrat_lights"
+                    android:text="0333333333"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/diachi_chitiet"
+                    android:layout_width="362dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="85dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/montserrat_lights"
+                    android:text="140/10 Dinh Bo Linh, Phuong 26, Binh Thanh"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+
+                <View
+                    android:id="@+id/rectangle_delivery"
+                    style="@style/RectangleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="82dp"
+                    android:layout_below="@id/rectangle_address"
+                    android:layout_marginTop="20dp"
+                    android:background="#FFFFFF" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="25dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/delivery_icon"></ImageView>
+
+                <TextView
+                    android:layout_width="91dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="23dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Delivery"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/vanchuyen"
+                    android:layout_width="362dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="45dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/montserrat_lights"
+                    android:text="Fast Delivery VietNam Express"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="10dp">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_marginTop="65dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/montserrat_lights"
+                        android:text="Phi Van Chuyen (VND): "
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/phivanchuyen"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="65dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/montserrat_lights"
+                        android:text="50000"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+
+                <View
+                    android:id="@+id/rectangle_payment"
+                    style="@style/RectangleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="94dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:elevation="5dp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="25dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/payment_icon"></ImageView>
+
+                <TextView
+                    android:layout_width="91dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="23dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Payment"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="10dp">
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_marginTop="45dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/montserrat_lights"
+                        android:text="Phuong thuc thanh toan: "
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/phuongthuctt"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="45dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/montserrat_lights"
+                        android:text="Tien mat"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="10dp">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_marginTop="65dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/montserrat_lights"
+                        android:text="Gia tri don hang (VND): "
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/giatridonhang"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="65dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/montserrat_lights"
+                        android:text="50000"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="10dp">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_marginTop="85dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/montserrat_lights"
+                        android:text="Giam gia (VND): "
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/discount"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="85dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/montserrat_lights"
+                        android:text="50000"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="84dp">
+
+                <View
+                    android:id="@+id/nguoimua"
+                    style="@style/RectangleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:elevation="5dp" />
+
+                <ImageView
+                    android:id="@+id/img_avatar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:elevation="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/anh1"
+                    app:cardCornerRadius="20dp" />
+
+                <TextView
+                    android:id="@+id/tenND"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="30dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/montserrat_lights"
+                    android:text="Le Dang Thuong"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="84dp"
+                    android:elevation="10dp">
+
+                    <TextView
+                        android:layout_width="85dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginTop="50dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/montserrat_lights"
+                        android:text="ID Customer: "
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/maND"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="50dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/montserrat_lights"
+                        android:text="21522654"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_sanpham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="200dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Total: "
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="98dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="10000000"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="VND"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/orange"
+                android:text="CONFIRM"></Button>
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

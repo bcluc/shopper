@@ -4,6 +4,7 @@
 
     <application
         android:allowBackup="true"
+        android:background="@color/white"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +13,105 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shopper"
         tools:targetApi="31">
+        <activity
+            android:name=".customerview.notification.activity.DetailCustomerOrder"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.home.shoppingcart.billing.Done"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.home.promotion.activity.ApplyPromotion"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.home.address.activity.DeliveryAddress"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.home.address.activity.SaveAddress"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.setting.activity.MyProfile"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.manageuser.activity.DetailUser"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.manageuser.activity.ManageUser"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.promotion.activity.AddMyPromotion"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.promotion.activity.DeleteMyPromotion"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.promotion.activity.MyPromotion"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.report.activity.FinancialReport"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.chat.activity.SpecificChat"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.chat.activity.ChatBoard"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.order.activity.DetailOrder"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.order.activity.MyOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customerview.home.shoppingcart.billing.BuyNow"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.viewshop.activity.detail.shop.DetailShopView"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.viewshop.activity.detail.product.DetailProductView"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.viewshop.activity.ViewShop"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.viewshop.activity.detail.category.DetailCategoryView"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.review.activity.Reviewer"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.product.activity.DetailMyProduct"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.category.activity.DetailCategory"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.category.activity.DeleteCategory"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.category.activity.AddNewCategory"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.category.activity.Category"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.product.activity.EditProduct"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.product.activity.EditProductWithoutAmount"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.product.activity.AddNewColor"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.product.activity.AddNewProduct"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.product.activity.MyProduct"
+            android:exported="false" />
+        <activity
+            android:name=".staffview.StaffHomePage"
+            android:exported="false" />
         <activity
             android:name=".customerview.home.category.activity.CategoriesDetail"
             android:exported="false" />
@@ -22,7 +122,7 @@
             android:name=".customerview.account.profile.Profile"
             android:exported="false" />
         <activity
-            android:name=".customerview.notification.activity.Order"
+            android:name=".customerview.notification.activity.CustomerOrder"
             android:exported="false" />
         <activity
             android:name=".customerview.notification.activity.MyNotification"

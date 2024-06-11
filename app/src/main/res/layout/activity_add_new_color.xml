@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".staffview.product.activity.AddNewColor">
+
+    <RelativeLayout
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btn_back_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:src="@drawable/back_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Add new color"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp" />
+
+    <FrameLayout
+        android:id="@+id/colorname"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_below="@+id/heading">
+
+        <View
+            android:id="@+id/rectangle_address"
+            style="@style/RectangleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp" />
+
+        <TextView
+            android:id="@+id/title_name"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="23dp"
+            android:elevation="100dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Color name"
+            android:textColor="@color/dark_blue"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/color_name"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="50dp"
+            android:elevation="2000dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="Enter name here"
+            android:textColor="@color/dark_blue"
+            android:textSize="12dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/colorCode"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_below="@+id/colorname">
+
+        <View
+            android:id="@+id/rectangle_colorCode"
+            style="@style/RectangleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp" />
+
+        <TextView
+            android:id="@+id/title_colorCode"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="23dp"
+            android:elevation="100dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Color code"
+            android:textColor="@color/dark_blue"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/color_code"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="50dp"
+            android:elevation="2000dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="Enter name here"
+            android:textColor="@color/dark_blue"
+            android:textSize="12dp" />
+
+    </FrameLayout>
+
+
+    <Button
+        android:id="@+id/btn_add_new_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colorCode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="@font/montserrat"
+        android:text="ADD NEW COLOR" />
+</RelativeLayout>

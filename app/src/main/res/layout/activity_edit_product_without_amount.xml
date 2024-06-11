@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".staffview.product.activity.EditProductWithoutAmount">
+    <RelativeLayout
+        android:id="@+id/heading"
+        android:layout_width="222dp"
+        android:layout_height="64dp">
+
+        <ImageButton
+            android:id="@+id/imgbtn_back"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="30dp"
+            android:backgroundTint="@android:color/white"
+
+            android:src ="@drawable/back"
+            android:contentDescription="null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="28dp"
+
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Edit product"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/middle_layout"
+        android:layout_width="match_parent"
+        android:layout_height="542dp"
+        android:layout_below="@+id/heading">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="348dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_images"
+                    android:layout_width="280dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal"
+                    android:scrollbars="horizontal" />
+
+
+                <ImageView
+                    android:id="@+id/imgView_add_new_picture"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_toRightOf="@+id/textViewAddMedia"
+                    android:elevation="200dp"
+                    android:src="@drawable/add"></ImageView>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_below="@+id/heading">
+
+                <View
+                    style="@style/RectangleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:elevation="5dp" />
+
+                <TextView
+                    android:id="@+id/title_name"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="23dp"
+                    android:elevation="100dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Prodcut name"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edt_name"
+                    android:layout_width="336dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="50dp"
+                    android:elevation="2000dp"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="Enter name here"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/decription"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_below="@+id/name">
+
+                <View
+                    style="@style/RectangleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:elevation="5dp" />
+
+                <TextView
+                    android:id="@+id/title_colorCode"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="23dp"
+                    android:elevation="100dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Decription"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edit_decription"
+                    android:layout_width="336dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="50dp"
+                    android:elevation="2000dp"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="Enter name here"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/colorCode"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_below="@+id/decription">
+
+                <View
+                    style="@style/RectangleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:elevation="5dp" />
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="23dp"
+                    android:elevation="100dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Price"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edit_price"
+                    android:layout_width="336dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="50dp"
+                    android:elevation="2000dp"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="Enter name here"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/ln1"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_below="@+id/prices"
+                android:orientation="vertical">
+
+                <View
+                    style="@style/RectangleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:elevation="5dp" />
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="23dp"
+                    android:elevation="100dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Choose color"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RCV_color_edit"
+                    android:layout_width="290dp"
+                    android:layout_height="74dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="60dp"
+                    android:elevation="100dp"
+                    android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
+
+                <ImageView
+                    android:id="@+id/imgView_add_new_color"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="330dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_toRightOf="@+id/RCV_colorPicker"
+                    android:elevation="200dp"
+                    android:src="@drawable/ic_add_circle"></ImageView>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frm1"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_below="@+id/ln1"
+                android:orientation="vertical">
+
+                <View
+                    style="@style/RectangleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:elevation="5dp" />
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="23dp"
+                    android:elevation="100dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Choose size"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RCV_size_edit"
+                    android:layout_width="326dp"
+                    android:layout_height="74dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="60dp"
+                    android:elevation="200dp"
+                    android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/middle_layout"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/middle_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="90dp"
+            android:backgroundTint="@color/orange"
+            android:text="UPDATE" />
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/middle_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:backgroundTint="@color/orange"
+            android:text="DELETE" />
+    </LinearLayout>
+
+
+</RelativeLayout>

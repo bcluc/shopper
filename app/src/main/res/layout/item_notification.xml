@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginVertical="3dp"
+    android:layout_marginHorizontal="20dp"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgAvt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:src="@drawable/mauaodep"
+            app:shapeAppearance="@style/avatar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNameNotification"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="10dp"
+                android:text="SALEISLIFE"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtContentNotification"
+                android:layout_width="280dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:text="Lorem ipsum dolor sit amet \n asdsadsadas\n\n\n\n\n" />
+
+            <TextView
+                android:id="@+id/startDay"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Bắt đầu từ ngày: 27/07/2023" />
+
+            <ImageView
+                android:id="@+id/imgNoti"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="0dp"
+                android:src="@drawable/ic_favor">
+
+            </ImageView>
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</LinearLayout>

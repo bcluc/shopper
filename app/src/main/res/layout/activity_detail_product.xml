@@ -1,10 +1,369 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".customerview.home.product.activity.DetailProduct">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="50dp">
+
+        <RelativeLayout
+            android:id="@+id/headingProductDetail"
+            style="@style/RectangleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="15dp">
+
+            <ImageView
+                android:id="@+id/backIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/navigation_back_arrow" />
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/backIcon"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Product"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:id="@+id/heartIcon"
+                android:layout_width="19dp"
+                android:layout_height="21dp"
+                android:layout_centerVertical="true"
+
+                android:layout_toLeftOf="@id/cartIcon" />
+
+
+            <ImageView
+                android:id="@+id/cartIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_shopping_cart" />
+
+        </RelativeLayout>
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpagerImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/headingProductDetail" />
+
+        <RelativeLayout
+            android:id="@+id/rltlayout_ProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewpagerImage"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/txtProductNameDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat"
+                android:maxWidth="200dp"
+                android:text="Ten san pham"
+                android:textColor="@color/black"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/txtPriceProductDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/txtVND"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="200.000"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtVND"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="VND"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rltlayout_ProductName"
+            android:layout_marginTop="10dp">
+
+            <RatingBar
+                android:id="@+id/starRating"
+                style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:progressTint="@color/orange"
+                android:rating="3"
+                android:scaleX=".8"
+                android:scaleY=".8"
+                android:theme="@style/RatingBar"
+                android:transformPivotX="0dp"
+                android:transformPivotY="0dp" />
+
+
+            <TextView
+                android:id="@+id/txtSeeReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/item_selector"
+                android:fontFamily="@font/montserrat"
+                android:text="See reviews"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="italic" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutRating"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/txtColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:paddingEnd="10dp"
+                android:text="Color"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvCorlor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/txtColor" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutColor"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/txtSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:paddingEnd="20dp"
+                android:text="Size"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/txtSize" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutSize"
+            android:layout_marginTop="10dp"
+            android:paddingVertical="5dp">
+
+            <TextView
+                android:id="@+id/txtNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Number"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/btnDown"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="50dp"
+                android:layout_toRightOf="@id/txtNumber"
+                android:background="@drawable/circle_background"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtSoLuong"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_toRightOf="@id/btnDown"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/btnUp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_toRightOf="@id/txtSoLuong"
+                android:background="@drawable/circle_background"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutSeeProductDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutNumber"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/txtSeeProductDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat"
+                android:text="See product detail"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/btnAnHienMoTa"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/navigate_down"
+
+                />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutBtnProductDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutSeeProductDetail"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtMoTaSP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layoutSeeProductDetail"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Chiếc áo mà chúng tôi sẽ giới thiệu là một mẫu thiết kế đẹp và phong cách, mang lại sự thoải mái và sự tự tin cho người mặc. Chiếc áo được làm từ chất liệu cao cấp, nhẹ nhàng và thoáng mát, giúp bạn cảm thấy thoải mái suốt cả ngày."
+                android:textColor="@color/black" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:id="@+id/btnAddToCard"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/background_btn_carnation"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="10dp"
+                    android:text="ADD TO CARD"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnBuyNow"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/background_btn_orange"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="10dp"
+                    android:text="BUY NOW"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

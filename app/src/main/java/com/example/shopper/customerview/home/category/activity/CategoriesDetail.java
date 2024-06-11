@@ -82,7 +82,7 @@ public class CategoriesDetail extends AppCompatActivity implements Filterable {
         backICon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                CategoriesDetail.this.finish();
             }
         });
         shoppingCart.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +126,7 @@ public class CategoriesDetail extends AppCompatActivity implements Filterable {
                         for(DocumentSnapshot documentSnapshot : value.getDocuments()){
                             String masp = documentSnapshot.getString("productId");
                             String name = documentSnapshot.getString("productName");
-                            List<String> images = (List<String>) documentSnapshot.get("image");
+                            List<String> images = (List<String>) documentSnapshot.get("imageUrl");
                             int price = documentSnapshot.getLong("productPrice").intValue();
                             productCardList.add(new ProductTrending(masp, images.get(0), name, price));
                             Log.d("Err", name);

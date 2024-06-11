@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".customerview.navigation.fragment.AccountFragment">
 
     <LinearLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:background="@drawable/bg_profile"
+        android:background="@drawable/intersect"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
@@ -18,7 +19,7 @@
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:elevation="10dp"
             app:cardCornerRadius="130dp">
 
@@ -37,12 +38,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@color/white"
+
             android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:paddingVertical="5dp"
             android:text="Name"
-            android:textColor="#fb7021"
+            android:textColor="@color/white"
             android:textSize="23sp" />
 
     </LinearLayout>
@@ -59,7 +60,8 @@
             android:id="@+id/l1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true">
+            android:clickable="true"
+            android:background="@drawable/bg_with_shadow">
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -88,7 +90,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/l1"
             android:layout_marginTop="15dp"
-            android:clickable="true">
+            android:clickable="true"
+            android:background="@drawable/bg_with_shadow">
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -118,7 +121,7 @@
             android:layout_below="@+id/l2"
             android:layout_marginTop="15dp"
             android:clickable="true"
-
+            android:background="@drawable/bg_with_shadow"
             >
 
             <ImageView
@@ -149,7 +152,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/l3"
             android:layout_marginTop="15dp"
-            android:clickable="true">
+            android:clickable="true"
+            android:background="@drawable/bg_with_shadow">
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -178,7 +182,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/l4"
             android:layout_marginTop="15dp"
-            android:clickable="true">
+            android:clickable="true"
+            android:background="@drawable/bg_with_shadow">
 
             <ImageView
                 android:layout_width="40dp"
