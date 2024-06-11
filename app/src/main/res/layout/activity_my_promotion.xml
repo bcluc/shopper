@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".staffview.promotion.activity.MyPromotion">
 
@@ -61,7 +62,7 @@
             android:layout_below="@id/RCV_promotions"
             android:layout_marginLeft="40dp"
             android:backgroundTint="@color/orange"
-            android:text="ADD NEW PROMOTIONS"
+            android:text="ADD NEW"
             app:cornerRadius="25dp"></com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
@@ -71,7 +72,7 @@
             android:layout_below="@id/RCV_promotions"
             android:layout_marginLeft="30dp"
             android:backgroundTint="@color/orange"
-            android:text="DELETE PROMOTIONS"
+            android:text="DELETE"
             app:cornerRadius="25dp"></com.google.android.material.button.MaterialButton>
     </LinearLayout>
 </RelativeLayout>
