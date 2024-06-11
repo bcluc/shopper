@@ -75,7 +75,7 @@
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_title_img"
@@ -99,8 +99,8 @@
                     android:layout_marginTop="10dp"
                     android:text="Trending now"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="italic"
+                    android:textSize="18dp"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/txt_trending_expand"
                     app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +110,7 @@
                     android:id="@+id/txt_trending_expand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12pxh"
                     android:text="See all"
                     android:fontFamily="@font/montserrat"
                     android:layout_marginEnd="20dp"
@@ -147,8 +148,7 @@
                     android:text="Order Categories"
                     android:textColor="@color/black"
                     android:layout_marginTop="10dp"
-                    android:textSize="20dp"
-                    android:textStyle="italic"
+                    android:textSize="18dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/txt_order_cart_expand"
                     app:layout_constraintStart_toStartOf="parent"
@@ -160,6 +160,7 @@
                     android:layout_height="wrap_content"
                     android:text="Explore now"
                     android:fontFamily="@font/montserrat"
+                    android:layout_marginTop="@dimen/_12pxh"
                     android:layout_marginEnd="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
