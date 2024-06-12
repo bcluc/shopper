@@ -32,28 +32,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="true"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:src="@drawable/title" />
+<!--        <ScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="16dp"-->
+<!--            android:orientation="vertical">-->
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="-80dp"
+                android:layout_marginTop="40dp"
                 android:layout_gravity="center">
-
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    android:src="@drawable/title"/>-->
                 <ImageButton
                     android:id="@+id/btn_back_to_login"
                     android:layout_width="40dp"
@@ -376,7 +378,7 @@
                     android:backgroundTint="@color/orange"
                     android:text="Sign Up" />
             </LinearLayout>
-        </ScrollView>
+<!--        </ScrollView>-->
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
