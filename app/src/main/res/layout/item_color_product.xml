@@ -15,14 +15,14 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="30dp"
-            android:layout_height="match_parent"
+            android:layout_height="30dp"
             android:clipToPadding="false"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="50dp">
 
             <ImageView
                 android:id="@+id/img_color"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="#FFFFFF"
                 android:clipToPadding="false" />
 
@@ -46,12 +46,12 @@
                 android:textAllCaps="true"
 
                 android:textColor="#000000"
-                android:textSize="11dp"></TextView>
+                android:textSize="11dp"/>
 
             <CheckBox
                 android:id="@+id/check_color"
                 android:layout_width="20dp"
-                android:layout_height="32dp"></CheckBox>
+                android:layout_height="32dp"/>
 
         </LinearLayout>
     </LinearLayout>
