@@ -79,7 +79,7 @@
             android:backgroundTint="@color/orange"
             android:fontFamily="@font/montserrat_medium"
             android:paddingHorizontal="5dp"
-            android:text="ADD NEW CATEGORY"
+            android:text="ADD NEW"
             android:textColor="@color/white"
             android:textSize="15dp"
             app:cornerRadius="30dp" />
@@ -92,7 +92,7 @@
             android:backgroundTint="@color/orange"
             android:fontFamily="@font/montserrat_medium"
             android:paddingHorizontal="5dp"
-            android:text="DELETE CATEGORY"
+            android:text="DELETE"
             android:textColor="@color/white"
             android:textSize="15dp"
             app:cornerRadius="30dp" />
