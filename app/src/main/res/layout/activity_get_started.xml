@@ -39,18 +39,18 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/bg" />
+
         <Button
+            android:id="@+id/btn_get_started"
             android:layout_width="186dp"
             android:layout_height="62dp"
-            android:text="GET STARTED"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:backgroundTint="@color/lavender"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/orange"
             android:elevation="400dp"
             android:fontFamily="@font/montserrat_medium"
 
-            android:id="@+id/btn_get_started"
-            android:textSize="15dp"
-            />
+            android:text="GET STARTED"
+            android:textSize="15dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

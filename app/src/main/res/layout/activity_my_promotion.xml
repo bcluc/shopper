@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".staffview.promotion.activity.MyPromotion">
 
@@ -38,12 +39,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RCV_promotions"
-        style="@style/RectangleStyle"
         android:layout_width="match_parent"
         android:layout_height="535dp"
         android:layout_above="@id/layout_btnPromotion"
         android:layout_below="@+id/linear1_order"
-        android:layout_marginTop="3dp"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_marginTop="3dp"
+        android:padding="10dp" />
 
     <LinearLayout
         android:id="@+id/layout_btnPromotion"
@@ -61,8 +62,9 @@
             android:layout_below="@id/RCV_promotions"
             android:layout_marginLeft="40dp"
             android:backgroundTint="@color/orange"
-            android:text="ADD NEW PROMOTIONS"
-            app:cornerRadius="25dp"></com.google.android.material.button.MaterialButton>
+            android:text="ADD NEW"
+            android:fontFamily="@font/montserrat_bold"
+            app:cornerRadius="25dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_delete_promotion"
@@ -71,7 +73,8 @@
             android:layout_below="@id/RCV_promotions"
             android:layout_marginLeft="30dp"
             android:backgroundTint="@color/orange"
-            android:text="DELETE PROMOTIONS"
-            app:cornerRadius="25dp"></com.google.android.material.button.MaterialButton>
+            android:text="DELETE"
+            android:fontFamily="@font/montserrat_bold"
+            app:cornerRadius="25dp"/>
     </LinearLayout>
 </RelativeLayout>

@@ -9,58 +9,58 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_margin="5dp"
+        android:clipToPadding="false"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="160dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            app:cardCornerRadius="40dp">
-
-            <View
-                style="@style/RectangleStyle"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="@color/orange"
-                android:elevation="100dp" />
+            android:clipToPadding="false"
+            android:minHeight="120dp"
+            app:cardCornerRadius="10dp">
 
             <ImageView
                 android:id="@+id/hinhanh_promotion_delete"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:elevation="200dp"
                 android:src="@drawable/anh1"
-                app:cardCornerRadius="10dp"></ImageView>
-
+                app:cardCornerRadius="10dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/orange"
+                android:orientation="vertical"
+                android:paddingVertical="10dp"
+                tools:ignore="MissingConstraints">
             <TextView
                 android:id="@+id/chitietKhuyenmai_delete"
                 style="@style/Heading1"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="0dp"
                 android:elevation="100dp"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="Super Sale On Monday"
-                android:textColor="@color/black"></TextView>
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/tenKhuyenmai_delete"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="5dp"
                 android:elevation="100dp"
+                android:fontFamily="@font/montserrat"
                 android:text="Super Sale On Monday"
                 android:textColor="@color/black"
-                android:textStyle="italic"></TextView>
+                android:textSize="12dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -70,20 +70,23 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="150dp"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="5dp"
                     android:elevation="100dp"
                     android:text="Start at: "
+                    android:fontFamily="@font/montserrat_medium"
                     android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/Ngaybatdau_delete"
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="5dp"
                     android:elevation="100dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="Ngay bat dau"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
 
             </LinearLayout>
 
@@ -95,44 +98,83 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="150dp"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="0dp"
                     android:elevation="100dp"
-                    android:text="End at  : "
-                    android:textColor="@color/black" />
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="End at: "
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
 
                 <TextView
                     android:id="@+id/Ngayketthuc_delete"
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="0dp"
                     android:elevation="100dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="End at  : "
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
 
             </LinearLayout>
 
-            <View
-                style="@style/RectangleStyle"
-                android:layout_width="380dp"
-                android:layout_height="105dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    tools:ignore="MissingConstraints">
 
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:elevation="100dp"
+                        android:text="Type: "
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textColor="@color/black" />
 
-                android:layout_marginTop="0dp"
-                android:background="@drawable/rectangle_1"
-                android:elevation="5dp" />
+                    <TextView
+                        android:id="@+id/loaiKM_delete"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:elevation="100dp"
+                        android:text="Big sale of 2023"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/montserrat"
+                        android:textStyle="italic" />
 
-            <View
-                style="@style/RectangleStyle"
-                android:layout_width="380dp"
-                android:layout_height="50dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    tools:ignore="MissingConstraints">
 
-                android:layout_marginTop="100dp"
-                android:elevation="5dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:elevation="100dp"
+                        android:text="Available for orders minimum value:"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/miniOrder_delete"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="130dp"
+                        android:elevation="100dp"
+                        android:text="50000"
+                        android:textColor="@color/black"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -147,59 +189,9 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="110dp"
-            android:elevation="100dp"
-            android:text="Loai khuyen mai: "
-            android:textColor="@color/black" />
 
-        <TextView
-            android:id="@+id/loaiKM_delete"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="110dp"
-            android:elevation="100dp"
-            android:text="Big sale of 2023"
-            android:textColor="@color/black"
-            android:textStyle="italic" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="130dp"
-            android:elevation="100dp"
-            android:text="Available for orders minimum value:"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/miniOrder_delete"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="130dp"
-            android:elevation="100dp"
-            android:text="50000"
-            android:textColor="@color/black"
-            android:textStyle="italic" />
-
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

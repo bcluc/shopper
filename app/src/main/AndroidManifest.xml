@@ -7,160 +7,201 @@
         android:background="@color/white"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shopper"
         tools:targetApi="31">
         <activity
             android:name=".customerview.notification.activity.DetailCustomerOrder"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.home.shoppingcart.billing.Done"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.home.promotion.activity.ApplyPromotion"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.home.address.activity.DeliveryAddress"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.home.address.activity.SaveAddress"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.setting.activity.MyProfile"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.manageuser.activity.DetailUser"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.manageuser.activity.ManageUser"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.promotion.activity.AddMyPromotion"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.promotion.activity.DeleteMyPromotion"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.promotion.activity.MyPromotion"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.report.activity.FinancialReport"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.chat.activity.SpecificChat"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.chat.activity.ChatBoard"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.order.activity.DetailOrder"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.order.activity.MyOrderActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.home.shoppingcart.billing.BuyNow"
-            android:exported="false" />
-        <activity
-            android:name=".staffview.viewshop.activity.detail.shop.DetailShopView"
-            android:exported="false" />
-        <activity
-            android:name=".staffview.viewshop.activity.detail.product.DetailProductView"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.viewshop.activity.ViewShop"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.viewshop.activity.detail.category.DetailCategoryView"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.review.activity.Reviewer"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.product.activity.DetailMyProduct"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.category.activity.DetailCategory"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.category.activity.DeleteCategory"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.category.activity.AddNewCategory"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.category.activity.Category"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.product.activity.EditProduct"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.product.activity.EditProductWithoutAmount"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.product.activity.AddNewColor"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.product.activity.AddNewProduct"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.product.activity.MyProduct"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".staffview.StaffHomePage"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.home.category.activity.CategoriesDetail"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.account.changepassword.ChangePassword"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.account.profile.Profile"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.notification.activity.CustomerOrder"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.notification.activity.MyNotification"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false"
             android:theme="@style/Theme.Shopper" />
         <activity
             android:name=".customerview.home.product.activity.Trending"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.home.shoppingcart.ShoppingCart"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.home.chat.activity.Chat"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.util.search.Searching"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.home.product.activity.DetailProduct"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".customerview.navigation.activity.BottomNavigationCustomerActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".authentication.activity.Success"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".authentication.activity.Register"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".authentication.activity.ForgotPassword"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".authentication.activity.Login"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false"
             android:theme="@style/Theme.Shopper" />
         <activity
             android:name=".authentication.activity.GetStarted"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -170,6 +211,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true"
             android:theme="@style/Theme.Shopper" />
     </application>
