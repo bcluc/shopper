@@ -1,7 +1,9 @@
 package com.example.shopper.customerview.notification.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,6 +33,7 @@ public class DetailCustomerOrder extends AppCompatActivity {
     private RecyclerView recyclerViewProducts;
     private MyProductAdapter myProductAdapter;
     private ImageView img_avatar;
+    private Button btn_exp_receipt;
 
     public DetailCustomerOrder() {
     }
@@ -56,6 +59,7 @@ public class DetailCustomerOrder extends AppCompatActivity {
         tongTienThanhToan = findViewById(R.id.total_customer);
 
         itemOrderList = new ArrayList<>();
+        btn_exp_receipt = findViewById(R.id.btn_exp_receipt);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +79,12 @@ public class DetailCustomerOrder extends AppCompatActivity {
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
 
+                        String state = documentSnapshot.getString("state");
+                        if(!state.equals("Delivered") )
+                        {
+                            btn_exp_receipt.setVisibility(View.GONE);
+                            Log.d("State", "Visible");
+                        }
                         String tenNguoiMua = documentSnapshot.getString("userName");
 
                         TenND.setText(tenNguoiMua);
