@@ -39,12 +39,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RCV_promotions"
-        style="@style/RectangleStyle"
         android:layout_width="match_parent"
         android:layout_height="535dp"
         android:layout_above="@id/layout_btnPromotion"
         android:layout_below="@+id/linear1_order"
-        android:layout_marginTop="3dp"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_marginTop="3dp"
+        android:padding="10dp" />
 
     <LinearLayout
         android:id="@+id/layout_btnPromotion"
@@ -63,7 +63,8 @@
             android:layout_marginLeft="40dp"
             android:backgroundTint="@color/orange"
             android:text="ADD NEW"
-            app:cornerRadius="25dp"></com.google.android.material.button.MaterialButton>
+            android:fontFamily="@font/montserrat_bold"
+            app:cornerRadius="25dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_delete_promotion"
@@ -73,6 +74,7 @@
             android:layout_marginLeft="30dp"
             android:backgroundTint="@color/orange"
             android:text="DELETE"
-            app:cornerRadius="25dp"></com.google.android.material.button.MaterialButton>
+            android:fontFamily="@font/montserrat_bold"
+            app:cornerRadius="25dp"/>
     </LinearLayout>
 </RelativeLayout>

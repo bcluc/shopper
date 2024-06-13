@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
+        <ScrollView
             android:id="@+id/rll1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -29,8 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:orientation="vertical"
-                    android:layout_marginTop="30dp">
+                    android:orientation="vertical">
 
 
                     <LinearLayout
@@ -149,6 +148,7 @@
                             android:fontFamily="@font/montserrat"
                             android:paddingLeft="20dp"
                             android:text="Choose Color"
+                            android:inputType="numberDecimal"
                             android:textSize="14sp" />
 
                         <LinearLayout
@@ -211,7 +211,7 @@
                                 android:id="@+id/RCV_size_picker"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
+                                android:paddingLeft="20dp"/>
                         </LinearLayout>
 
                         <EditText
@@ -224,6 +224,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="Delivery Fee"
                             android:paddingLeft="20dp"
+                            android:inputType="numberDecimal"
                             android:textSize="14sp" />
 
                         <EditText
@@ -236,6 +237,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="Amount"
                             android:paddingLeft="20dp"
+                            android:inputType="numberDecimal"
                             android:textSize="14sp" />
 
                         <TextView
@@ -253,24 +255,26 @@
                             android:id="@+id/ln3"
                             style="@style/RectangleStyle"
                             android:layout_width="match_parent"
-                            android:layout_height="150dp"
+                            android:layout_height="wrap_content"
                             android:layout_below="@+id/txt_category_name"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="100dp"
                             android:orientation="vertical"
-                            android:paddingVertical="10sp">
+                            android:paddingVertical="10sp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/RCV_category_picker"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
+                                android:paddingLeft="20dp" />
                         </LinearLayout>
                     </RelativeLayout>
                 </ScrollView>
             </LinearLayout>
 
-        </RelativeLayout>
+        </ScrollView>
 
 
     </RelativeLayout>

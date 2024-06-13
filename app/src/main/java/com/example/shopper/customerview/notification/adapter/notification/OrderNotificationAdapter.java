@@ -1,6 +1,7 @@
 package com.example.shopper.customerview.notification.adapter.notification;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class OrderNotificationAdapter extends RecyclerView.Adapter<OrderNotificationAdapter.ProductsViewHolder> {
@@ -48,6 +51,7 @@ public class OrderNotificationAdapter extends RecyclerView.Adapter<OrderNotifica
                     String MaTB = document.getString("notifyId");
                     String TBO = document.getString("orderNotifyId");
                     Timestamp Thoigian = document.getTimestamp("timeStamp");
+                    Log.d("TIMESTAMPPP", Thoigian.toString());
                     CollectionReference mathongbaoRef = FirebaseFirestore.getInstance().collection("CUSTOMNOTIFY");
                     mathongbaoRef.whereEqualTo("notifyId", MaTB).addSnapshotListener((KMquerySnapshot, error1) -> {
                         for (DocumentSnapshot documentSnapshot : KMquerySnapshot.getDocuments()) {
@@ -60,9 +64,16 @@ public class OrderNotificationAdapter extends RecyclerView.Adapter<OrderNotifica
                         notifyDataSetChanged();
                     });
                 }
+                Collections.sort(voucherList, new Comparator<Voucher>() {
+                    @Override
+                    public int compare(Voucher o1, Voucher o2) {
+                        return - o1.getThoigian().compareTo(o2.getThoigian());
+                    }
+                });
                 notifyDataSetChanged();
             }
         });
+
     }
 
     @NonNull

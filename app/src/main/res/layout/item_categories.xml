@@ -5,13 +5,13 @@
     android:layout_margin="10dp"
     android:id="@+id/layout"
     android:background="@drawable/background_categories"
-    android:layout_height="150dp">
+    android:layout_height="300dp">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            app:cardCornerRadius="30dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
             android:clipChildren="true"
             android:layout_height="match_parent">
@@ -31,7 +31,8 @@
             android:paddingVertical="10dp"
             android:text="Male fashion"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="30dp"
             android:textStyle="bold" />
     </FrameLayout>
 </LinearLayout>

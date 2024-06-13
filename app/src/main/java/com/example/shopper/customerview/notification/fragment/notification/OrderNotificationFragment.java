@@ -56,9 +56,8 @@ public class OrderNotificationFragment extends Fragment {
         voucherList = new ArrayList<>();
         Collections.sort(voucherList, new Comparator<Voucher>() {
             @Override
-            public int compare(Voucher voucher1, Voucher voucher2) {
-                // Use the compareTo method of Timestamp to compare two timestamps.
-                return voucher1.getThoigian().compareTo(voucher2.getThoigian());
+            public int compare(Voucher o1, Voucher o2) {
+                return - o1.getThoigian().compareTo(o2.getThoigian());
             }
         });
         orderNotificationAdapter = new OrderNotificationAdapter(voucherList, requireContext());
