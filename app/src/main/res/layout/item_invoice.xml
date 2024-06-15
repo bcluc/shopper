@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".customerview.notification.activity.DetailCustomerOrder"
     android:background="@color/gray">
 
     <ScrollView
@@ -28,15 +27,6 @@
                 android:id="@+id/tab_layout"
                 android:paddingVertical="5dp">
 
-                <ImageView
-                    android:id="@+id/back_customer"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="30dp"
-                    android:src="@drawable/navigation_back_arrow">
-
-                </ImageView>
 
                 <TextView
                     android:layout_width="300dp"
@@ -45,7 +35,7 @@
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/montserrat_medium"
                     android:paddingTop="5dp"
-                    android:text="Your Order / Details"
+                    android:text="YOUR BILLING INFORMATION"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
             </LinearLayout>
@@ -348,7 +338,7 @@
                     android:layout_marginTop="30dp"
                     android:elevation="10dp"
                     android:fontFamily="@font/montserrat_lights"
-                    android:text="Le Dang Thuong"
+                    android:text="Bui Cuong"
                     android:textColor="@color/black"
                     android:textSize="13dp"
                     android:textStyle="bold" />
@@ -432,27 +422,6 @@
                     android:textSize="15dp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingBottom="20dp"
-                >
-
-                <Button
-                    app:cornerRadius="20dp"
-                    android:id="@+id/btn_exp_receipt"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Export receipt"
-                    android:textAllCaps="false"
-                    android:textColor="#ffffff"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:backgroundTint="@color/btn_color"
-                    android:gravity="center"
-                    />
-            </LinearLayout>
 
         </LinearLayout>
 
