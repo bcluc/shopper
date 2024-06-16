@@ -91,40 +91,40 @@ Employees who assist with product and category management, order processing, pro
 
 Here are some screenshots of our application. 
 
-- Login Screen:
+- Login Screen:<br>
   <img src="screenshots/login.png" alt="Login Screen" width="300" />
 
-- Customer Dashboard:
+- Customer Dashboard:<br>
   <img src="screenshots/customer_home.png" alt="Customer Dashboard" width="300" />
 
-- Detail Product:
+- Detail Product:<br>
   <img src="screenshots/detail_product.png" alt="Detail Product" width="300" />
 
-- Shopping Cart:
+- Shopping Cart:<br>
   <img src="screenshots/cart.png" alt="Shopping Cart" width="300" />
 
-- Checkout:
+- Checkout:<br>
   <img src="screenshots/checkout.png" alt="Checkout" width="300" />
 
-- Chat:
+- Chat:<br>
   <img src="screenshots/chat.png" alt="Chat" width="300" />
 
-- Order Notifications:
+- Order Notifications:<br>
   <img src="screenshots/order_notification.png" alt="Order Notifications" width="300" />
 
-- Staff Dashboard:
+- Staff Dashboard:<br>
   <img src="screenshots/staff_home.png" alt="Staff Dashboard" width="300" />
 
-- Staff Orders:
+- Staff Orders:<br>
   <img src="screenshots/staff_order.png" alt="Staff Orders" width="300" />
 
-- Admin Dashboard:
+- Admin Dashboard:<br>
   <img src="screenshots/admin_home.png" alt="Admin Dashboard" width="300" />
 
-- Admin Manage:
+- Admin Manage:<br>
   <img src="screenshots/admin_manage.png" alt="Admin Manage" width="300" />
 
-- Admin Report:
+- Admin Report:<br>
   <img src="screenshots/report.png" alt="Admin Report" width="300" />
 
 ## Contributing
