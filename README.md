@@ -91,40 +91,40 @@ Employees who assist with product and category management, order processing, pro
 
 Here are some screenshots of our application. 
 
-![Login Screen](screenshots/login.png)
+<img src="screenshots/login.png" alt="Login Screen" width="300" />
 *Login Screen*
 
-![Customer Dashboard](screenshots/customer_home.png)
+<img src="screenshots/customer_home.png" alt="Customer Dashboard" width="300" />
 *Customer Dashboard*
 
-![Detail Product](screenshots/detail_product.png)
+<img src="screenshots/detail_product.png" alt="Detail Product" width="300" />
 *Detail Product*
 
-![Shopping Cart](screenshots/cart.png)
+<img src="screenshots/cart.png" alt="Shopping Cart" width="300" />
 *Shopping Cart*
 
-![Checkout](screenshots/checkout.png)
+<img src="screenshots/checkout.png" alt="Checkout" width="300" />
 *Checkout*
 
-![Chat](screenshots/chat.png)
+<img src="screenshots/chat.png" alt="Chat" width="300" />
 *Chat*
 
-![Order Notifications](screenshots/order_notification.png)
+<img src="screenshots/order_notification.png" alt="Order Notifications" width="300" />
 *Order Notifications*
 
-![Staff Dashboard](screenshots/staff_home.png)
+<img src="screenshots/staff_home.png" alt="Staff Dashboard" width="300" />
 *Staff Dashboard*
 
-![Staff Orders](screenshots/staff_order.png)
+<img src="screenshots/staff_order.png" alt="Staff Orders" width="300" />
 *Staff Orders*
 
-![Admin Dashboard](screenshots/admin_home.png)
+<img src="screenshots/admin_home.png" alt="Admin Dashboard" width="300" />
 *Admin Dashboard*
 
-![Admin Manage](screenshots/admin_manage.png)
-*Admin manage*
+<img src="screenshots/admin_manage.png" alt="Admin Manage" width="300" />
+*Admin Manage*
 
-![Admin Report](screenshots/report.png)
+<img src="screenshots/report.png" alt="Admin Report" width="300" />
 *Admin Report*
 
 ## Contributing
