@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".staffview.report.activity.FinancialReport">
 
     <RelativeLayout
@@ -52,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:fontFamily="@font/montserrat_medium"
-            android:text="Quá trình hoạt động"
+            android:text="Activities status"
             android:textColor="@color/black"
             android:textSize="16dp" />
         <!-- Thêm trường nhập liệu ngày bắt đầu -->
@@ -63,7 +64,8 @@
             android:layout_marginLeft="-175dp"
             android:layout_marginTop="35dp"
             android:enabled="false"
-            android:hint="Ngày bắt đầu"
+            android:hint="Date start"
+            android:fontFamily="@font/montserrat"
             android:inputType="date"
             android:textAlignment="center"
             android:textSize="16dp" />
@@ -77,19 +79,21 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="35dp"
             android:enabled="false"
-            android:hint="Ngày kết thúc"
+            android:hint="Date end"
+            android:fontFamily="@font/montserrat"
             android:inputType="date"
             android:textAlignment="center"
             android:textSize="16dp" />
 
         <Button
             android:id="@+id/btn_today"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="35dp"
             android:backgroundTint="@color/dark_blue"
-            android:text="Today"
+            android:text="Choose"
+            android:fontFamily="@font/montserrat_medium"
             android:textSize="12dp" />
 
     </LinearLayout>
@@ -122,17 +126,18 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:text="Tổng doanh thu"
+                android:text="Total sales"
                 android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <Button
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="40dp"
                 android:backgroundTint="@color/orange"
                 android:text="VND"
+                android:fontFamily="@font/montserrat_medium"
                 app:cardCornerRadius="30dp" />
 
             <TextView
@@ -143,7 +148,6 @@
                 android:layout_marginTop="80dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="77,777,777"
-
                 android:textColor="@color/black"
                 android:textSize="40dp" />
 
@@ -189,7 +193,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:text="Đã bán được"
+                android:text="Total orders"
                 android:textColor="@color/black"
                 android:textSize="16dp" />
 
@@ -199,7 +203,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="40dp"
                 android:backgroundTint="@color/orange"
-                android:text="Số đơn"
+                android:text="Orders"
+                android:fontFamily="@font/montserrat_medium"
                 app:cardCornerRadius="30dp" />
 
             <TextView

@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".staffview.order.activity.MyOrderActivity">
 
     <LinearLayout
@@ -51,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:tabGravity="fill"
+            android:background="@color/white"
             app:tabMode="scrollable" />
 
 

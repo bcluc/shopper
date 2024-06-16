@@ -33,6 +33,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -214,7 +215,8 @@ public class FinancialReport extends AppCompatActivity {
                                 }
                             }
                             // Display the total revenue and order count in respective TextViews
-                            doanhthu.setText(String.valueOf(totalRevenue));
+                            DecimalFormat formater = new DecimalFormat("###,###,###,###,###");
+                            doanhthu.setText(formater.format(Double.parseDouble(String.valueOf(totalRevenue))));
                             sodonhang.setText(String.valueOf(orderCount));
                         } else {
                             Toast.makeText(FinancialReport.this, "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();

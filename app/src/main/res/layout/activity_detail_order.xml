@@ -90,7 +90,7 @@
                     android:layout_marginTop="45dp"
                     android:elevation="10dp"
                     android:fontFamily="@font/montserrat_lights"
-                    android:text="Le Dang Thuong"
+                    android:text="Bui Cuong"
                     android:textColor="@color/black"
                     android:textSize="13dp" />
 
