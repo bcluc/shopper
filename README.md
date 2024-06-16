@@ -91,42 +91,41 @@ Employees who assist with product and category management, order processing, pro
 
 Here are some screenshots of our application. 
 
-*Login Screen*
-<img src="screenshots/login.png" alt="Login Screen" width="300" />
+- Login Screen:
+  <img src="screenshots/login.png" alt="Login Screen" width="300" />
 
-*Customer Dashboard*
-<img src="screenshots/customer_home.png" alt="Customer Dashboard" width="300" />
+- Customer Dashboard:
+  <img src="screenshots/customer_home.png" alt="Customer Dashboard" width="300" />
 
-*Detail Product*
-<img src="screenshots/detail_product.png" alt="Detail Product" width="300" />
+- Detail Product:
+  <img src="screenshots/detail_product.png" alt="Detail Product" width="300" />
 
-*Shopping Cart*
-<img src="screenshots/cart.png" alt="Shopping Cart" width="300" />
+- Shopping Cart:
+  <img src="screenshots/cart.png" alt="Shopping Cart" width="300" />
 
-*Checkout*
-<img src="screenshots/checkout.png" alt="Checkout" width="300" />
+- Checkout:
+  <img src="screenshots/checkout.png" alt="Checkout" width="300" />
 
-*Chat*
-<img src="screenshots/chat.png" alt="Chat" width="300" />
+- Chat:
+  <img src="screenshots/chat.png" alt="Chat" width="300" />
 
-*Order Notifications*
-<img src="screenshots/order_notification.png" alt="Order Notifications" width="300" />
+- Order Notifications:
+  <img src="screenshots/order_notification.png" alt="Order Notifications" width="300" />
 
-*Staff Dashboard*
-<img src="screenshots/staff_home.png" alt="Staff Dashboard" width="300" />
+- Staff Dashboard:
+  <img src="screenshots/staff_home.png" alt="Staff Dashboard" width="300" />
 
-*Staff Orders*
-<img src="screenshots/staff_order.png" alt="Staff Orders" width="300" />
+- Staff Orders:
+  <img src="screenshots/staff_order.png" alt="Staff Orders" width="300" />
 
-*Admin Dashboard*
-<img src="screenshots/admin_home.png" alt="Admin Dashboard" width="300" />
+- Admin Dashboard:
+  <img src="screenshots/admin_home.png" alt="Admin Dashboard" width="300" />
 
-*Admin Manage*
-<img src="screenshots/admin_manage.png" alt="Admin Manage" width="300" />
+- Admin Manage:
+  <img src="screenshots/admin_manage.png" alt="Admin Manage" width="300" />
 
-*Admin Report*
-<img src="screenshots/report.png" alt="Admin Report" width="300" />
-
+- Admin Report:
+  <img src="screenshots/report.png" alt="Admin Report" width="300" />
 
 ## Contributing
 
